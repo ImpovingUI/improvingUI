@@ -1,0 +1,136 @@
+.initial{
+    color:var(--color-text);
+    font-size: 16px ;
+    border: 0px solid #2d63c8;
+    padding: 12px 30px ;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.initial:hover{
+    background-color: var(--hover-color);
+}
+
+.icon-container-left{
+    margin-right: 10px;
+}
+
+.icon-container-right{
+    margin-left: 5px;
+}
+
+.primary{
+    color:var(--color-text);
+    background-color: var(--primary);
+}
+
+.primary.outlined{
+    color:var(--primary);
+    background-color: white;
+    border:solid 1px var(--primary)
+}
+
+.primary.text{
+    color:var(--primary);
+    background-color: white;
+    border:solid 1px transparent;
+}
+
+.secondary{
+    color:var(--color-text);
+    background-color: var(--secondary);
+}
+
+.secondary.outlined{
+    color:var(--secondary);
+    background-color: white;
+    border:solid 1px var(--secondary)
+}
+
+.secondary.text{
+    color:var(--secondary);
+    background-color: white;
+    border:solid 1px transparent;
+}
+
+.success{
+    color:var(--color-text);
+    background-color: var(--success);
+}
+
+.success.outlined{
+    color:var(--success);
+    background-color: white;
+    border:solid 1px var(--success)
+}
+
+.success.text{
+    color:var(--success);
+    background-color: transparent;
+    border:solid 1px transparent;
+}
+
+.warning{
+    color:var(--color-text);
+    background-color: var(--warning);
+}
+
+.warning.outlined{
+    color:var(--warning);
+    background-color: white;
+    border:solid 1px var(--warning)
+}
+
+.warning.text{
+    color:var(--warning);
+    background-color: white;
+    border:solid 1px transparent;
+}
+
+.danger{
+    color:var(--color-text);
+    background-color: var(--danger);
+}
+
+.danger.outlined{
+    color:var(--danger);
+    background-color: white;
+    border:solid 1px var(--danger)
+}
+
+.danger.text{
+    color:var(--danger);
+    background-color: white;
+    border:solid 1px transparent;
+}
+
+.primary.outlined:hover, 
+.secondary.outlined:hover,
+.success.outlined:hover,
+.warning.outlined:hover,
+.danger.outlined:hover
+{
+    border:solid 1px black;
+    background-color: var(--hover-outlined);
+}
+
+.primary.text:hover, 
+.secondary.text:hover,
+.success.text:hover,
+.warning.text:hover,
+.danger.text:hover
+{
+    background-color: var(--hover-outlined);
+}
+
+.small{
+    padding: 8px 30px ;
+}
+
+.medium{
+    padding: 12px 30px ;
+}
+
+.large{
+    padding: 15px 30px ;
+}
