@@ -11,7 +11,7 @@ import '@testing-library/jest-dom'
 
 
 //Import component for testing
-import Button from './Button';
+import {Button} from './Button';
 
 configure({adapter: new Adapter()});
 //Render component before each test

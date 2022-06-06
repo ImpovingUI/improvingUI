@@ -1,22 +1,25 @@
 import React, { FC } from "react";
-import {validationVariant,validationSize,validationColor} from '../validation'
-import './Button.css';
-import '../root.css'
+import {validationVariant,validationSize,validationColor} from './validation'
+import './Button.css'
 
-interface ButtonProps {
+export interface ButtonProps {
   label: string;
   iconLeft?: string;
   iconRight?: string;
+  fullWidth?: boolean;
+  disabled?:boolean;
   size?: "medium" | "small" | "large";
   variant?: "contained" | "outlined" | "text";
-  color?: 'primary' | 'secondary' | 'success' |'warning'|'danger';
+  color?: 'primary' | 'secondary' |'dark'|'success'|'info'|'warning'|'danger';
 }
 
 
-const Button : FC<ButtonProps> = ({variant="contained", color="primary", label, size="medium", iconLeft,iconRight, ...props}) => {
+export const Button : FC<ButtonProps> = ({variant="contained", color="secondary", label="label", size="medium", fullWidth, iconLeft,iconRight,disabled, ...props}) => {
   return( 
-    <button  className={`initial 
-    ${validationVariant(variant)} 
+    <button disabled={disabled}  className={`default 
+    ${fullWidth && 'fullWidth'}
+    ${disabled && 'disabled'}
+    ${validationVariant(variant)}
     ${validationSize(size)} 
     ${validationColor(color)}`} 
     {...props}>
@@ -24,6 +27,3 @@ const Button : FC<ButtonProps> = ({variant="contained", color="primary", label, 
     </button>
   )
 };
-
-export default Button;
-
