@@ -1,0 +1,73 @@
+//utils
+@import '../css/utils/variables';
+@import './utils/mixins';
+
+.default{
+    width:150px;
+    height: 48px;
+    border-radius: 5px;
+    padding: 10px, 40px;
+    border: 1px solid transparent;
+    gap: 20px;
+
+    &:hover{
+        cursor: pointer;
+        opacity: $opacity-hover;
+    }
+
+    &.disabled{
+        cursor:default;
+        border: 1px solid transparent;
+        opacity: $opacity-hover
+    }
+}
+
+.primary{
+    @include theme-button($primary);
+}
+
+.secondary{
+    @include theme-button($secondary);
+}
+
+.dark{
+    @include theme-button($dark);
+}
+
+.success{
+    @include theme-button($success);
+}
+
+.info{
+    @include theme-button($info);
+}
+
+.warning{
+    @include theme-button($warning);
+}
+
+.danger{
+    @include theme-button($danger);
+}
+
+.small{
+    @include size-button(30px)
+}
+.medium{
+    @include size-button(40px)
+}
+.large{
+    @include size-button(50px)
+}
+
+.icon-container-left{
+    margin-right: 10px;
+}
+
+.icon-container-right{
+    margin-left: 10px;
+}
+
+.fullWidth{
+    width: 100%;
+}

@@ -1,2 +1,3 @@
-export {default as Button} from './Button';
+import './css/main.css'
+export {Button} from './Button';
 

@@ -1,0 +1,55 @@
+@mixin theme-button($theme){
+    &.contained{
+        color:$white;
+        background-color: $theme;
+
+        &:hover{
+            cursor: pointer;
+            opacity: $opacity-hover;
+        }
+
+        &.disabled{
+            cursor:default;
+            opacity: $opacity-hover;
+        }
+    }
+
+    &.outlined{
+        color:$theme;
+        background-color: $white;
+        border:solid 1px $theme;
+        &:hover{
+            background-color: $hover-color;
+            border: $border-color;
+            cursor: pointer;
+        }
+        &.disabled{
+            cursor:default;
+            border: 1px solid $theme;
+            background-color: $white;
+            opacity: $opacity-hover
+        }
+    }
+    &.text{
+        color:$theme;
+        background-color: $white;
+        border:solid 1px transparent;
+        &:hover{
+            background-color: $hover-color;
+            border:$border-color;
+            cursor: pointer;
+        }
+        &.disabled{
+            cursor:default;
+            border: 1px solid transparent;
+            background-color: $white;
+            opacity: $opacity-hover;
+        }
+    }
+}
+
+@mixin size-button($height){
+    width: 150px;
+    border-radius: 5px;
+    height: $height;
+}

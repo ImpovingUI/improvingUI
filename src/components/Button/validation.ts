@@ -3,19 +3,19 @@ export const validationVariant = (variant: string) => {
     if(variant === 'contained' || variant === 'outlined' || variant === 'text'){
         return variant;
     }
-    return null;
+    return 'contained';
 }
 
 export const validationSize = (size: string) => {
     if(size === 'small' || size === 'medium' || size=== 'large'){
         return size;
     }
-    return null;
+    return 'medium';
 }
 
 export const validationColor = (color: string) => {
-    if(color === 'primary' || color === 'secondary' || color === 'success' || color === 'warning' || color === 'danger'){
+    if(color === 'primary' || color === 'secondary' || color === 'dark' || color === 'success' || color === 'info' || color === 'warning' || color === 'danger'){
         return color;
     }
-    return null;
+    return 'primary';
 }
