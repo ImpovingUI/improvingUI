@@ -2,6 +2,10 @@
 @import '../css/utils/variables';
 @import './utils/mixins';
 
+//hover-color - outlined and text
+$hover-color:#cecece;
+$border-color:solid 1px black;
+
 .default{
     width:150px;
     height: 48px;
@@ -22,32 +26,12 @@
     }
 }
 
-.primary{
-    @include theme-button($primary);
-}
+$themes:('primary':$primary,'secondary':$secondary,'dark':$dark,'success':$success,'info':$info,'warning':$warning,'danger':$danger);
 
-.secondary{
-    @include theme-button($secondary);
-}
-
-.dark{
-    @include theme-button($dark);
-}
-
-.success{
-    @include theme-button($success);
-}
-
-.info{
-    @include theme-button($info);
-}
-
-.warning{
-    @include theme-button($warning);
-}
-
-.danger{
-    @include theme-button($danger);
+@each $key,$theme in $themes{
+    .#{$key}{
+        @include theme-button($theme);
+    }
 }
 
 .small{

@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const DefaultButton = Template.bind({});
   DefaultButton.args = {
-    color: 'secondary',
+    color: 'primary',
     size: 'medium',
     variant: 'contained',
     label:'label',

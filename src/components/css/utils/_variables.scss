@@ -1,5 +1,5 @@
 //globals variables
-//backgorunds
+//colors theme --------------------------------------------------------------
 $primary : #005596;
 $secondary: #A7A8A9;
 $light: #F8F9FA;
@@ -13,13 +13,17 @@ $danger: #DC3545;
 //color-text / contained
 $white:white;
 
-//button----------------------------------------------------------------------------------------
-
-//hover-color - outlined and text
-$hover-color:#cecece;
-$border-color:solid 1px black;
-
+//hover opacity
 //opacidad contaned
-$opacity-hover:0.8
+$opacity-hover:0.8;
+//colors theme --------------------------------------------------------------
 
-//-----------------------------------------------------------------------------------------------
+//breaks points ------------------------------------------------------------
+$xs : 575px; //minor than or queal to
+$sm : 576px; //bigger or equal to
+$md : 768px; //bigger or equal to
+$lg : 992px; //bigger or equal to
+$xs : 1200px; //bigger or equal to
+$xxs : 1400px; //bigger or equal to
+
+//breaks points ------------------------------------------------------------
