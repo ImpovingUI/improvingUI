@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 export interface AlertProps  {
      show: boolean,
-     type: 'success' | 'error' | 'warning' | 'info',
+     variant: 'success' | 'error' | 'warning' | 'info',
      filled: boolean,
      closeAutomatic: boolean,
      timeOut?: number,
@@ -16,7 +16,7 @@ export interface AlertProps  {
 
 export const Alert: FC<AlertProps> = ( {
      show = true,
-     type= 'success',
+     variant= 'success',
      filled=true,
      closeAutomatic= true,
      timeOut= 3000,

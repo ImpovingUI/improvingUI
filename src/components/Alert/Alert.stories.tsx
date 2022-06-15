@@ -6,8 +6,20 @@ import {Alert}  from './Alert';
 
 export default{
     title: 'ReactComponentLibrary/Alert',
-    component: Alert
+    component: Alert,
     
 } as ComponentMeta<typeof Alert>;
 
 const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />;
+
+export const DefaultAlert = Template.bind({});
+  DefaultAlert.args = {
+    color: 'secondary',
+    size: 'medium',
+    variant: 'contained',
+    label:'label',
+    fullWidth:false,
+    disabled:false,
+    iconLeft: '',
+    iconRight: '',
+  };
