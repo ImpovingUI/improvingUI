@@ -1,0 +1,6 @@
+@mixin theme-datepicker($theme) {
+  background-color: $theme;
+  color: $white;
+  // &.contained {
+  // }
+}
