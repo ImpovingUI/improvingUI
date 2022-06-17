@@ -3,30 +3,33 @@
 
 .alert{
      // Desgin Alert
-     background: $success;
-     color: $light;
      padding: 20px 40px;
-     max-width: 250px;
+     max-width: 300px;
      position:fixed; 
      top:10px; 
      right:0;
      margin: 0;
      border-radius: 4px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 1rem;
+     
 
      &.success {
-
+          @include theme-alert($success)
      }
      
      &.error {
-     
+          @include theme-alert($danger)
      }
      
      &.warning {
-     
+          @include theme-alert($warning)
      }
      
      &.info {
-     
+          @include theme-alert($info)
      }
      
 

@@ -1,5 +1,17 @@
 @mixin theme-alert($theme) {
      &.filled {
           background-color: $theme;
+          color: $light;
+          svg{
+               fill: $light;
+          }
+     }
+     &.outlined{
+          background-color: $white;
+          border:2px solid $theme;
+          color: $theme;
+          svg{
+               fill: $theme;
+          }
      }
 }

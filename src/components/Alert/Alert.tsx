@@ -1,5 +1,6 @@
 import React, { FC, useLayoutEffect  } from 'react'
 import './Alert.css'
+import ErrorIcon from './icons/ErrorIcon'
 
 export interface AlertProps  {
      show: boolean,
@@ -50,10 +51,12 @@ export const Alert: FC<AlertProps> = ( {
                            animate__animated 
                            animate__fadeInRight 
                            ${variant} 
-                           ${ filled ? 'filled' : 'outline' }`
+                           ${ filled ? 'filled' : 'outlined' }`
                           }
           >
-             { message }
+            <ErrorIcon/>
+          <p> { message }</p> 
+            
           
           </div>
         )

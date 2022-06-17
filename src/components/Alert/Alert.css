@@ -1,14 +1,76 @@
 .alert {
-  background: #5BC2A7;
-  color: #F8F9FA;
   padding: 20px 40px;
-  max-width: 250px;
+  max-width: 300px;
   position: fixed;
   top: 10px;
   right: 0;
   margin: 0;
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   /* Animations of the alert */
+}
+.alert.success.filled {
+  background-color: #5BC2A7;
+  color: #F8F9FA;
+}
+.alert.success.filled svg {
+  fill: #F8F9FA;
+}
+.alert.success.outlined {
+  background-color: white;
+  border: 2px solid #5BC2A7;
+  color: #5BC2A7;
+}
+.alert.success.outlined svg {
+  fill: #5BC2A7;
+}
+.alert.error.filled {
+  background-color: #DC3545;
+  color: #F8F9FA;
+}
+.alert.error.filled svg {
+  fill: #F8F9FA;
+}
+.alert.error.outlined {
+  background-color: white;
+  border: 2px solid #DC3545;
+  color: #DC3545;
+}
+.alert.error.outlined svg {
+  fill: #DC3545;
+}
+.alert.warning.filled {
+  background-color: #FFBB41;
+  color: #F8F9FA;
+}
+.alert.warning.filled svg {
+  fill: #F8F9FA;
+}
+.alert.warning.outlined {
+  background-color: white;
+  border: 2px solid #FFBB41;
+  color: #FFBB41;
+}
+.alert.warning.outlined svg {
+  fill: #FFBB41;
+}
+.alert.info.filled {
+  background-color: #4597D3;
+  color: #F8F9FA;
+}
+.alert.info.filled svg {
+  fill: #F8F9FA;
+}
+.alert.info.outlined {
+  background-color: white;
+  border: 2px solid #4597D3;
+  color: #4597D3;
+}
+.alert.info.outlined svg {
+  fill: #4597D3;
 }
 .alert.showAlert {
   opacity: 1;

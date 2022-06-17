@@ -20,6 +20,5 @@ export const DefaultAlert = Template.bind({});
      timeOut: 3000,
      message: 'Hola desde alerta',
      tittle: '',
-     fullWidth: false,
      position:'right'
   };
