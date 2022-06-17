@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React, { FC, useLayoutEffect  } from 'react'
+import './Alert.css'
 
 export interface AlertProps  {
      show: boolean,
@@ -8,11 +9,9 @@ export interface AlertProps  {
      timeOut?: number,
      message: string,
      tittle?: string,
-     fullWidth?: boolean,
      position: 'top' | 'bottom' | 'left' | 'right',
      icon?: FC | string
 }
-
 
 export const Alert: FC<AlertProps> = ( {
      show = true,
@@ -22,12 +21,44 @@ export const Alert: FC<AlertProps> = ( {
      timeOut= 3000,
      message= '',
      tittle= '',
-     fullWidth= false,
      position='right'
  } ) => {
 
+  const alertRef = React.useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+
+    if( !show )
+      return ;
+
+    setTimeout(() => {
+      alertRef.current?.classList.add('hide');
+
+    }, timeOut)
+
+
+  })
+ 
   return (
-    <div>Alert</div>
+    <div>
+      {
+        show && (
+          <div ref={alertRef}
+               /* List of classes */ 
+               className={`alert 
+                           showAlert 
+                           animate__animated 
+                           animate__fadeInRight 
+                           ${variant} 
+                           ${ filled ? 'filled' : 'outline' }`
+                          }
+          >
+             { message }
+          
+          </div>
+        )
+      }
+    </div>
   )
 
 }
