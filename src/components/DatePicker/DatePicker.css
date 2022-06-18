@@ -72,7 +72,9 @@
 }
 
 .weekdayContainer {
-  display: flex;
-  justify-content: space-around;
-  padding-top: 10px;
+  width: 100%;
+}
+
+.calendar {
+  width: 100%;
 }
