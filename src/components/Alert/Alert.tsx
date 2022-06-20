@@ -1,6 +1,6 @@
 import React, { FC, useLayoutEffect  } from 'react'
 import './Alert.css'
-import ErrorIcon from './icons/ErrorIcon'
+import { validateIcon } from './validation'
 
 export interface AlertProps  {
      show: boolean,
@@ -11,7 +11,7 @@ export interface AlertProps  {
      message: string,
      tittle?: string,
      position: 'top' | 'bottom' | 'left' | 'right',
-     icon?: FC | string
+     Icon?: FC
 }
 
 export const Alert: FC<AlertProps> = ( {
@@ -22,7 +22,8 @@ export const Alert: FC<AlertProps> = ( {
      timeOut= 3000,
      message= '',
      tittle= '',
-     position='right'
+     position='right',
+     Icon = validateIcon(variant)
  } ) => {
 
   const alertRef = React.useRef<HTMLDivElement>(null);
@@ -31,7 +32,7 @@ export const Alert: FC<AlertProps> = ( {
 
     if( !show )
       return ;
-
+    
     setTimeout(() => {
       alertRef.current?.classList.add('hide');
 
@@ -54,7 +55,7 @@ export const Alert: FC<AlertProps> = ( {
                            ${ filled ? 'filled' : 'outlined' }`
                           }
           >
-            <ErrorIcon/>
+            <Icon />
           <p> { message }</p> 
             
           
