@@ -13,12 +13,12 @@ const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />;
 
 export const DefaultAlert = Template.bind({});
   DefaultAlert.args = {
-     show : true,
+     show : false,
      variant: 'success',
      filled:true,
      closeAutomatic: true,
      timeOut: 3000,
      message: 'Hola desde alerta',
      tittle: '',
-     position:'right'
+     position:'top-right'
   };

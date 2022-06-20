@@ -4,20 +4,20 @@
 .alert{
      // Desgin Alert
      padding: 20px 40px;
+     min-width: 300px;
      max-width: 300px;
-     position:fixed; 
-     top:10px; 
-     right:0;
+     position:fixed;
      margin: 0;
      border-radius: 4px;
      display: flex;
      align-items: center;
-     justify-content: space-between;
      gap: 1rem;
-     
+     font-family: Arial, Helvetica, sans-serif;
 
+     
+     /* style variant of alert*/
      &.success {
-          @include theme-alert($success)
+          @include theme-alert($success);
      }
      
      &.error {
@@ -33,10 +33,39 @@
      }
      
 
+     /* positions */
+     &.top-right {
+          top: 10px;
+          right: 0;
+     } 
+     
+     &.bottom-right {
+          bottom: 10px;
+          right: 0;
+     } 
+     
+     &.top-left {
+          top: 10px;
+          left: 0;
+     } 
+     
+     &.bottom-left{
+          bottom: 10px;
+          left: 0;
+     }
+
      /* Animations of the alert */
      &.showAlert{
           opacity: 1;
           pointer-events: auto;
+     }
+
+     &.alert.hide-left {
+          animation: hide_slide_left 3s ease forwards;
+     }
+
+     &.alert.hide-right {
+          animation: hide_slide_right 3s ease forwards;
      }
      
      &.animate__animated {
@@ -48,10 +77,6 @@
           animation-fill-mode: both;
       }
      
-     &.alert.hide{
-          animation: hide_slide 3s ease forwards;
-     }
-     
      &.animate__fadeInRight {
          -webkit-animation-name: fadeInRight;
          animation-name: fadeInRight;
@@ -60,7 +85,7 @@
 
 
 /* Keyframes */
-@keyframes hide_slide {
+@keyframes hide_slide_right {
      0%{
        transform: translateX(-10px);
      }
@@ -72,6 +97,21 @@
      }
      100%{
        transform: translateX(100%);
+     }
+}
+
+@keyframes hide_slide_left {
+     0%{
+          transform: translateX(10px);
+        }
+     40%{
+       transform: translateX(0%);
+     }
+     80%{
+       transform: translateX(10%);
+     }
+     100%{
+       transform: translateX(-100%);
      }
 }
 
