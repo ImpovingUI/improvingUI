@@ -25,6 +25,12 @@ export const DatePicker: FC<DatePickerProps> = ({
   //set state month and year
   const [month, setMonth] = React.useState(new Date().getMonth());
   const [year, setYear] = React.useState(new Date().getFullYear());
+  const [focus, setfocus] = React.useState(false);
+  const [focusTable, setfocusTable] = React.useState(false);
+  const [selectedDate, setSelectedDate] = React.useState("mm/dd/yyyy");
+  //hook of matriz of days
+  const [daysInMonth, setDaysInMonth] = React.useState([[""], [""]]);
+
   //get month in text
   const [monthText, setMonthText] = React.useState(
     new Date().toLocaleString("en-us", {
@@ -33,84 +39,40 @@ export const DatePicker: FC<DatePickerProps> = ({
   );
 
   const getDaysInMonth = (month: number, year: number) => {
-    console.log(monthText, month, year);
-    let days = new Date(year, month, 0).getDate();
     let firstDay = new Date(year, month, 1);
+    let days = new Date(year, month + 1, 0).getDate();
     let weekday = firstDay.getDay();
 
-    let tableRef = document.getElementById("calendar") as HTMLTableElement;
-    let newRow = tableRef.insertRow(1);
-
-    //clear table before adding new data
-    while (tableRef.rows.length > 2) {
-      tableRef.deleteRow(2);
-    }
+    let daysaux = [];
+    let daysaux2 = [];
 
     for (let i = 0; i < weekday; i++) {
-      let newCell = newRow.insertCell(i);
-      newCell.innerHTML = "";
+      daysaux.push("");
     }
 
-    let newCell = newRow.insertCell(weekday);
-    newCell.innerHTML = "1";
+    for (let i = 0; i < days; i++) {
+      daysaux.push((i + 1).toString());
 
-    newCell.setAttribute(
-      "data-day",
-      "01/" + (month + 1 < 10 ? "0" + (month + 1) : month + 1) + "/" + year
-    );
-    // add onclick event in the cell to show the date
-    newCell.addEventListener("click", function () {
-      let date = this.getAttribute("data-day");
-      console.log(date);
-      // actualiza la fecha en el input
-      document.getElementById("input")?.setAttribute("placeholder", date ?? "");
-    });
+      if (daysaux.length % 7 === 0) {
+        daysaux2.push(daysaux);
+        daysaux = [];
+      }
 
-    let rowcount = 1;
-    let cellcount = weekday + 1;
-
-    if (weekday === 6) {
-      rowcount++;
-      newRow = tableRef.insertRow(rowcount);
-      cellcount = 0;
-    }
-
-    for (let i = 1; i < days; i++) {
-      let newCell = newRow.insertCell(cellcount);
-      cellcount++;
-      newCell.innerHTML = (i + 1).toString();
-      newCell.setAttribute(
-        "data-day",
-        //if the day is less than 10, add 0 before the day
-        (i + 1 < 10 ? "0" + (i + 1) : i + 1) +
-          "/" +
-          (month + 1 < 10 ? "0" + (month + 1) : month + 1) +
-          "/" +
-          year
-      );
-
-      newCell.addEventListener("click", function () {
-        let date = this.getAttribute("data-day");
-        console.log(date);
-        // actualiza la fecha en el input
-        document.getElementById("input")?.setAttribute("placeholder", date ?? "");
-      });
-
-      if ((i + 1 + weekday) % 7 === 0) {
-        rowcount++;
-        newRow = tableRef.insertRow(rowcount);
-        cellcount = 0;
+      if (i === days - 1) {
+        daysaux2.push(daysaux);
       }
     }
+    return daysaux2;
   };
 
   useEffect(() => {
-    getDaysInMonth(month, year);
+    setDaysInMonth([...getDaysInMonth(month, year)]);
+
     let montht = new Date(year, month).toLocaleString("en-us", {
       month: "long",
     });
     setMonthText(montht);
-  }, [[month, year]]);
+  }, [month, year]);
 
   //change to previous month
   const prevMonth = () => {
@@ -135,50 +97,105 @@ export const DatePicker: FC<DatePickerProps> = ({
     } else {
       setMonth(month + 1);
     }
-
-    //getDaysInMonth(month, year);
   };
 
   return (
-    <>
+    <div id="container-datepicker">
       <div className="container-datepicker-input">
         <input
           type="text"
-          placeholder="dd-mm-yy"
+          placeholder="mm/dd/yyyy"
           className="datepicker__input"
           id="input"
+          onFocus={(e) => {
+            setfocus(true);
+          }}
+          value={selectedDate}
         />
       </div>
-      <div
-        className={`container-datepicker ${validationColor(
-          color
-        )} ${className}`}
-        {...props}
-      >
-        <div className="container-datepicker__title">
-          <span>
-            <img src={arrowleft} alt="" onClick={() => prevMonth()} />
-          </span>
-          <div className="container-datepicker__date">
-            <span>{monthText}</span>
-            <span>{year}</span>
+      {focus || focusTable ? (
+        <div
+          className={`container-datepicker ${validationColor(
+            color
+          )} ${className}`}
+          {...props}
+          onFocus={(e) => {
+            setfocusTable(true);
+          }}
+          onBlur={(e) => {
+            setfocus(false);
+            setfocusTable(false);
+          }}
+          tabIndex={0}
+          id="container-datepicker"
+        >
+          <div className="container-datepicker__title">
+            <span>
+              <img
+                src={arrowleft}
+                alt="arrow-left"
+                onClick={() => prevMonth()}
+              />
+            </span>
+            <div className="container-datepicker__date">
+              <span>{monthText}</span>
+              <span>{year}</span>
+            </div>
+            <span>
+              <img
+                src={arrowright}
+                alt="arrow-right"
+                onClick={() => nextMonth()}
+              />
+            </span>
           </div>
-          <span>
-            <img src={arrowright} alt="" onClick={() => nextMonth()} />
-          </span>
-        </div>
 
-        <div className="container-datepicker__namedays"></div>
+          <div className="container-datepicker__namedays"></div>
 
-        <div>
-          <table id="calendar" className="calendar">
-            <Month />
-            <tbody>
-              <tr></tr>
-            </tbody>
-          </table>
+          <div>
+            <table id="calendar" className="calendar">
+              <Month />
+              <tbody>
+                {daysInMonth.map((day, index) => {
+                  return (
+                    <tr key={index}>
+                      {day.map((day, index) => {
+                        return (
+                          <td
+                            key={index}
+                            className="calendar__day"
+                            title={
+                              (month + 1 < 10 ? "0" + (month + 1) : month + 1) +
+                              "/" +
+                              (day.length < 2 ? "0" + day : day) +
+                              "/" +
+                              year
+                            }
+                            // if click on day, set selectedDate to title of td
+                            onClick={() => {
+                              setSelectedDate(
+                                (month + 1 < 10
+                                  ? "0" + (month + 1)
+                                  : month + 1) +
+                                  "/" +
+                                  (day.length < 2 ? "0" + day : day) +
+                                  "/" +
+                                  year
+                              );
+                            }}
+                          >
+                            {day}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-    </>
+      ) : null}
+    </div>
   );
 };

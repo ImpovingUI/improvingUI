@@ -71,10 +71,26 @@
   color: #000;
 }
 
-.weekdayContainer {
-  width: 100%;
-}
-
 .calendar {
   width: 100%;
+  color: black;
+  background-color: #fff;
+  border-spacing: 8px;
+}
+
+.calendar .weekdayContainer td {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.calendar tbody tr td {
+  text-align: center;
+  cursor: pointer;
+}
+
+.calendar tbody tr td.selected {
+  color: #fff;
+  background-color: #5BC2A7;
+  border-radius: 50%;
 }
