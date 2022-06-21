@@ -31,8 +31,6 @@ export const Alert: FC<AlertProps> = ({
   useLayoutEffect(() => {
     
     if (!show) return;
-
-    alertRef.current?.classList.add(position);
     
     setTimeout(() => {
 
@@ -54,6 +52,7 @@ export const Alert: FC<AlertProps> = ({
           /* List of classes */
           className={`alert
                       showAlert 
+                      ${position}
                       animate__animated 
                       animate__fadeInRight 
                       ${variant} 
