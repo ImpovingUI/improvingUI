@@ -1,4 +1,4 @@
-@mixin theme-datepicker($theme) {
+@mixin theme-picker($theme) {
   background-color: $theme;
   color: $white;
   // &.contained {

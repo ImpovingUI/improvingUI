@@ -1,24 +1,24 @@
 import React from "react";
-import WeekDay from "./WeekDay";
+import Td from "./Td";
 
 const weekdays = [
-  { day: "Sunday", abb: "Sun" },
-  { day: "Monday", abb: "Mon" },
-  { day: "Tuesday", abb: "Tue" },
-  { day: "Wednesday", abb: "Wed" },
-  { day: "Thursday", abb: "Thu" },
-  { day: "Friday", abb: "Fri" },
-  { day: "Saturday", abb: "Sat" },
+  { day: "Sunday", abb: "S" },
+  { day: "Monday", abb: "M" },
+  { day: "Tuesday", abb: "T" },
+  { day: "Wednesday", abb: "W" },
+  { day: "Thursday", abb: "T" },
+  { day: "Friday", abb: "F" },
+  { day: "Saturday", abb: "S" },
 ];
 
 export default function Month() {
   return (
     <>
-      <div className="weekdayContainer">
+      <tr className="weekdayContainer">
         {weekdays.map((weekday) => (
-          <WeekDay key={weekday.day} title={weekday.abb} label={weekday.day} />
+          <Td key={weekday.day} title={weekday.abb} label={weekday.day} />
         ))}
-      </div>
+      </tr>
     </>
   );
 }

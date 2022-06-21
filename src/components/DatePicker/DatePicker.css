@@ -1,11 +1,11 @@
-.datepicker__input {
+.picker__input {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   padding: 12px;
   outline: none;
 }
 
-.container-datepicker {
+.container-picker {
   font-family: Arial, Helvetica, sans-serif;
   max-width: 280px;
   padding-top: 10px;
@@ -48,31 +48,26 @@
   color: white;
 }
 
-.container-datepicker__title {
+.container-picker__header {
   display: flex;
   justify-content: space-around;
   margin-bottom: 10px;
 }
 
-.container-datepicker__date span {
+.container-picker__date span {
   margin-left: 8px;
 }
 
-.container-datepicker__date span:nth-child(1) {
+.container-picker__date span:nth-child(1) {
   cursor: pointer;
 }
 
-.container-datepicker__date span:nth-child(2) {
+.container-picker__date span:nth-child(2) {
   cursor: pointer;
 }
 
-.container-datepicker__namedays {
+.container-picker__content {
   background-color: #fff;
   color: #000;
-}
-
-.weekdayContainer {
-  display: flex;
-  justify-content: space-around;
-  padding-top: 10px;
+  width: 100%;
 }
