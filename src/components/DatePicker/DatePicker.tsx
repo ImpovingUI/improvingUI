@@ -30,6 +30,14 @@ export const DatePicker: FC<DatePickerProps> = ({
   const [selectedDate, setSelectedDate] = React.useState("mm/dd/yyyy");
   //hook of matriz of days
   const [daysInMonth, setDaysInMonth] = React.useState([[""], [""]]);
+  const [selectedOption, setSelectedOption] = React.useState("");
+
+  const months = [
+    ["January", "February", "March"],
+    ["April", "May", "June"],
+    ["July", "August", "September"],
+    ["October", "November", "December"],
+  ];
 
   //get month in text
   const [monthText, setMonthText] = React.useState(
@@ -63,6 +71,21 @@ export const DatePicker: FC<DatePickerProps> = ({
       }
     }
     return daysaux2;
+  };
+
+  const getYears = (year: number) => {
+    let yearaux = Math.floor(year / 10) * 10;
+    let years = [];
+    let yearMatrix = [];
+    yearaux = yearaux - 1;
+    for (let i = 0; i < 13; i++) {
+      if (i % 3 === 0) {
+        yearMatrix.push(years);
+        years = [];
+      }
+      years.push(yearaux + i);
+    }
+    return yearMatrix;
   };
 
   useEffect(() => {
@@ -99,13 +122,29 @@ export const DatePicker: FC<DatePickerProps> = ({
     }
   };
 
+  const addCircle = () => {
+    console.log(selectedDate);
+  };
+  useEffect(() => {
+    //if selected date is not equal to mm/dd/yyyy add class selected to the day
+    if (selectedDate !== "mm/dd/yyyy") {
+      //add class selected to the day with the same title of the selected date
+      let day = document.querySelector(`.day[title="${selectedDate}"]`);
+      if (day) {
+        day.classList.add("selected");
+        console.log(day);
+        console.log(selectedDate);
+      }
+    }
+  }, [selectedDate]);
+
   return (
     <div id="container-datepicker">
       <div className="container-datepicker-input">
         <input
           type="text"
           placeholder="mm/dd/yyyy"
-          className="datepicker__input"
+          className="picker__input"
           id="input"
           onFocus={(e) => {
             setfocus(true);
@@ -115,9 +154,7 @@ export const DatePicker: FC<DatePickerProps> = ({
       </div>
       {focus || focusTable ? (
         <div
-          className={`container-datepicker ${validationColor(
-            color
-          )} ${className}`}
+          className={`container-picker ${validationColor(color)} ${className}`}
           {...props}
           onFocus={(e) => {
             setfocusTable(true);
@@ -129,7 +166,7 @@ export const DatePicker: FC<DatePickerProps> = ({
           tabIndex={0}
           id="container-datepicker"
         >
-          <div className="container-datepicker__title">
+          <div className="container-picker__header">
             <span>
               <img
                 src={arrowleft}
@@ -137,9 +174,21 @@ export const DatePicker: FC<DatePickerProps> = ({
                 onClick={() => prevMonth()}
               />
             </span>
-            <div className="container-datepicker__date">
-              <span>{monthText}</span>
-              <span>{year}</span>
+            <div className="container-picker__date">
+              <span
+                onClick={() => {
+                  setSelectedOption("month");
+                }}
+              >
+                {monthText}
+              </span>
+              <span
+                onClick={() => {
+                  setSelectedOption("year");
+                }}
+              >
+                {year}
+              </span>
             </div>
             <span>
               <img
@@ -150,30 +199,31 @@ export const DatePicker: FC<DatePickerProps> = ({
             </span>
           </div>
 
-          <div className="container-datepicker__namedays"></div>
-
           <div>
-            <table id="calendar" className="calendar">
-              <Month />
-              <tbody>
-                {daysInMonth.map((day, index) => {
-                  return (
-                    <tr key={index}>
-                      {day.map((day, index) => {
-                        return (
-                          <td
-                            key={index}
-                            className="calendar__day"
-                            title={
-                              (month + 1 < 10 ? "0" + (month + 1) : month + 1) +
-                              "/" +
-                              (day.length < 2 ? "0" + day : day) +
-                              "/" +
-                              year
-                            }
-                            // if click on day, set selectedDate to title of td
-                            onClick={() => {
-                              setSelectedDate(
+            {selectedOption == "" ? (
+              <table id="calendar" className="calendar">
+                <Month />
+
+                <tbody>
+                  {daysInMonth.map((day, index) => {
+                    return (
+                      <tr key={index}>
+                        {day.map((day, index) => {
+                          return (
+                            <td
+                              key={index}
+                              title={
+                                (month + 1 < 10
+                                  ? "0" + (month + 1)
+                                  : month + 1) +
+                                "/" +
+                                (day.length < 2 ? "0" + day : day) +
+                                "/" +
+                                year
+                              }
+                              //if selected date is equal to the title of the day add class selected
+                              className={
+                                selectedDate ===
                                 (month + 1 < 10
                                   ? "0" + (month + 1)
                                   : month + 1) +
@@ -181,19 +231,105 @@ export const DatePicker: FC<DatePickerProps> = ({
                                   (day.length < 2 ? "0" + day : day) +
                                   "/" +
                                   year
-                              );
-                            }}
-                          >
-                            {day}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                                  ? "selected"
+                                  : ""
+                              }
+                              // if click on day, set selectedDate to title of td
+                              onClick={() => {
+                                //clear the class selected
+                                // let selected = document.querySelector(
+                                //   ".selected"
+                                // );
+                                // if (selected) {
+                                //   selected.classList.remove("selected");
+                                // }
+
+                                setSelectedDate(
+                                  (month + 1 < 10
+                                    ? "0" + (month + 1)
+                                    : month + 1) +
+                                    "/" +
+                                    (day.length < 2 ? "0" + day : day) +
+                                    "/" +
+                                    year
+                                );
+                              }}
+
+                              //add a target event to the td that add a class selected to the td and clear the class selected of the other td
+                            >
+                              {day}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            ) : null}
           </div>
+
+          {selectedOption === "month" ? (
+            <div className="months">
+              <table>
+                <tbody>
+                  {months.map((month, index) => {
+                    return (
+                      <tr key={index}>
+                        {month.map((month, index2) => {
+                          return (
+                            <td
+                              key={index2 * index}
+                              title={month}
+                              // className={
+                              //   selectedMonth === month
+                              //     ? "selected"
+                              //     : ""
+                              // }
+                              onClick={() => {
+                                setMonth(index2 + index * 3);
+                                setSelectedOption("year");
+                              }}
+                            >
+                              {month}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          ) : null}
+
+          {selectedOption === "year" ? (
+            <div className="years">
+              <table>
+                <tbody>
+                  {getYears(year).map((i, index) => {
+                    return (
+                      <tr key={index}>
+                        {i.map((year, index2) => {
+                          return (
+                            <td
+                              key={index2 * index}
+                              onClick={() => {
+                                setYear(year);
+                                setSelectedOption("");
+                              }}
+                            >
+                              {year}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          ) : null}
         </div>
       ) : null}
     </div>

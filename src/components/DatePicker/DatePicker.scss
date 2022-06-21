@@ -2,7 +2,7 @@
 @import "../css/utils/variables";
 @import "./utils/mixins";
 
-.datepicker__input {
+.picker__input {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   // height: 36px;
@@ -11,7 +11,7 @@
   outline: none;
 }
 
-.container-datepicker {
+.container-picker {
   font-family: Arial, Helvetica, sans-serif;
   max-width: 280px;
   padding-top: 10px;
@@ -32,27 +32,32 @@ $themes: (
 
 @each $name, $theme in $themes {
   .#{$name} {
-    @include theme-datepicker($theme);
+    @include theme-picker($theme);
   }
 }
 
-.container-datepicker__title {
+.container-picker__header {
   display: flex;
   justify-content: space-around;
   margin-bottom: 10px;
 }
 
-.container-datepicker__date span {
+.container-picker__header span {
+  cursor: pointer;
+}
+
+.container-picker__date span {
   margin-left: 8px;
-}
-
-.container-datepicker__date span:nth-child(1) {
   cursor: pointer;
 }
 
-.container-datepicker__date span:nth-child(2) {
-  cursor: pointer;
-}
+// .container-picker__date span:nth-child(1) {
+//   cursor: pointer;
+// }
+
+// .container-picker__date span:nth-child(2) {
+//   cursor: pointer;
+// }
 
 .container-datepicker__namedays {
   background-color: #fff;
@@ -60,26 +65,42 @@ $themes: (
 }
 
 .calendar {
-  width: 100%;
+  // width: 100%;
   color: black;
   background-color: #fff;
-  border-spacing: 8px;
+  // border-spacing: 8px;
+  //set the cells to be square 24x24
+  // & > tbody > tr > td {
+  // }
   // margin-left: 1px;
 }
 
 .calendar .weekdayContainer td {
-  width: 20px;
-  height: 20px;
+  // width: 20px;
+  // height: 20px;
   text-align: center;
 }
 
 .calendar tbody tr td {
   text-align: center;
   cursor: pointer;
+
+  width: 50px;
+  height: 36.17px;
 }
 
 .calendar tbody tr td.selected {
   color: #fff;
   background-color: $success;
+  // margin-left: 25%;
+  // margin-right: 25%;
   border-radius: 50%;
+
+  // background-color:blue;
+  // display:block;
+  // height:100%;
+  // width:50%;
+  // border-radius:50%;
+  // margin:auto;
+  // line-height:50px;
 }
