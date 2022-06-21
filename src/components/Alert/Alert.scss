@@ -3,9 +3,9 @@
 
 .alert{
      // Desgin Alert
-     padding: 20px 40px;
+     padding: 10px 20px;
      min-width: 300px;
-     max-width: 300px;
+     max-width: 400px;
      position:fixed;
      margin: 0;
      border-radius: 4px;
@@ -13,7 +13,6 @@
      align-items: center;
      gap: 1rem;
      font-family: Arial, Helvetica, sans-serif;
-
      
      /* style variant of alert*/
      &.success {
@@ -32,6 +31,24 @@
           @include theme-alert($info)
      }
      
+     .div-text-close {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+
+          .title {
+               font-weight: bold;
+               margin-bottom: 0;
+               font-size: 16px;
+          }
+
+          .message {
+               margin-top: 0.2rem;
+               font-size: 14px;
+          }
+     }
 
      /* positions */
      &.top-right {
@@ -81,6 +98,11 @@
          -webkit-animation-name: fadeInRight;
          animation-name: fadeInRight;
      }
+
+     &.animate__fadeInLeft {
+          -webkit-animation-name: fadeInLeft;
+          animation-name: fadeInLeft;
+      }
 }
 
 
@@ -113,6 +135,20 @@
      100%{
        transform: translateX(-100%);
      }
+}
+
+@keyframes fadeInLeft {
+     0% {
+          opacity: 0;
+          -webkit-transform: translate3d(-100%,0,0);
+          transform: translate3d(-100%,0,0);
+      }
+      
+      100% {
+          opacity: 1;
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+      }
 }
 
 @keyframes fadeInRight {

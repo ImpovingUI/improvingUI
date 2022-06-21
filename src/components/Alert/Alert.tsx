@@ -1,6 +1,6 @@
-import React, { FC, useLayoutEffect } from "react";
+import React, { FC, useLayoutEffect, useState, useEffect } from "react";
 import "./Alert.css";
-import ErrorIcon from "./icons/ErrorIcon";
+import CloseIcon from "./icons/CloseIcon";
 import { validateIcon } from "./validation";
 
 export interface AlertProps {
@@ -28,43 +28,60 @@ export const Alert: FC<AlertProps> = ({
 }) => {
   const alertRef = React.useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    
-    if (!show) return;
-    
-    setTimeout(() => {
+  const [close, setClose] = useState(show)
 
-      if ( position.includes('left') ) 
+
+  const closeAlert = () =>{
+    setClose(false)
+  }
+
+  useEffect(() => {
+    setClose(show);
+  }, [show])
+
+  useLayoutEffect(() => {
+    if (!show) return;
+
+    if (position.includes("left"))
+      alertRef.current?.classList.add("animate__fadeInLeft");
+
+    if (position.includes("right"))
+      alertRef.current?.classList.add("animate__fadeInRight");
+
+    setTimeout(() => {
+      if (position.includes("left"))
         alertRef.current?.classList.add("hide-left");
 
-      if ( position.includes('right'))
+      if (position.includes("right"))
         alertRef.current?.classList.add("hide-right");
-
     }, timeOut);
-
   });
 
   return (
     <div>
-      {show && (
+      {close && (
         <div
           ref={alertRef}
           /* List of classes */
           className={`alert
                       showAlert 
                       ${position}
-                      animate__animated 
-                      animate__fadeInRight 
+                      animate__animated            
                       ${variant} 
                       ${filled ? "filled" : "outlined"}`}
         >
           <Icon />
-          <div>
-            <p>{tittle}</p>
-            <p> {message} </p>
-          </div>
-          <div>
-            
+          <div className="div-text-close">
+            <div>
+              <p className="title">{tittle}</p>
+              <p className="message"> {message} </p>
+            </div>
+
+            {!closeAutomatic && (
+            <div onClick={closeAlert}>
+              <CloseIcon />
+            </div>
+            )}
           </div>
         </div>
       )}

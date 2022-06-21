@@ -1,7 +1,7 @@
 .alert {
-  padding: 20px 40px;
+  padding: 10px 20px;
   min-width: 300px;
-  max-width: 300px;
+  max-width: 400px;
   position: fixed;
   margin: 0;
   border-radius: 4px;
@@ -29,9 +29,8 @@
 }
 .alert.success.outlined svg {
   fill: #5BC2A7;
-  margin: 0 auto;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 .alert.error.filled {
   background-color: #DC3545;
@@ -49,9 +48,8 @@
 }
 .alert.error.outlined svg {
   fill: #DC3545;
-  margin: 0 auto;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 .alert.warning.filled {
   background-color: #FFBB41;
@@ -69,9 +67,8 @@
 }
 .alert.warning.outlined svg {
   fill: #FFBB41;
-  margin: 0 auto;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 .alert.info.filled {
   background-color: #4597D3;
@@ -89,9 +86,24 @@
 }
 .alert.info.outlined svg {
   fill: #4597D3;
-  margin: 0 auto;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
+}
+.alert .div-text-close {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.alert .div-text-close .title {
+  font-weight: bold;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+.alert .div-text-close .message {
+  margin-top: 0.2rem;
+  font-size: 14px;
 }
 .alert.top-right {
   top: 10px;
@@ -131,6 +143,10 @@
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
 }
+.alert.animate__fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
 
 /* Keyframes */
 @keyframes hide_slide_right {
@@ -159,6 +175,18 @@
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 }
 @keyframes fadeInRight {
