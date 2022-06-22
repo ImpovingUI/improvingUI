@@ -8,9 +8,9 @@
 .container-picker {
   font-family: Arial, Helvetica, sans-serif;
   max-width: 280px;
-  padding-top: 10px;
   margin-top: 10px;
   box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+  border-radius: 4px;
 }
 
 .primary {
@@ -51,41 +51,75 @@
 .container-picker__header {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 10px;
+  height: 40px;
 }
-
 .container-picker__header span {
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  margin-right: 8px;
+}
+.container-picker__header span:hover {
+  color: #e6e6e6;
 }
 
-.container-picker__date span {
-  margin-left: 8px;
-  cursor: pointer;
+.container-picker__date {
+  display: flex;
+  align-items: center;
 }
 
-.container-datepicker__namedays {
-  background-color: #fff;
-  color: #000;
-}
-
-.calendar {
+.picker-content {
   color: black;
   background-color: #fff;
 }
-
-.calendar .weekdayContainer td {
+.picker-content thead tr td {
   text-align: center;
 }
-
-.calendar tbody tr td {
+.picker-content tbody tr td {
   text-align: center;
   cursor: pointer;
   width: 50px;
   height: 36.17px;
 }
-
-.calendar tbody tr td.selected {
+.picker-content tbody tr td:hover {
+  background-color: #e6e6e6;
+}
+.picker-content tbody tr td.selected {
   color: #fff;
   background-color: #5BC2A7;
   border-radius: 50%;
+}
+
+.months {
+  height: 224px;
+  color: black;
+  background-color: #fff;
+}
+.months table {
+  width: 100%;
+  height: 100%;
+}
+.months table tbody tr td {
+  text-align: center;
+  cursor: pointer;
+}
+.months table tbody tr td:hover {
+  background-color: #e6e6e6;
+}
+
+.years {
+  height: 224px;
+  color: black;
+  background-color: #fff;
+}
+.years table {
+  width: 100%;
+  height: 100%;
+}
+.years table tbody tr td {
+  text-align: center;
+  cursor: pointer;
+}
+.years table tbody tr td:hover {
+  background-color: #e6e6e6;
 }

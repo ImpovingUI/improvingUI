@@ -14,7 +14,7 @@ const weekdays = [
 export default function Month() {
   return (
     <>
-      <tr className="weekdayContainer">
+      <tr>
         {weekdays.map((weekday) => (
           <WeekDay key={weekday.day} title={weekday.abb} label={weekday.day} />
         ))}

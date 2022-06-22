@@ -33,10 +33,10 @@ export const DatePicker: FC<DatePickerProps> = ({
   const [selectedOption, setSelectedOption] = React.useState("");
 
   const months = [
-    ["January", "February", "March"],
-    ["April", "May", "June"],
-    ["July", "August", "September"],
-    ["October", "November", "December"],
+    ["Jan", "Feb", "Mar"],
+    ["Apr", "May", "Jun"],
+    ["Jul", "Aug", "Sep"],
+    ["Oct", "Nov", "Dec"],
   ];
 
   //get month in text
@@ -199,10 +199,12 @@ export const DatePicker: FC<DatePickerProps> = ({
             </span>
           </div>
 
-          <div>
+          <div className="container-picker__body">
             {selectedOption == "" ? (
-              <table id="calendar" className="calendar">
-                <Month />
+              <table id="calendar" className="picker-content">
+                <thead>
+                  <Month />
+                </thead>
 
                 <tbody>
                   {daysInMonth.map((day, index) => {

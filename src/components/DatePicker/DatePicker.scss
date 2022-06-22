@@ -5,8 +5,6 @@
 .picker__input {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  // height: 36px;
-  // width: 250px;
   padding: 12px;
   outline: none;
 }
@@ -14,10 +12,11 @@
 .container-picker {
   font-family: Arial, Helvetica, sans-serif;
   max-width: 280px;
-  padding-top: 10px;
+  // padding-top: 10px;
   margin-top: 10px;
   box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
     0 1px 3px 0 rgba(63, 63, 68, 0.15);
+  border-radius: 4px;
 }
 
 $themes: (
@@ -39,68 +38,89 @@ $themes: (
 .container-picker__header {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 10px;
+  height: 40px;
+
+  span {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 8px;
+
+    &:hover {
+      color: #e6e6e6;
+    }
+  }
 }
 
-.container-picker__header span {
-  cursor: pointer;
+.container-picker__date {
+  display: flex;
+  // justify-content: space-around;
+  align-items: center;
 }
 
-.container-picker__date span {
-  margin-left: 8px;
-  cursor: pointer;
-}
-
-// .container-picker__date span:nth-child(1) {
-//   cursor: pointer;
-// }
-
-// .container-picker__date span:nth-child(2) {
-//   cursor: pointer;
-// }
-
-.container-datepicker__namedays {
-  background-color: #fff;
-  color: #000;
-}
-
-.calendar {
-  // width: 100%;
+.picker-content {
   color: black;
   background-color: #fff;
   // border-spacing: 8px;
-  //set the cells to be square 24x24
-  // & > tbody > tr > td {
-  // }
-  // margin-left: 1px;
+
+  thead tr td {
+    text-align: center;
+  }
+
+  tbody tr td {
+    text-align: center;
+    cursor: pointer;
+    width: 50px;
+    height: 36.17px;
+
+    &:hover {
+      background-color: #e6e6e6;
+    }
+  }
+
+  tbody tr td.selected {
+    color: #fff;
+    background-color: $success;
+    border-radius: 50%;
+  }
 }
 
-.calendar .weekdayContainer td {
-  // width: 20px;
-  // height: 20px;
-  text-align: center;
+.months {
+  height: 224px;
+  color: black;
+  background-color: #fff;
+
+  table {
+    width: 100%;
+    height: 100%;
+  }
+
+  table tbody tr td {
+    text-align: center;
+    cursor: pointer;
+  }
+
+  table tbody tr td:hover {
+    background-color: #e6e6e6;
+  }
 }
 
-.calendar tbody tr td {
-  text-align: center;
-  cursor: pointer;
+.years {
+  height: 224px;
+  color: black;
+  background-color: #fff;
 
-  width: 50px;
-  height: 36.17px;
-}
+  table {
+    width: 100%;
+    height: 100%;
+  }
 
-.calendar tbody tr td.selected {
-  color: #fff;
-  background-color: $success;
-  // margin-left: 25%;
-  // margin-right: 25%;
-  border-radius: 50%;
+  table tbody tr td {
+    text-align: center;
+    cursor: pointer;
+  }
 
-  // background-color:blue;
-  // display:block;
-  // height:100%;
-  // width:50%;
-  // border-radius:50%;
-  // margin:auto;
-  // line-height:50px;
+  table tbody tr td:hover {
+    background-color: #e6e6e6;
+  }
 }
