@@ -10,10 +10,9 @@ export default {
   component: Input,
   argTypes: {
     type: { options:['email','password','text'], control: {type: 'radio'} },
-    variant: {options:['contained', 'outlined', 'text'], control: {type: 'radio'} },
+    variant: {options:['outlined', 'filled', 'underlined'], control: {type: 'radio'} },
     fullWidth: {options:[true, false], control: {type: 'radio'} },
     disabled: {options:[true, false], control: {type: 'radio'} },
-   
   }
 } as ComponentMeta<typeof Input>;
 

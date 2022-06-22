@@ -1,334 +1,410 @@
 .default {
-  width: 280px;
+  width: 150px;
   height: 48px;
   border-radius: 5px;
-  padding-inline: 16px;
+  padding: 10px, 40px;
   border: 1px solid transparent;
   gap: 20px;
 }
+
 .default:hover {
   cursor: pointer;
-  opacity: 50%;
+  opacity: 0.8;
 }
+
 .default.disabled {
   cursor: default;
   border: 1px solid transparent;
-  opacity: 50%;
+  opacity: 0.8;
 }
 
-.primary.filled {
+.primary.contained {
   color: white;
   background-color: #005596;
 }
-.primary.filled:hover {
+
+.primary.contained:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.primary.filled.disabled {
+
+.primary.contained.disabled {
   cursor: default;
   opacity: 0.8;
 }
+
 .primary.outlined {
   color: #005596;
   background-color: white;
   border: solid 1px #005596;
 }
+
 .primary.outlined:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
+
 .primary.outlined.disabled {
   cursor: default;
   border: 1px solid #005596;
   background-color: white;
   opacity: 0.8;
 }
-.primary.underlined {
+
+.primary.text {
   color: #005596;
   background-color: white;
   border: solid 1px transparent;
 }
-.primary.underlined:hover {
+
+.primary.text:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.primary.underlined.disabled {
+
+.primary.text.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.secondary.filled {
+.secondary.contained {
   color: white;
   background-color: #A7A8A9;
 }
-.secondary.filled:hover {
+
+.secondary.contained:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.secondary.filled.disabled {
+
+.secondary.contained.disabled {
   cursor: default;
   opacity: 0.8;
 }
+
 .secondary.outlined {
   color: #A7A8A9;
   background-color: white;
   border: solid 1px #A7A8A9;
 }
+
 .secondary.outlined:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
+
 .secondary.outlined.disabled {
   cursor: default;
   border: 1px solid #A7A8A9;
   background-color: white;
   opacity: 0.8;
 }
-.secondary.underlined {
+
+.secondary.text {
   color: #A7A8A9;
   background-color: white;
   border: solid 1px transparent;
 }
-.secondary.underlined:hover {
+
+.secondary.text:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.secondary.underlined.disabled {
+
+.secondary.text.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.dark.filled {
+.dark.contained {
   color: white;
   background-color: #343A40;
 }
-.dark.filled:hover {
+
+.dark.contained:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.dark.filled.disabled {
+
+.dark.contained.disabled {
   cursor: default;
   opacity: 0.8;
 }
+
 .dark.outlined {
   color: #343A40;
   background-color: white;
   border: solid 1px #343A40;
 }
+
 .dark.outlined:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
+
 .dark.outlined.disabled {
   cursor: default;
   border: 1px solid #343A40;
   background-color: white;
   opacity: 0.8;
 }
-.dark.underlined {
+
+.dark.text {
   color: #343A40;
   background-color: white;
   border: solid 1px transparent;
 }
-.dark.underlined:hover {
+
+.dark.text:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.dark.underlined.disabled {
+
+.dark.text.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.success.filled {
+.success.contained {
   color: white;
   background-color: #5BC2A7;
 }
-.success.filled:hover {
+
+.success.contained:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.success.filled.disabled {
+
+.success.contained.disabled {
   cursor: default;
   opacity: 0.8;
 }
+
 .success.outlined {
   color: #5BC2A7;
   background-color: white;
   border: solid 1px #5BC2A7;
 }
+
 .success.outlined:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
+
 .success.outlined.disabled {
   cursor: default;
   border: 1px solid #5BC2A7;
   background-color: white;
   opacity: 0.8;
 }
-.success.underlined {
+
+.success.text {
   color: #5BC2A7;
   background-color: white;
   border: solid 1px transparent;
 }
-.success.underlined:hover {
+
+.success.text:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.success.underlined.disabled {
+
+.success.text.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.info.filled {
+.info.contained {
   color: white;
   background-color: #4597D3;
 }
-.info.filled:hover {
+
+.info.contained:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.info.filled.disabled {
+
+.info.contained.disabled {
   cursor: default;
   opacity: 0.8;
 }
+
 .info.outlined {
   color: #4597D3;
   background-color: white;
   border: solid 1px #4597D3;
 }
+
 .info.outlined:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
+
 .info.outlined.disabled {
   cursor: default;
   border: 1px solid #4597D3;
   background-color: white;
   opacity: 0.8;
 }
-.info.underlined {
+
+.info.text {
   color: #4597D3;
   background-color: white;
   border: solid 1px transparent;
 }
-.info.underlined:hover {
+
+.info.text:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.info.underlined.disabled {
+
+.info.text.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.warning.filled {
+.warning.contained {
   color: white;
   background-color: #FFBB41;
 }
-.warning.filled:hover {
+
+.warning.contained:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.warning.filled.disabled {
+
+.warning.contained.disabled {
   cursor: default;
   opacity: 0.8;
 }
+
 .warning.outlined {
   color: #FFBB41;
   background-color: white;
   border: solid 1px #FFBB41;
 }
+
 .warning.outlined:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
+
 .warning.outlined.disabled {
   cursor: default;
   border: 1px solid #FFBB41;
   background-color: white;
   opacity: 0.8;
 }
-.warning.underlined {
+
+.warning.text {
   color: #FFBB41;
   background-color: white;
   border: solid 1px transparent;
 }
-.warning.underlined:hover {
+
+.warning.text:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.warning.underlined.disabled {
+
+.warning.text.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.danger.filled {
+.danger.contained {
   color: white;
   background-color: #DC3545;
 }
-.danger.filled:hover {
+
+.danger.contained:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.danger.filled.disabled {
+
+.danger.contained.disabled {
   cursor: default;
   opacity: 0.8;
 }
+
 .danger.outlined {
   color: #DC3545;
   background-color: white;
   border: solid 1px #DC3545;
 }
+
 .danger.outlined:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
+
 .danger.outlined.disabled {
   cursor: default;
   border: 1px solid #DC3545;
   background-color: white;
   opacity: 0.8;
 }
-.danger.underlined {
+
+.danger.text {
   color: #DC3545;
   background-color: white;
   border: solid 1px transparent;
 }
-.danger.underlined:hover {
+
+.danger.text:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.danger.underlined.disabled {
+
+.danger.text.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
+}
+
+.small {
+  width: 150px;
+  border-radius: 5px;
+  height: 30px;
+}
+
+.medium {
+  width: 150px;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.large {
+  width: 150px;
+  border-radius: 5px;
+  height: 50px;
 }
 
 .icon-container-left {
@@ -342,58 +418,4 @@
 .fullWidth {
   width: 100%;
 }
-
-.underlined-Input {
-  border-bottom: 1px solid black;
-  border-radius: 0;
-}
-
-.outlined-Input {
-  border: 1px solid black;
-}
-
-.filled-Input {
-  background-color: #F8F9FA;
-  border-bottom: 1px solid black;
-  border-radius: 0;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.inputContainer {
-  position: relative;
-  height: 48px;
-  width: 280px;
-  margin: 10px 15px;
-}
-
-.inputContainer label {
-  position: absolute;
-  left: 15px;
-  top: 2px;
-  height: 48px;
-  line-height: 48px;
-  font-size: 16px;
-  align-items: center;
-  color: #a1a1a1;
-  pointer-events: none;
-  transition: 0.2s ease-in;
-}
-
-.inputContainer label.focused {
-  position: absolute;
-  height: fit-content;
-  width: max-content;
-  line-height: 12px;
-  margin: 0%;
-  top: 3px;
-  font-size: 12px;
-  margin: 0;
-  left: 15px;
-  color: #335599;
-  background-color: #fff;
-  transition: 0.2s ease-in;
-  /* outline: solid 1px red; */
-}
-
-/*# sourceMappingURL=Input.css.map */
+/*# sourceMappingURL=Button.css.map */
