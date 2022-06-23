@@ -1,0 +1,123 @@
+@import '../css/utils/variables';
+@import './utils/mixins';
+@import './utils/keyframes';
+
+.alert{
+     // Desgin Alert
+     padding: 10px 20px;
+     min-width: 300px;
+     max-width: 400px;
+     position:fixed;
+     margin: 0;
+     border-radius: 4px;
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+     font-family: Arial, Helvetica, sans-serif;
+     
+     /* style variant of alert*/
+     &.success {
+          @include theme-alert($success);
+     }
+     
+     &.error {
+          @include theme-alert($danger)
+     }
+     
+     &.warning {
+          @include theme-alert($warning)
+     }
+     
+     &.info {
+          @include theme-alert($info)
+     }
+     
+     /* positions */
+     &.top-right {
+          top: 10px;
+          right: 0;
+     } 
+     
+     &.bottom-right {
+          bottom: 10px;
+          right: 0;
+     } 
+     
+     &.top-left {
+          top: 10px;
+          left: 0;
+     } 
+     
+     &.bottom-left{
+          bottom: 10px;
+          left: 0;
+     }
+
+     /* Animations of the alert */
+     &.showAlert{
+          opacity: 1;
+          pointer-events: auto;
+     }
+
+     &.alert.hide-left {
+          animation: hide_slide_left 3s ease forwards;
+     }
+
+     &.alert.hide-right {
+          animation: hide_slide_right 3s ease forwards;
+     }
+     
+     &.animate__animated {
+          -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+          -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+          -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+      }
+     
+     &.animate__fadeInRight {
+         -webkit-animation-name: fadeInRight;
+         animation-name: fadeInRight;
+     }
+
+     &.animate__fadeInLeft {
+          -webkit-animation-name: fadeInLeft;
+          animation-name: fadeInLeft;
+     }
+
+     &.animate__backOutRight {
+          -webkit-animation-name: backOutRight;
+          animation-name: backOutRight;
+      }
+
+     &.animate__backOutLeft {
+          -webkit-animation-name: backOutLeft;
+          animation-name: backOutLeft;
+     }
+     /*Div with the message and the icon for close de alert*/
+     .div-text-close {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+
+          .title {
+               font-weight: bold;
+               margin-bottom: 0;
+               font-size: 16px;
+          }
+
+          .message {
+               margin-top: 0.2rem;
+               font-size: 14px;
+          }
+          
+          .icon-close {
+               cursor: pointer;
+          }
+     }
+}
+
+
