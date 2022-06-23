@@ -108,3 +108,18 @@
     transition: 0.2s ease-in;
     /* outline: solid 1px red; */
 }
+.inputContainer button{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    right: -33px;
+    top: 2px;
+    height: 48px;
+    width: 48px;
+    padding: 0;
+    border-radius: 5px;
+}
+.inputContainer button:hover{
+    cursor: pointer;
+    background-color: $light;
+}
