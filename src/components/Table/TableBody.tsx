@@ -8,10 +8,10 @@ export interface TableProps {
 export const TableBody : FC<TableProps> = ({listRows,actions}) => {
     return (
         <tbody>
-            {listRows.map((value: Object)=>(
-                <tr>
-                    {Object.values(value).map((data: any)=>(
-                        <td>
+            {listRows.map((value: Object, index: Number)=>(
+                <tr key={index+'a'}>
+                    {Object.values(value).map((data: any, index1: Number)=>(
+                        <td key={index1 + data}>
                             {data}
                         </td>
                     ))}

@@ -52,7 +52,7 @@ export const Pagination : FC<PaginationProps> = ({initial, setInitial,listRows})
     return (
         <div className='containerPagin'>
             <div>
-                <select value={pagination} className={"selectPage"} onChange={e => setPagination(e.target.value)}>
+                <select value={pagination} className={"selectPage"} onChange={(e: any) => setPagination(e.target.value)}>
                     <option value={5}>Items per page: 5</option>
                     <option value={10}>Items per page: 10</option>
                     <option value={50}>Items per page: 50</option>

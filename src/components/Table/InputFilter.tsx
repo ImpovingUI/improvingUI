@@ -27,11 +27,11 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows, listCo
                 const filteredRows = listRows.filter((row:Object)=> {
                     let values = Object.values(row);
                     for(let i = 0; i < values.length; i++){
-                        if(typeof(values[i]) === 'string'){
-                            if(values[i].toLowerCase().includes(e.target.value.toLowerCase())){
-                                return true;
-                            }
+
+                        if(values[i].toString().toLowerCase().includes(e.target.value.toLowerCase())){
+                            return true;
                         }
+                        
                     }
                     return false;
                 })
@@ -40,11 +40,11 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows, listCo
             }else{
                 const filteredRows = listRows.filter((row: Object) => {
                     const data = row[option];
-                    if(typeof(data) === 'string'){
-                        if(data.toLowerCase().includes(e.target.value.toLowerCase())){
-                            return true;
-                        }
+
+                    if(data.toString().toLowerCase().includes(e.target.value.toLowerCase())){
+                        return true;
                     }
+                    
                     return false;
                 })
                 setInitialFilter(filteredRows);

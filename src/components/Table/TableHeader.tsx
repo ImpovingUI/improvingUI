@@ -10,8 +10,8 @@ export const TableHeader : FC<TableProps> = ({listColumns,actions}) => {
     return (
         <thead>
             <tr>
-                {listColumns.map((value: String) => (
-                    <th>{value}</th>
+                {listColumns.map((value: String,index: Number) => (
+                    <th key={index+"a"}>{value}</th>
                 ))}
                 {actions && <th>Actions</th>}
             </tr>
