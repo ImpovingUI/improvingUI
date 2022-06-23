@@ -1,90 +1,109 @@
-import React, { FC, useLayoutEffect, useState, useEffect } from "react";
+{/*
+  TODO: Progress bar
+  TODO: Optimize use of alert with a prop "config"
+  TODO: Changing Icon by Props
+*/}
+
+import React, { FC, useLayoutEffect } from "react";
+import { AlertProps } from './Alert.interface';
 import "./Alert.css";
 import CloseIcon from "./icons/CloseIcon";
-import { validateIcon } from "./validation";
+import { validateInitProps, validateIcon } from "./validation";
 
-export interface AlertProps {
-  show: boolean;
-  variant: "success" | "error" | "warning" | "info";
-  filled: boolean;
-  closeAutomatic: boolean;
-  timeOut?: number;
-  message: string;
-  tittle?: string;
-  position: "top-right" | "bottom-right" | "top-left" | "bottom-left";
-  Icon?: FC;
-}
+export const Alert: FC<AlertProps> = ( {
+    show = false,
+    variant = 'success',
+    filled = true,
+    closeAutomatic = true,
+    timeOut = 3000,
+    message = "",
+    tittle = "",
+    position = "top-right",
+    Icon = validateIcon(variant),
+    config
+} ) => {
+  
 
-export const Alert: FC<AlertProps> = ({
-  show = true,
-  variant = "success",
-  filled = true,
-  closeAutomatic = true,
-  timeOut = 3000,
-  message = "",
-  tittle = "",
-  position = "top-right",
-  Icon = validateIcon(variant),
-}) => {
   const alertRef = React.useRef<HTMLDivElement>(null);
 
-  const [close, setClose] = useState(show)
-
-
   const closeAlert = () =>{
-    setClose(false)
-  }
-
-  useEffect(() => {
-    setClose(show);
-  }, [show])
-
-  useLayoutEffect(() => {
-    if (!show) return;
-
-    if (position.includes("left"))
-      alertRef.current?.classList.add("animate__fadeInLeft");
+    
+    if ( position.includes("left"))
+      alertRef.current?.classList.add("animate__backOutLeft");
 
     if (position.includes("right"))
-      alertRef.current?.classList.add("animate__fadeInRight");
+      alertRef.current?.classList.add('animate__backOutRight');
+
+  }
+
+
+  useLayoutEffect(() => {
+
+    if (!show) return;
+
+    // Add animate class to alert dependent on the position of the alert 
+    if ( !position.includes('left') && !position.includes('right') )
+        position = 'top-right'
+
+    if ( position.includes('left') )
+      alertRef.current?.classList.add('animate__fadeInLeft');
+
+    if ( position.includes('right') )
+      alertRef.current?.classList.add('animate__fadeInRight');
+
+    if( !closeAutomatic ) return;
 
     setTimeout(() => {
-      if (position.includes("left"))
-        alertRef.current?.classList.add("hide-left");
 
-      if (position.includes("right"))
-        alertRef.current?.classList.add("hide-right");
+      // Add animate class for hide the alert dependent on position of the alert
+      if ( position.includes('left') )
+        alertRef.current?.classList.add('hide-left');
+
+      if (position.includes('right'))
+        alertRef.current?.classList.add('hide-right');
+
     }, timeOut);
+
   });
 
   return (
     <div>
-      {close && (
+      { show && (
         <div
           ref={alertRef}
-          /* List of classes */
           className={`alert
                       showAlert 
-                      ${position}
-                      animate__animated            
-                      ${variant} 
-                      ${filled ? "filled" : "outlined"}`}
+                      animate__animated 
+                      ${ validateInitProps( { position, variant } ) }   
+                      ${ filled ? 'filled' : 'outlined'} `}
         >
+        {/* Alert Body */}
           <Icon />
-          <div className="div-text-close">
+
+          {/*The message and de button close is in this DIV*/}
+          <div className='div-text-close'>
             <div>
-              <p className="title">{tittle}</p>
-              <p className="message"> {message} </p>
+              <p className='title'>{tittle}</p>
+              <p className='message'> {message} </p>
             </div>
 
-            {!closeAutomatic && (
-            <div onClick={closeAlert}>
-              <CloseIcon />
-            </div>
+            { !closeAutomatic && (
+              /* Button for closing the alert */
+              <div onClick={() => closeAlert()} className='icon-close'>
+                <CloseIcon />
+              </div>
+            
             )}
+
           </div>
+
+          {/* TODO: Progress bar */}
+          {/*<progress style={{display: 'block'}} max='100' value='90'> 70% </progress>*/}
+        
         </div>
       )}
+
+      
     </div>
   );
 };

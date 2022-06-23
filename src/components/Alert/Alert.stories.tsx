@@ -7,6 +7,18 @@ import {Alert}  from './Alert';
 export default{
     title: 'ReactComponentLibrary/Alert',
     component: Alert,
+    argTypes: {
+      position: {options:['top-right', 
+                          'bottom-right',
+                          'top-left',
+                          'bottom-left', 
+                          'no-existe'], control: {type: 'radio'} },
+      /*variant: {options:['top-right', 
+                          'bottom-right',
+                          'top-left',
+                          'bottom-left', 
+                          'no-existe'], control: {type: 'radio'} },*/
+    }
 } as ComponentMeta<typeof Alert>;
 
 const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />;
@@ -22,3 +34,4 @@ export const DefaultAlert = Template.bind({});
      tittle: '',
      position:'top-right'
   };
+
