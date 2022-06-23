@@ -10,7 +10,7 @@ $border-color:solid 1px black;
     width:150px;
     height: 48px;
     border-radius: 5px;
-    padding: 10px, 40px;
+    padding: 0px, 40px;
     border: 1px solid transparent;
     gap: 20px;
 
@@ -35,7 +35,7 @@ $themes:('primary':$primary,'secondary':$secondary,'dark':$dark,'success':$succe
 }
 
 .small{
-    @include size-button(30px)
+    @include size-button(34px)
 }
 .medium{
     @include size-button(40px)

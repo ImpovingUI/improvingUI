@@ -3,7 +3,7 @@
 @import './utils/mixins';
 
 $class-name:'NavBar';
-$height-nav:80px;
+$height-nav:50px;
 
 .default-NavBar{
     width: 100%;
@@ -36,9 +36,9 @@ $themes:('primary':$primary,'secondary':$secondary,'dark':$dark,'info':$info,'su
 
 .icon-#{$class-name}{
     float: left;
-    margin-left: 1rem;
+    margin-left: 10px;
     border: solid 1px black;
-    padding: 0.5rem;
+    padding: 2px;
     border-radius: 0.2rem;
     cursor: pointer;
     background-color: $white;
@@ -55,7 +55,7 @@ $themes:('primary':$primary,'secondary':$secondary,'dark':$dark,'info':$info,'su
 
 //simbolos del boton responsivo
 .icon-div-#{$class-name}{ 
-    width: 1.5rem;
+    width: 24px;
     height: 2px;
     background-color: black;
     margin: 6px 0;
@@ -126,12 +126,12 @@ $themes:('primary':$primary,'secondary':$secondary,'dark':$dark,'info':$info,'su
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 1.5rem;
     height: $height-nav;
 }
 
 .side-bar-link-#{$class-name}{
-    margin-top: 1rem;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,0 +1,37 @@
+@import '../css/utils/variables';
+
+$class-name:'Li';
+$height-li:45px;
+
+.default-#{$class-name}{
+    width: 100%;
+    min-width: 200px;
+    height: $height-li;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    transition: 300ms background-color ease-in-out;
+    border-radius: 0.25rem;
+    & > div {
+        width: 100%;
+        height: $height-li;
+        display: flex;
+        align-items: center;
+        transition: 300ms transform ease-in-out;
+        padding-left: 30px;
+        & span{
+            margin-right: 20px;
+        }
+        &:hover{
+            cursor: pointer;
+            transform: translate(5px);
+        }
+    }
+    &:hover{
+        background-color: $primary-hover;
+        color: $primary;
+    }
+}
+

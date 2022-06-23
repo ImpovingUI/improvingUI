@@ -30,6 +30,7 @@ export const DefaultButton = Template.bind({});
     disabled:false,
     iconLeft: '',
     iconRight: '',
+    onlyIcon: '',
   };
  
   export const Outlined = Template.bind({});

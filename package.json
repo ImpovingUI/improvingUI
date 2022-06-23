@@ -1,6 +1,6 @@
 {
   "name": "improving-ui",
-  "version": "1.0.17",
+  "version": "1.0.28",
   "description": "A react component library",
   "scripts": {
     "rollup": "rollup -c",
@@ -9,7 +9,7 @@
     "build-storybook": "build-storybook"
   },
   "keywords": [],
-  "author": "Michimon",
+  "author": "Improving",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.0",

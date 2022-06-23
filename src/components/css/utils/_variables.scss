@@ -10,20 +10,23 @@ $info: #4597D3;
 $warning: #FFBB41;
 $danger: #DC3545;
 
+$primary-hover:#c7e7ff;
+
 //color-text / contained
 $white:white;
-
 //hover opacity
 //opacidad contaned
 $opacity-hover:0.8;
 //colors theme --------------------------------------------------------------
 
 //breaks points ------------------------------------------------------------
-$xs : 575px; //minor than or queal to
+$xs : 0px; //minor than or queal to
 $sm : 576px; //bigger or equal to
 $md : 768px; //bigger or equal to
 $lg : 992px; //bigger or equal to
-$xs : 1200px; //bigger or equal to
-$xxs : 1400px; //bigger or equal to
+$xl : 1200px; //bigger or equal to
+$xxl : 1400px; //bigger or equal to
+
+$min-w : 300px; //minimal with that a windows can have
 
 //breaks points ------------------------------------------------------------

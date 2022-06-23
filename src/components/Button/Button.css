@@ -2,7 +2,7 @@
   width: 150px;
   height: 48px;
   border-radius: 5px;
-  padding: 10px, 40px;
+  padding: 0px, 40px;
   border: 1px solid transparent;
   gap: 20px;
 }
@@ -28,6 +28,11 @@
   cursor: default;
   opacity: 0.8;
 }
+.primary.contained.onlyIcon {
+  width: 40px;
+  padding-top: 2px;
+  overflow: hidden;
+}
 .primary.outlined {
   color: #005596;
   background-color: white;
@@ -43,6 +48,10 @@
   border: 1px solid #005596;
   background-color: white;
   opacity: 0.8;
+}
+.primary.outlined.onlyIcon {
+  width: 40px;
+  overflow: hidden;
 }
 .primary.text {
   color: #005596;
@@ -60,6 +69,11 @@
   background-color: white;
   opacity: 0.8;
 }
+.primary.text.onlyIcon {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
 
 .secondary.contained {
   color: white;
@@ -72,6 +86,11 @@
 .secondary.contained.disabled {
   cursor: default;
   opacity: 0.8;
+}
+.secondary.contained.onlyIcon {
+  width: 40px;
+  padding-top: 2px;
+  overflow: hidden;
 }
 .secondary.outlined {
   color: #A7A8A9;
@@ -89,6 +108,10 @@
   background-color: white;
   opacity: 0.8;
 }
+.secondary.outlined.onlyIcon {
+  width: 40px;
+  overflow: hidden;
+}
 .secondary.text {
   color: #A7A8A9;
   background-color: white;
@@ -105,6 +128,11 @@
   background-color: white;
   opacity: 0.8;
 }
+.secondary.text.onlyIcon {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
 
 .dark.contained {
   color: white;
@@ -117,6 +145,11 @@
 .dark.contained.disabled {
   cursor: default;
   opacity: 0.8;
+}
+.dark.contained.onlyIcon {
+  width: 40px;
+  padding-top: 2px;
+  overflow: hidden;
 }
 .dark.outlined {
   color: #343A40;
@@ -134,6 +167,10 @@
   background-color: white;
   opacity: 0.8;
 }
+.dark.outlined.onlyIcon {
+  width: 40px;
+  overflow: hidden;
+}
 .dark.text {
   color: #343A40;
   background-color: white;
@@ -150,6 +187,11 @@
   background-color: white;
   opacity: 0.8;
 }
+.dark.text.onlyIcon {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
 
 .success.contained {
   color: white;
@@ -162,6 +204,11 @@
 .success.contained.disabled {
   cursor: default;
   opacity: 0.8;
+}
+.success.contained.onlyIcon {
+  width: 40px;
+  padding-top: 2px;
+  overflow: hidden;
 }
 .success.outlined {
   color: #5BC2A7;
@@ -179,6 +226,10 @@
   background-color: white;
   opacity: 0.8;
 }
+.success.outlined.onlyIcon {
+  width: 40px;
+  overflow: hidden;
+}
 .success.text {
   color: #5BC2A7;
   background-color: white;
@@ -195,6 +246,11 @@
   background-color: white;
   opacity: 0.8;
 }
+.success.text.onlyIcon {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
 
 .info.contained {
   color: white;
@@ -207,6 +263,11 @@
 .info.contained.disabled {
   cursor: default;
   opacity: 0.8;
+}
+.info.contained.onlyIcon {
+  width: 40px;
+  padding-top: 2px;
+  overflow: hidden;
 }
 .info.outlined {
   color: #4597D3;
@@ -224,6 +285,10 @@
   background-color: white;
   opacity: 0.8;
 }
+.info.outlined.onlyIcon {
+  width: 40px;
+  overflow: hidden;
+}
 .info.text {
   color: #4597D3;
   background-color: white;
@@ -240,6 +305,11 @@
   background-color: white;
   opacity: 0.8;
 }
+.info.text.onlyIcon {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
 
 .warning.contained {
   color: white;
@@ -252,6 +322,11 @@
 .warning.contained.disabled {
   cursor: default;
   opacity: 0.8;
+}
+.warning.contained.onlyIcon {
+  width: 40px;
+  padding-top: 2px;
+  overflow: hidden;
 }
 .warning.outlined {
   color: #FFBB41;
@@ -269,6 +344,10 @@
   background-color: white;
   opacity: 0.8;
 }
+.warning.outlined.onlyIcon {
+  width: 40px;
+  overflow: hidden;
+}
 .warning.text {
   color: #FFBB41;
   background-color: white;
@@ -285,6 +364,11 @@
   background-color: white;
   opacity: 0.8;
 }
+.warning.text.onlyIcon {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
 
 .danger.contained {
   color: white;
@@ -297,6 +381,11 @@
 .danger.contained.disabled {
   cursor: default;
   opacity: 0.8;
+}
+.danger.contained.onlyIcon {
+  width: 40px;
+  padding-top: 2px;
+  overflow: hidden;
 }
 .danger.outlined {
   color: #DC3545;
@@ -314,6 +403,10 @@
   background-color: white;
   opacity: 0.8;
 }
+.danger.outlined.onlyIcon {
+  width: 40px;
+  overflow: hidden;
+}
 .danger.text {
   color: #DC3545;
   background-color: white;
@@ -330,11 +423,16 @@
   background-color: white;
   opacity: 0.8;
 }
+.danger.text.onlyIcon {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
 
 .small {
   width: 150px;
   border-radius: 5px;
-  height: 30px;
+  height: 34px;
 }
 
 .medium {
