@@ -27,7 +27,7 @@ export const Pagination : FC<PaginationProps> = ({initial, setInitial,listRows})
             setPage(0);
             setPages(1);
         }
-    },[pagination])
+    },[pagination,listRows])
 
     useEffect(() => {
         const final = (page+1)*pagination;
@@ -41,7 +41,7 @@ export const Pagination : FC<PaginationProps> = ({initial, setInitial,listRows})
     },[page,pages])
 
     const increase = () => {
-        if(page <= pages)
+        if(page < pages-1)
             setPage(page+1);
     }
 

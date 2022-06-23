@@ -4,20 +4,27 @@ export interface InputProps {
     initial?: any,
     setInitial?: any,
     listRows?: Object[],
-    listColumns: any
+    listColumns: any,
+    setInitialFilter: any
 }
 
-export const InputFilter: FC<InputProps> =({initial,setInitial, listRows, listColumns}) => {
+export const InputFilter: FC<InputProps> =({initial,setInitial, listRows, listColumns, setInitialFilter}) => {
     const [filter, setFilter] = useState('');
     const [option, setOption] = useState('all');
+    const [temp, setTemp] = useState([]);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFilter(e.target.value);
         if(e.target.value.length === 0){
-            setInitial(listRows);
+            setInitial(temp);
+            setTemp([]);
+            setInitialFilter(listRows);
         }else{
+            if(e.target.value.length === 1 && temp.length === 0){
+                setTemp(initial);
+            }
             if(option === 'all'){
-                const filteredRows = initial.filter((row:Object)=> {
+                const filteredRows = listRows.filter((row:Object)=> {
                     let values = Object.values(row);
                     for(let i = 0; i < values.length; i++){
                         if(typeof(values[i]) === 'string'){
@@ -28,9 +35,10 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows, listCo
                     }
                     return false;
                 })
+                setInitialFilter(filteredRows);
                 setInitial(filteredRows);
             }else{
-                const filteredRows = initial.filter((row: Object) => {
+                const filteredRows = listRows.filter((row: Object) => {
                     const data = row[option];
                     if(typeof(data) === 'string'){
                         if(data.toLowerCase().includes(e.target.value.toLowerCase())){
@@ -39,6 +47,7 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows, listCo
                     }
                     return false;
                 })
+                setInitialFilter(filteredRows);
                 setInitial(filteredRows);
             }
         }

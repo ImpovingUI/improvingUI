@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {fireEvent, screen, userEvent } from '@storybook/testing-library';
 const ejemplo = require('./Ejemplo.json');
 import {Table} from './index';
+import { Button } from '../Button/Button';
 
 export default {
     title: 'ReactComponentLibrary/Table',
@@ -12,6 +13,7 @@ export default {
         pagination: {options:[true, false], control: {type: 'radio'}}
     }
   } as ComponentMeta<typeof Table>;
+
   const Template: ComponentStory<typeof Table> = (args) => 
     <Table
         listColumns={['Nombre','Apellido','Ciudad','Estado','Numero']}
@@ -24,6 +26,6 @@ export default {
     
 export const DefaultTable = Template.bind({});
 DefaultTable.args = {
-    filter: false,
-    pagination: false
+    filter: true,
+    pagination: true
 };

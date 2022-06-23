@@ -10,26 +10,31 @@ table {
 }
 
 thead {
-    background-color: $secondary;
     opacity: 100%;
     height: 41px;
 }
 
-thead td {
+thead th {
+   background-color: $secondary;
    color: white;
    font-size: 16px;
    font-weight: 400px;
    letter-spacing: 0.005em;
+   &:hover {
+     opacity: 80%;
+     cursor: pointer;
+   }
 }
 
 
 tbody tr {
     border: 1px solid $light;
+    &:hover {
+        cursor: pointer;
+        background-color: $pagination;
+    }
 }
 
-tbody td {
-    background-color: white;
-}
 
 td {
     justify-content: center;

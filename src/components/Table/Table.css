@@ -7,24 +7,28 @@ table {
 }
 
 thead {
-  background-color: #A7A8A9;
   opacity: 100%;
   height: 41px;
 }
 
-thead td {
+thead th {
+  background-color: #A7A8A9;
   color: white;
   font-size: 16px;
   font-weight: 400px;
   letter-spacing: 0.005em;
 }
+thead th:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
 
 tbody tr {
   border: 1px solid #F8F9FA;
 }
-
-tbody td {
-  background-color: white;
+tbody tr:hover {
+  cursor: pointer;
+  background-color: #D7D7D7;
 }
 
 td {
