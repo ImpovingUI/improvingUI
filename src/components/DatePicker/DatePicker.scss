@@ -124,3 +124,12 @@ $themes: (
     background-color: #e6e6e6;
   }
 }
+
+.todayButton{
+  // width: 100px;
+  color: $primary;
+  td {
+    border-top: 1px solid #e6e6e6;
+
+  }
+}

@@ -31,6 +31,11 @@ export const DatePicker: FC<DatePickerProps> = ({
   //hook of matriz of days
   const [daysInMonth, setDaysInMonth] = React.useState([[""], [""]]);
   const [selectedOption, setSelectedOption] = React.useState("");
+  const [yearRange, setYearRange] = React.useState("");
+  const [years , setYears] = React.useState([[0],[0]]);
+
+  // const [date, setDate] = React.useState({year:new Date().getFullYear(),month:new Date().getMonth()});
+  
 
   const months = [
     ["Jan", "Feb", "Mar"],
@@ -76,7 +81,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   const getYears = (year: number) => {
     let yearaux = Math.floor(year / 10) * 10;
     let years = [];
-    let yearMatrix = [];
+    let yearMatrix:number[][] =[];
     yearaux = yearaux - 1;
     for (let i = 0; i < 13; i++) {
       if (i % 3 === 0) {
@@ -85,7 +90,10 @@ export const DatePicker: FC<DatePickerProps> = ({
       }
       years.push(yearaux + i);
     }
-    return yearMatrix;
+    setYearRange(yearaux + " - " + (yearaux + 11));
+    //setMonthText("Hola")
+    console.log("estoy en getYears");
+    setYears([...yearMatrix]);
   };
 
   useEffect(() => {
@@ -99,27 +107,44 @@ export const DatePicker: FC<DatePickerProps> = ({
 
   //change to previous month
   const prevMonth = () => {
-    console.log("prev month");
-    //change month to previous month0
-    if (month === 0) {
-      setMonth(11);
-      setYear(year - 1);
-    } else {
-      setMonth(month - 1);
+    if (selectedOption === "") {
+      console.log("prev month");
+      //change month to previous month0
+      if (month === 0) {
+        // setDate({month:11,year:year-1});
+        setMonth(11)
+        setYear(year - 1);
+      } else {
+        setMonth(month - 1);
+        // setDate({month:month-1,year:year});
+      }
+    } else if (selectedOption === "year") {
+      setYear(year - 10);
+      // setDate({month:month,year:year-10});
+      
+      getYears(year);
     }
-
-    //getDaysInMonth(month, year);
   };
 
   //next month
   const nextMonth = () => {
-    //change month to next month
-    if (month === 11) {
-      setMonth(0);
-      setYear(year + 1);
-    } else {
-      setMonth(month + 1);
+    if (selectedOption === "") {
+      //change month to next month
+      if (month === 11) {
+        setMonth(0);
+        setYear(year + 1);
+        // setDate({month:0,year:year+1})
+      } else {
+        setMonth(month + 1);
+        // setDate({month:month+1,year:year})
+      }
     }
+    if (selectedOption === "year") {
+      setYear(year + 10);
+      getYears(year);
+      // setDate({month:month,year:year+10})
+    }
+
   };
 
   const addCircle = () => {
@@ -138,6 +163,33 @@ export const DatePicker: FC<DatePickerProps> = ({
     }
   }, [selectedDate]);
 
+  const changeDateToday = () => {
+    //set selected date to today
+    //set month and year to today
+    setMonth(new Date().getMonth());
+    setYear(new Date().getFullYear());
+    // setDate({month:new Date().getMonth(),year:new Date().getFullYear()});
+    setDaysInMonth([...getDaysInMonth(month, year)]);
+    setMonthText(
+      new Date().toLocaleString("en-us", {
+        month: "long",
+      })
+    );
+
+    //set day
+    let day1 = new Date().getDate().toString();
+    let month1 = new Date().getMonth();
+    let year1 = new Date().getFullYear();
+
+    setSelectedDate(
+      (month1 + 1 < 10 ? "0" + (month1 + 1) : month1 + 1) +
+        "/" +
+        (day1.length < 2 ? "0" + day1 : day1) +
+        "/" +
+        year1
+    );
+  };
+
   return (
     <div id="container-datepicker">
       <div className="container-datepicker-input">
@@ -148,6 +200,26 @@ export const DatePicker: FC<DatePickerProps> = ({
           id="input"
           onFocus={(e) => {
             setfocus(true);
+          }}
+          onChange={(e) => {
+            //in the input just allow to enter numbers and "/"
+            let value = e.target.value;
+            let newValue = "";
+            for (let i = 0; i < value.length; i++) {
+              if (value[i] === "/" || (value[i] >= "0" && value[i] <= "9")) {
+                newValue += value[i];
+              }
+            }
+
+            //count the amount of "/" in the input
+
+            let count = (e.target.value.match(/\//g) || []).length;
+
+            console.log(count);
+
+            if (count === 2) {
+              setSelectedDate(e.target.value);
+            }
           }}
           value={selectedDate}
         />
@@ -175,20 +247,27 @@ export const DatePicker: FC<DatePickerProps> = ({
               />
             </span>
             <div className="container-picker__date">
-              <span
-                onClick={() => {
-                  setSelectedOption("month");
-                }}
-              >
-                {monthText}
-              </span>
-              <span
-                onClick={() => {
-                  setSelectedOption("year");
-                }}
-              >
-                {year}
-              </span>
+              {selectedOption === "year" ? (
+                <span>{yearRange}</span>
+              ) : (
+                <>
+                  <span
+                    onClick={() => {
+                      setSelectedOption("month");
+                    }}
+                  >
+                    {monthText}
+                  </span>
+                  <span
+                    onClick={() => {
+                      setSelectedOption("year");
+                      getYears(year);
+                    }}
+                  >
+                    {year}
+                  </span>
+                </>
+              )}
             </div>
             <span>
               <img
@@ -245,16 +324,17 @@ export const DatePicker: FC<DatePickerProps> = ({
                                 // if (selected) {
                                 //   selected.classList.remove("selected");
                                 // }
-
-                                setSelectedDate(
-                                  (month + 1 < 10
-                                    ? "0" + (month + 1)
-                                    : month + 1) +
-                                    "/" +
-                                    (day.length < 2 ? "0" + day : day) +
-                                    "/" +
-                                    year
-                                );
+                                if (day != "") {
+                                  setSelectedDate(
+                                    (month + 1 < 10
+                                      ? "0" + (month + 1)
+                                      : month + 1) +
+                                      "/" +
+                                      (day.length < 2 ? "0" + day : day) +
+                                      "/" +
+                                      year
+                                  );
+                                }
                               }}
 
                               //add a target event to the td that add a class selected to the td and clear the class selected of the other td
@@ -266,6 +346,11 @@ export const DatePicker: FC<DatePickerProps> = ({
                       </tr>
                     );
                   })}
+                  <tr className="todayButton">
+                    <td colSpan={7} onClick={changeDateToday}>
+                      Today
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             ) : null}
@@ -290,6 +375,7 @@ export const DatePicker: FC<DatePickerProps> = ({
                               // }
                               onClick={() => {
                                 setMonth(index2 + index * 3);
+                                // setDate({month: index2 + index * 3,year:year})
                                 setSelectedOption("year");
                               }}
                             >
@@ -309,7 +395,7 @@ export const DatePicker: FC<DatePickerProps> = ({
             <div className="years">
               <table>
                 <tbody>
-                  {getYears(year).map((i, index) => {
+                  {years.map((i, index) => {
                     return (
                       <tr key={index}>
                         {i.map((year, index2) => {
@@ -318,6 +404,7 @@ export const DatePicker: FC<DatePickerProps> = ({
                               key={index2 * index}
                               onClick={() => {
                                 setYear(year);
+                                // setDate({month:month,year:year})
                                 setSelectedOption("");
                               }}
                             >

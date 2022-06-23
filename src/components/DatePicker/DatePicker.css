@@ -123,3 +123,10 @@
 .years table tbody tr td:hover {
   background-color: #e6e6e6;
 }
+
+.todayButton {
+  color: #005596;
+}
+.todayButton td {
+  border-top: 1px solid #e6e6e6;
+}
