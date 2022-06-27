@@ -27,15 +27,14 @@ export const DatePicker: FC<DatePickerProps> = ({
   const [year, setYear] = React.useState(new Date().getFullYear());
   const [focus, setfocus] = React.useState(false);
   const [focusTable, setfocusTable] = React.useState(false);
-  const [selectedDate, setSelectedDate] = React.useState("mm/dd/yyyy");
+  const [selectedDate, setSelectedDate] = React.useState("");
   //hook of matriz of days
   const [daysInMonth, setDaysInMonth] = React.useState([[""], [""]]);
   const [selectedOption, setSelectedOption] = React.useState("");
   const [yearRange, setYearRange] = React.useState("");
-  const [years , setYears] = React.useState([[0],[0]]);
+  const [years, setYears] = React.useState([[0], [0]]);
 
   // const [date, setDate] = React.useState({year:new Date().getFullYear(),month:new Date().getMonth()});
-  
 
   const months = [
     ["Jan", "Feb", "Mar"],
@@ -81,7 +80,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   const getYears = (year: number) => {
     let yearaux = Math.floor(year / 10) * 10;
     let years = [];
-    let yearMatrix:number[][] =[];
+    let yearMatrix: number[][] = [];
     yearaux = yearaux - 1;
     for (let i = 0; i < 13; i++) {
       if (i % 3 === 0) {
@@ -92,27 +91,19 @@ export const DatePicker: FC<DatePickerProps> = ({
     }
     setYearRange(yearaux + " - " + (yearaux + 11));
     //setMonthText("Hola")
-    console.log("estoy en getYears");
+    // console.log("estoy en getYears");
     setYears([...yearMatrix]);
   };
 
-  useEffect(() => {
-    setDaysInMonth([...getDaysInMonth(month, year)]);
-
-    let montht = new Date(year, month).toLocaleString("en-us", {
-      month: "long",
-    });
-    setMonthText(montht);
-  }, [month, year]);
 
   //change to previous month
   const prevMonth = () => {
     if (selectedOption === "") {
-      console.log("prev month");
+      // console.log("prev month");
       //change month to previous month0
       if (month === 0) {
         // setDate({month:11,year:year-1});
-        setMonth(11)
+        setMonth(11);
         setYear(year - 1);
       } else {
         setMonth(month - 1);
@@ -121,7 +112,7 @@ export const DatePicker: FC<DatePickerProps> = ({
     } else if (selectedOption === "year") {
       setYear(year - 10);
       // setDate({month:month,year:year-10});
-      
+
       getYears(year);
     }
   };
@@ -144,12 +135,9 @@ export const DatePicker: FC<DatePickerProps> = ({
       getYears(year);
       // setDate({month:month,year:year+10})
     }
-
   };
 
-  const addCircle = () => {
-    console.log(selectedDate);
-  };
+ 
   useEffect(() => {
     //if selected date is not equal to mm/dd/yyyy add class selected to the day
     if (selectedDate !== "mm/dd/yyyy") {
@@ -157,11 +145,26 @@ export const DatePicker: FC<DatePickerProps> = ({
       let day = document.querySelector(`.day[title="${selectedDate}"]`);
       if (day) {
         day.classList.add("selected");
-        console.log(day);
-        console.log(selectedDate);
+        // console.log(day);
+        // console.log(selectedDate);
       }
     }
   }, [selectedDate]);
+  
+  useEffect(() => {
+    if(month ===-1){
+      setMonthText("Invalid Date");
+    }else{
+      
+    setDaysInMonth([...getDaysInMonth(month, year)]);
+
+    let montht = new Date(year, month).toLocaleString("en-us", {
+      month: "long",
+    });
+    setMonthText(montht);
+    }
+  }, [month, year]);
+  
 
   const changeDateToday = () => {
     //set selected date to today
@@ -190,6 +193,10 @@ export const DatePicker: FC<DatePickerProps> = ({
     );
   };
 
+  const content=()=>{
+
+  }
+
   return (
     <div id="container-datepicker">
       <div className="container-datepicker-input">
@@ -201,26 +208,163 @@ export const DatePicker: FC<DatePickerProps> = ({
           onFocus={(e) => {
             setfocus(true);
           }}
+
+          // onChange={(e) => {
+          //   //in the input just allow to enter numbers and "/"
+          //   let value = e.target.value;
+          //   let newValue = "";
+          //   let num = 0;
+
+          //   let day ="";
+          //   let month ="";
+          //   let year ="";
+          //   let aux=""
+          //   let flag = false;
+
+          //   if(e.target.value.length < selectedDate.length){
+          //     flag = true;
+          //   }
+
+          //   for (let i = 0; i < value.length; i++) {
+          //     if (
+          //       value[i] === "/" ||
+          //       (value[i] >= "0" && value[i] <= "9")
+          //     ) {
+          //       if (value[i] >= "0" && value[i] <= "9"){
+          //         num++;
+                  
+          //         if(num<=2){
+          //           day += value[i];
+          //           console.log(day);
+          //         }
+
+          //         if(num<=4 && num>2){
+          //           month += value[i];
+          //           console.log(month);
+          //         }
+
+          //         if(num<=8 && num>4){
+          //           year += value[i];
+          //           console.log(year);
+          //         }
+          //       } 
+          //     }
+          //   }
+            
+          //   let count = (e.target.value.match(/\//g) || []).length;
+
+          //   console.log(count);
+
+          //   if (count === 2 ) {
+          //     setSelectedDate(day + "/" + month+"/"+year);  
+          // }}}
+
           onChange={(e) => {
-            //in the input just allow to enter numbers and "/"
-            let value = e.target.value;
-            let newValue = "";
-            for (let i = 0; i < value.length; i++) {
-              if (value[i] === "/" || (value[i] >= "0" && value[i] <= "9")) {
-                newValue += value[i];
+
+            let pos = e.target.selectionStart;
+            //set selected date to the input
+            if(e.target.value.search(/[a-zA-Z]/g) === -1){
+            if (e.target.value.length === 2 && e.target.value.search("/") === -1) {
+              
+              if (/^\d+$/.test(e.target.value[1])) {
+              
+                e.target.value = e.target.value + "/";
               }
             }
+            // console.log("\n/1:"+e.target.value.search("/"));
+            // console.log("\n/2:"+e.target.value.split("/", 2).join("/").length);
 
-            //count the amount of "/" in the input
+            if (e.target.value.length === 5  && e.target.value.split("/", 2).join("/").length===5) {
+              
+                e.target.value = e.target.value + "/";
+              
+            }
+            if(pos){
+              // console.log(pos);
+              if(e.target.value[pos] ==="/"&&pos!=1 && pos!=4){
+                // console.log("AAAA")
+                  e.target.setSelectionRange(
+                    pos+1,
+                    pos+1
+                  );
+                
+              }
+              if(e.target.value.length < selectedDate.length){
+                // console.log("delete:"+pos)
+              }
+            
+            
+          }
+            if (e.target.value.length <= 10) {
+              if (
+                e.target.value.search("/") === 3 &&
+                e.target.value.charAt(6) != "/"
+              ) {
+                e.target.setSelectionRange(4, 4);
+              } else if (e.target.value.charAt(6) === "/") {
+                // console.log("entro");
+                //delete number that is before the position
+                //e.target.value = e.target.value.slice(0, pos - 1) + e.target.value.slice(pos);
+                e.target.setSelectionRange(
+                  e.target.value.split("/", 2).join("/").length + 1,
+                  e.target.value.split("/", 2).join("/").length + 1
+                );
+              } else {
+                setSelectedDate(e.target.value);
+              }
+            }
+            if (e.target.value.length === 10) {
 
-            let count = (e.target.value.match(/\//g) || []).length;
-
-            console.log(count);
-
-            if (count === 2) {
-              setSelectedDate(e.target.value);
+              setSelectedOption("");
+              let date = e.target.value.split("/");
+              //check if the date is valid
+              if (
+                parseInt(date[0]) <= 12 &&
+                parseInt(date[1]) <= 31 
+              ) {
+              setMonth(parseInt(date[0]) - 1);
+              setYear(parseInt(date[2]));
+              // setDate({month:parseInt(date[0])-1,year:parseInt(date[2])});
+              setDaysInMonth([...getDaysInMonth(month, year)]);
+              setMonthText(
+                new Date(
+                  parseInt(date[2]),
+                  parseInt(date[0]) - 1
+                ).toLocaleString("en-us", {
+                  month: "long",
+                })
+              );
+            }else{
+              setMonthText("Invalid date");
+              // console.log(monthText);
+              setMonth(-1);
+            }
+          }
+          }
+        }
+        }
+          onKeyDown={(e) => {
+            if (e.keyCode === 8) {
+              let pos = e.currentTarget.selectionStart;
+              if(pos){
+                // console.log("pos:" + pos);
+                if(e.currentTarget.value[pos-1] ==="/"){
+                  // console.log("change:"+pos)
+                  e.currentTarget.setSelectionRange(pos - 1, pos - 1);
+                }
+                if(e.currentTarget.value[pos] ==="/"){
+                  // console.log("delete")
+                  if(e.currentTarget.value.length<4){
+                  e.currentTarget.value =
+                    e.currentTarget.value.slice(0, pos -1 ) +
+                    e.currentTarget.value.slice(pos);
+                  e.currentTarget.setSelectionRange(pos, pos);
+                  }
+                }
+              }
             }
           }}
+          
           value={selectedDate}
         />
       </div>
@@ -325,6 +469,7 @@ export const DatePicker: FC<DatePickerProps> = ({
                                 //   selected.classList.remove("selected");
                                 // }
                                 if (day != "") {
+
                                   setSelectedDate(
                                     (month + 1 < 10
                                       ? "0" + (month + 1)
@@ -377,6 +522,7 @@ export const DatePicker: FC<DatePickerProps> = ({
                                 setMonth(index2 + index * 3);
                                 // setDate({month: index2 + index * 3,year:year})
                                 setSelectedOption("year");
+                                getYears(year);
                               }}
                             >
                               {month}
