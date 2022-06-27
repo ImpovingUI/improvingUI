@@ -7,6 +7,7 @@ table {
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
+    background-color: white;
 }
 
 thead {
@@ -15,22 +16,17 @@ thead {
 }
 
 thead th {
-   background-color: $secondary;
+   background-color: $primary;
    color: white;
    font-size: 16px;
    font-weight: 400px;
    letter-spacing: 0.005em;
-   &:hover {
-     opacity: 80%;
-     cursor: pointer;
-   }
 }
 
 
 tbody tr {
     border: 1px solid $light;
     &:hover {
-        cursor: pointer;
         background-color: $pagination;
     }
 }

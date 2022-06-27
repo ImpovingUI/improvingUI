@@ -8,7 +8,7 @@ export interface InputProps {
     setInitialFilter: any
 }
 
-export const InputFilter: FC<InputProps> =({initial,setInitial, listRows, listColumns, setInitialFilter}) => {
+export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], listColumns=[], setInitialFilter}) => {
     const [filter, setFilter] = useState('');
     const [option, setOption] = useState('all');
     const [temp, setTemp] = useState([]);
@@ -55,15 +55,20 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows, listCo
 
     return(
         <div>
-            <input type = "text" value={filter} onChange={handleChange}/>
-            <select value={option} onChange={e => setOption(e.target.value)}>
-                <option value="all">All</option>
-                {listColumns.map((column: String, index: Number) => (
-                    <option value={Object.keys(listRows[0])[index]}>{column}</option>
-                ))
+            {listRows.length > 0
+                ?<div>
+                    <input type = "text" value={filter} onChange={handleChange}/>
+                    <select value={option} onChange={e => setOption(e.target.value)}>
+                        <option value="all">All</option>
+                        {listColumns.length > 0 && listColumns.map((column: String, index: Number) => (
+                            <option value={Object.keys(listRows[0])[index]}>{column}</option>
+                        ))
 
-                } 
-            </select> 
+                        } 
+                    </select> 
+                </div>
+                :null
+            }
         </div>
     )
 } 

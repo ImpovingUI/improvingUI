@@ -5,16 +5,16 @@ export interface TableProps {
     actions: boolean
 }
 
-export const TableHeader : FC<TableProps> = ({listColumns,actions}) => {
+export const TableHeader : FC<TableProps> = ({listColumns=[],actions}) => {
     
     return (
         <thead>
-            <tr>
-                {listColumns.map((value: String,index: Number) => (
-                    <th key={index+"a"}>{value}</th>
-                ))}
-                {actions && <th>Actions</th>}
-            </tr>
+                <tr>
+                    {listColumns.map((value: String,index: Number) => (
+                        <th key={index+"a"}>{value}</th>
+                    ))}
+                    {actions && <th>Actions</th>}
+                </tr>
         </thead>
     )
 };
