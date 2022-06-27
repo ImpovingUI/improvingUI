@@ -13,3 +13,7 @@ export interface ModalProps {
     show: boolean;
     children: JSX.Element;
 }
+
+export interface ModalPropsValidate {
+    size?: `${SizeEnum}`;
+}

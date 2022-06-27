@@ -2,6 +2,7 @@ import React, {FC, useState, useEffect} from 'react';
 import CloseIcon from '../Alert/icons/CloseIcon'
 import {ModalProps} from './Modal.interface';
 import './Modal.css'
+import { validateInitProps } from './validation';
 export const Modal: FC<ModalProps> = (
   {
     children,
@@ -26,29 +27,26 @@ export const Modal: FC<ModalProps> = (
       {
         open && (
           <div id="myModal" className="modal">
-            <div className="modal-content">
+            <div className = { `modal-content 
+                                ${validateInitProps({size})}
+                                `
+                             }
+            >
               <div id='header'>
-              <h2>{header}</h2>
-                 {/* <span className="close">&times;</span> */}
-                  <div onClick={closeModal}>
+                 <h2> { header } </h2>
+
+                  <div onClick={ closeModal } className='close-btn'>
                     <CloseIcon />
                   </div>
               </div>
+              
+              <div className='content-body-modal'>
 
-              {
-                children
-              }
-             
-                <div>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto omnis, a nesciunt iste voluptas tenetur perferendis illo impedit repudiandae neque magnam itaque fugit dolores labore eaque animi ipsam ad dicta.
-                </div>
-                <div>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto omnis, a nesciunt iste voluptas tenetur perferendis illo impedit repudiandae neque magnam itaque fugit dolores labore eaque animi ipsam ad dicta.
-                </div>
-                <div>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto omnis, a nesciunt iste voluptas tenetur perferendis illo impedit repudiandae neque magnam itaque fugit dolores labore eaque animi ipsam ad dicta.
-                </div>
-                
+                { 
+                    children 
+                }
+
+              </div>
             </div>
           </div>
         )
