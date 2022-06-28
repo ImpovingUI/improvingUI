@@ -5,10 +5,12 @@ export interface TableProps {
     actions: boolean
 }
 
+const name = 'Table';
+
 export const TableHeader : FC<TableProps> = ({listColumns=[],actions}) => {
     
     return (
-        <thead>
+        <thead className={`Thead-${name}`}>
                 <tr>
                     {listColumns.map((value: String,index: Number) => (
                         <th key={index+"a"}>{value}</th>

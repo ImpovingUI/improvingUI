@@ -1,4 +1,4 @@
-table {
+Table {
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
@@ -7,12 +7,12 @@ table {
   background-color: white;
 }
 
-thead {
+.Thead-Table {
   opacity: 100%;
   height: 41px;
 }
 
-thead th {
+.Thead-Table th {
   background-color: #005596;
   color: white;
   font-size: 16px;
@@ -20,14 +20,14 @@ thead th {
   letter-spacing: 0.005em;
 }
 
-tbody tr {
+.Tbody-Table tr {
   border: 1px solid #F8F9FA;
 }
-tbody tr:hover {
+.Tbody-Table tr:hover {
   background-color: #D7D7D7;
 }
 
-td {
+.Td-Table {
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -35,7 +35,7 @@ td {
   width: 200px;
 }
 
-input {
+.input-Table {
   border-radius: 5px;
   border: solid 1px #A7A8A9;
   margin-bottom: 15px;
@@ -46,7 +46,7 @@ input {
   padding: 1px 8px;
 }
 
-select {
+.select-Table {
   border-radius: 5px;
   border: solid 1px #A7A8A9;
   margin-bottom: 15px;
@@ -58,7 +58,7 @@ select {
   margin-left: 5px;
 }
 
-.containerPagin {
+.containerPagin-Table {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -72,7 +72,7 @@ select {
   border-radius: 0px 0px 10px 10px;
 }
 
-.containerPagin div {
+.containerPagin-Table div {
   width: 30%;
   padding: 8px 24px;
   gap: 16px;
@@ -81,19 +81,19 @@ select {
   align-items: center;
 }
 
-.containerPagin div:last-child {
+.containerPagin-Table div:last-child {
   width: 10%;
 }
 
-.btn-direction {
+.btn-direction-Table {
   background: none;
   border: none;
 }
-.btn-direction:hover {
+.btn-direction-Table:hover {
   cursor: pointer;
 }
 
-.selectPage {
+.selectPage-Table {
   background-color: #D7D7D7;
   border: none;
   width: 50%;
