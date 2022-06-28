@@ -1,5 +1,4 @@
 import React, { Children, FC } from "react";
-// import {validationVariant,validationSize,validationColor} from './validation'
 import './Li.css'
 
 export interface LiProps {

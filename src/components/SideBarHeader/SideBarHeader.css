@@ -112,6 +112,7 @@ body {
   min-width: 300px;
   flex-grow: 1;
   overflow-y: auto;
+  padding: 20px;
 }
 
 .legend-nav-container-SideBarHeader {
