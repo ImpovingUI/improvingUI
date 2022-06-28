@@ -24,6 +24,7 @@ export const Modal: FC<ModalProps> = (
 
   return (
     <div>
+      
       {
         open && (
           <div id="myModal" className="modal">
