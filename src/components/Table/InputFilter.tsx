@@ -5,10 +5,11 @@ export interface InputProps {
     setInitial?: any,
     listRows?: Object[],
     listColumns: any,
-    setInitialFilter: any
+    setInitialFilter: any,
+    listIndex: any
 }
 
-export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], listColumns=[], setInitialFilter}) => {
+export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], listColumns=[], setInitialFilter, listIndex=[]}) => {
     const [filter, setFilter] = useState('');
     const [option, setOption] = useState('all');
     const [temp, setTemp] = useState([]);
@@ -27,8 +28,7 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
                 const filteredRows = listRows.filter((row:Object)=> {
                     let values = Object.values(row);
                     for(let i = 0; i < values.length; i++){
-
-                        if(values[i].toString().toLowerCase().includes(e.target.value.toLowerCase())){
+                        if(listIndex.some((element:number) => element !== i) && values[i].toString().toLowerCase().includes(e.target.value.toLowerCase())){
                             return true;
                         }
                         
@@ -41,7 +41,7 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
                 const filteredRows = listRows.filter((row: Object) => {
                     const data = row[option];
 
-                    if(data.toString().toLowerCase().includes(e.target.value.toLowerCase())){
+                    if( data.toString().toLowerCase().includes(e.target.value.toLowerCase())){
                         return true;
                     }
                     

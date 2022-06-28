@@ -16,8 +16,9 @@ export default {
 
   const Template: ComponentStory<typeof Table> = (args) => 
     <Table
-        listColumns={["Nomber","Apellido","Ciudad","Estado","Telefono"]}
+        listColumns={["Name","Last Name","City","State","Phone"]}
         listRows = {ejemplo.datos}
+        listIndex = {[0]}
         {
             ...args
         }
