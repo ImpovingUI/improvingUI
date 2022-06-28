@@ -1,6 +1,6 @@
 
 import React, { FC } from "react";
-import {validationType,validationVariant} from './validation'
+import {validationType,validationVariant, validationColor} from './validation'
 import './Input.css'
 
 export interface ButtonProps {
@@ -9,18 +9,20 @@ export interface ButtonProps {
   className?:string;
   width ? :number;
   type ?: 'email'|'password'|'text';
+  color : 'primary'| 'success'| 'warning' | 'danger';
   label?:string;
   variant?:'outlined'|'filled'| 'underlined';
   value?:string;
 }
 
-const name= 'Input'
+const name = 'Input'
 
-export const Input : FC<ButtonProps> = ({variant="outlined", fullWidth, disabled,className,type="text",...props}) => {
+export const Input : FC<ButtonProps> = ({variant="outlined", fullWidth, disabled,className, color, type="text",...props}) => {
   const [state, setState] = React.useState('notFocused');
   const [value, setValue] = React.useState('');
   const[flag, setFlag] = React.useState(false);
   const [inputType, setinputType] = React.useState('');
+  const colors = {primary:'005596', success:'5BC2A7' , warning:'FFBB41' , danger:'DC3545'}
 
   React.useEffect(()=>{
     if(type === 'password'){
@@ -58,16 +60,17 @@ export const Input : FC<ButtonProps> = ({variant="outlined", fullWidth, disabled
   return( 
     <div className="inputContainer">
       <label className={state}>{props.label}</label>
-      <input type={inputType} disabled={disabled}  onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange}
+      <input type={inputType} disabled={disabled} color={color} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange}
         className={`default ${fullWidth ? 'fullWidth':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
 
       ${validationType(type)} 
       ${validationVariant(variant)}
+      ${validationColor(color)}
       ${className}`} 
-
+      
       {...props}/>
       {flag
-      ?<button><img src="https://img.icons8.com/ios-glyphs/30/000000/show-password.png" alt="eye"   
+      ?<button><img src={`https://img.icons8.com/ios-glyphs/30/${colors[color]}/show-password.png`} alt="eye"   
           onClick={handleClick}
         /></button>
       :<></>
