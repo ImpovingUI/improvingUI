@@ -5,7 +5,7 @@ import {fireEvent, screen, userEvent } from '@storybook/testing-library';
 import '../css/main.css'
 import  {SideBarHeader} from './SideBarHeader';
 import { Button } from '../Button';
-import { Li } from '../Li';
+import { LiRouter } from '../LiRouter';
 
 export default {
   title: 'ReactComponentLibrary/SideBarHeader',
@@ -36,16 +36,16 @@ export const storySideBarHeader = TemplateSideBarHeader.bind({});
     infoNav: 'Bienvenida Monica',
     links:<>
       <a>
-        <Li icon='🔗' text='link 200' className='active-Li' />
+        <LiRouter icon='🔗' text='link 200' className='active-Li' />
       </a>
       <a>
-        <Li icon='🔗' text='link 200' className='active-Li' />
+        <LiRouter icon='🔗' text='link 200' className='active-Li' />
       </a>
       <a>
-        <Li icon='🔗' text='link 200' className='active-Li' />
+        <LiRouter icon='🔗' text='link 200' className='active-Li' />
       </a>
       <a>
-        <Li icon='🔗' text='link 200' className='active-Li' />
+        <LiRouter icon='🔗' text='link 200' className='active-Li' />
       </a>
     </> 
     
