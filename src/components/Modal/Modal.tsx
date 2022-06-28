@@ -1,4 +1,4 @@
-import React, {FC, useState, useEffect} from 'react';
+import React, {FC, useState, useEffect, useLayoutEffect, useRef} from 'react';
 import CloseIcon from '../Alert/icons/CloseIcon'
 import {ModalProps} from './Modal.interface';
 import './Modal.css'
@@ -14,13 +14,16 @@ export const Modal: FC<ModalProps> = (
 ) => {
 
   const [open, setOpen] = useState(show);
+  const modalRef = React.useRef<HTMLDivElement>(null);
   const closeModal = () => {
     setOpen(false )
   }
 
   useEffect(() => {
     setOpen(show)
-  }, [show])
+  }, [show]);
+
+  
 
   return (
     <div>
@@ -28,7 +31,7 @@ export const Modal: FC<ModalProps> = (
       {
         open && (
           <div id="myModal" className="modal">
-            <div className = { `modal-content 
+            <div className = { `modal-content            
                                 ${validateInitProps({size})}
                                 `
                              }
