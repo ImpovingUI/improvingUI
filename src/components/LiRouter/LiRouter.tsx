@@ -1,5 +1,5 @@
 import React, { Children, FC } from "react";
-import './Li.css'
+import './LiRouter.css'
 
 export interface LiProps {
     icon?: string;
@@ -7,9 +7,9 @@ export interface LiProps {
     className?: string;
 }
 
-const name = 'Li'
+const name:string = 'LiRouter'
 
-export const Li : FC<LiProps> = ({className,icon,text='text', ...props}) => {
+export const LiRouter : FC<LiProps> = ({className,icon,text='text', ...props}) => {
   return( 
     <li className={`default-${name} ${className}`}>
       <div><span>{icon}</span> {text}</div>
