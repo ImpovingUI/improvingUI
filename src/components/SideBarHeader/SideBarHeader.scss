@@ -1,0 +1,167 @@
+//utils
+@import '../css/utils/variables';
+@import './utils/mixins';
+
+$class-name:'SideBarHeader';
+$height-nav:50px;
+$width-side:300px;
+$height-li:45px;
+
+body{
+    background-color: rgb(250 250 250);
+    overflow-y: hidden;
+}
+
+.header-#{$class-name}{
+    width: 100%;
+    min-width: $min-w;
+    height: $height-nav;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    z-index: 9999;
+    background-color: $white;
+    color: $dark;
+    transition:600ms box-shadow ease-in-out;
+    box-shadow: rgba(99, 99, 99, 0.2) 302px 2px 8px 0px;
+    &.close-header-#{$class-name}{
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+}
+
+.side-nav-#{$class-name}{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.icon-#{$class-name}{
+    margin-right: 16px;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-hover;
+    &:hover{
+        background-color: $primary;
+        color: $white;
+    }
+}
+
+.container-#{$class-name}{
+    padding-top: $height-nav;
+    display: flex;
+    flex-direction: row;
+    min-width: $min-w + $width-side;
+    width: 100vw;
+    transition: transform 600ms ease-in-out, width 600ms ease-in-out;
+    background-color: rgb(250 250 250);
+    &.close-container-#{$class-name}{
+        transform:translate(-300px);
+        width: calc(100vw + $width-side);
+    }
+}
+
+.sidebar-#{$class-name}{
+    width: $width-side;
+    height: calc(100vh - $height-nav);
+    transition: width 600ms ease-in-out, transform 600ms ease-in-out;
+    transform: translate(0px);
+    position: sticky;
+    top:$height-nav;
+    box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+    .line-#{$class-name} {
+        position: relative;
+        top:-19px;
+        width: 90%;
+        border-top: 1px solid rgb(210 210 210);
+    }
+    .links-#{$class-name}{
+        width: 100%;
+        background-color: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        a{
+            text-decoration: none;
+            color: $dark;
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.25rem;
+            overflow: hidden;
+            &.active-a{
+                border-left: 5px solid $primary;
+                background-color: $primary-hover;
+                color: $primary;
+                height: $height-li;
+            }
+        }
+    }
+}
+
+.main-#{$class-name}{
+    width: calc(100vw - $width-side); //last
+    max-height: calc(100vh - $height-nav); //last
+    background-color: rgb(250 250 250);
+    color:black;
+    min-width: $min-w;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.legend-nav-container-#{$class-name}{
+    width: $width-side;
+    height: $height-nav;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $dark;
+    @media screen and (max-width: $md) {
+        &{
+            width: 40px;
+            margin-left: 20px;
+            border-bottom: none;
+        }
+    }
+}
+
+.legend-nav-#{$class-name}{
+    margin-left: 20px;
+    width: 200px;
+    font-weight: 700;
+    @media screen and (max-width: $md) {
+        &{
+            display: none;
+        }
+    }
+}
+
+.nav-container-#{$class-name}{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+    width: calc(100vw - $width-side);
+    min-width: $min-w;
+    @media screen and (max-width: $md) {
+        &{
+            width: 100%;
+            margin-left: 20px;
+            padding: 0px 10px;
+        }
+    }
+}
+
