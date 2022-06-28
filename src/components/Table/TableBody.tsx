@@ -1,37 +1,39 @@
 import React, {FC} from 'react';
 
 export interface TableProps {
-    listRows: any,
+    listRows: Object[],
     actions: any,
     listColumns: any,
     listIndex: any
 }
 
-export const TableBody : FC<TableProps> = ({listRows,actions, listColumns,listIndex=[]}) => {
+const name = 'Table';
+
+export const TableBody : FC<TableProps> = ({listRows=[],actions, listColumns,listIndex=[]}) => {
     return (
-        <tbody>
+        <tbody className={`Tbody-${name}`}>
             {listRows.length > 0
-                ?listRows.map((value: Object, index: number)=>(
+                ?listRows.map((value: any, index: number)=>(
                 <tr key={index+'a'}>
                     {listIndex.length === 0
                         ?Object.values(value).map((data: any, index1: number)=>(
-                        <td key={index1 + data}>
+                        <td key={index1 + data} className={`Td-${name}`}>
                             {data}
                         </td>
                     ))
                     :Object.values(value).map((data: any, index1: number)=>(
                         listIndex.some((element:number) => element === index1)
                         ?null
-                        :<td key={index1 + data}>
+                        :<td key={index1 + data} className={`Td-${name}`}>
                                 {data}
                         </td>
                     ))
                     }
                     {actions
                         ?
-                        <td>
+                        <td className={`Td-${name}`}>
                             {actions.map((action: JSX.Element) => (
-                                React.cloneElement(action,{onClick: () => {action.props.onClick &&action.props.onClick(1)}})
+                                React.cloneElement(action,{key:action.props.onClick &&action.props.onClick(value[Object.keys(value)[0]]), onClick: () => {action.props.onClick &&action.props.onClick(value[Object.keys(value)[0]])}})
                             ))}
                         </td>
                         :null
@@ -39,7 +41,7 @@ export const TableBody : FC<TableProps> = ({listRows,actions, listColumns,listIn
                 </tr>
             ))
                 :<tr>
-                    <td colSpan={listColumns.length}>No hay datos</td>
+                    <td className={`Td-${name}`} colSpan={listColumns.length}>No hay datos</td>
                 </tr>
             }
         </tbody>

@@ -9,9 +9,11 @@ export interface InputProps {
     listIndex: any
 }
 
+const name = 'Table';
+
 export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], listColumns=[], setInitialFilter, listIndex=[]}) => {
     const [filter, setFilter] = useState('');
-    const [option, setOption] = useState('all');
+    const [option, setOption] = useState<string>('all');
     const [temp, setTemp] = useState([]);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +30,7 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
                 const filteredRows = listRows.filter((row:Object)=> {
                     let values = Object.values(row);
                     for(let i = 0; i < values.length; i++){
-                        if(listIndex.some((element:number) => element !== i) && values[i].toString().toLowerCase().includes(e.target.value.toLowerCase())){
+                        if((listIndex.length === 0 || listIndex.some((element:number) => element !== i)) && values[i].toString().toLowerCase().includes(e.target.value.toLowerCase())){
                             return true;
                         }
                         
@@ -38,7 +40,7 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
                 setInitialFilter(filteredRows);
                 setInitial(filteredRows);
             }else{
-                const filteredRows = listRows.filter((row: Object) => {
+                const filteredRows = listRows.filter((row: any) => {
                     const data = row[option];
 
                     if( data.toString().toLowerCase().includes(e.target.value.toLowerCase())){
@@ -57,11 +59,11 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
         <div>
             {listRows.length > 0
                 ?<div>
-                    <input type = "text" value={filter} onChange={handleChange}/>
-                    <select value={option} onChange={e => setOption(e.target.value)}>
+                    <input className={`input-${name}`} type = "text" value={filter} onChange={handleChange}/>
+                    <select className={`select-${name}`} value={option} onChange={e => setOption(e.target.value)}>
                         <option value="all">All</option>
-                        {listColumns.length > 0 && listColumns.map((column: String, index: Number) => (
-                            <option value={Object.keys(listRows[0])[index]}>{column}</option>
+                        {listColumns.length > 0 && listColumns.map((column: String, index: number) => (
+                            <option key={Object.keys(listRows[0])[index]} value={Object.keys(listRows[0])[index]}>{column}</option>
                         ))
 
                         } 

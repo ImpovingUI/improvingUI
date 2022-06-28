@@ -18,7 +18,7 @@ export default {
     <Table
         listColumns={["Name","Last Name","City","State","Phone"]}
         listRows = {ejemplo.datos}
-        listIndex = {[0]}
+        actions={[<Button label="hola"/>]}
         {
             ...args
         }

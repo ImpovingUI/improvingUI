@@ -5,8 +5,10 @@ import './Table.css'
 export interface PaginationProps {
     initial: any,
     setInitial: any,
-    listRows: any
+    listRows: any,
 }
+
+const name = 'Table';
 
 export const Pagination : FC<PaginationProps> = ({initial, setInitial,listRows}) => {
     const [pagination, setPagination] =  useState<number>(5);
@@ -15,6 +17,7 @@ export const Pagination : FC<PaginationProps> = ({initial, setInitial,listRows})
 
     useEffect(() => {
         const result = listRows.length/pagination;
+        console.log(result);
         if(!Number.isInteger(result)){
             setPage(0);
             setPages(Math.ceil(result)); //Aportación de Mayte
@@ -50,9 +53,9 @@ export const Pagination : FC<PaginationProps> = ({initial, setInitial,listRows})
             setPage(page-1);
     }
     return (
-        <div className='containerPagin'>
+        <div className={`containerPagin-${name}`}>
             <div>
-                <select value={pagination} className={"selectPage"} onChange={(e: any) => setPagination(e.target.value)}>
+                <select value={pagination} className={`selectPage-${name}`} onChange={(e: any) => setPagination(e.target.value)}>
                     <option value={5}>Items per page: 5</option>
                     <option value={10}>Items per page: 10</option>
                     <option value={50}>Items per page: 50</option>
@@ -62,8 +65,8 @@ export const Pagination : FC<PaginationProps> = ({initial, setInitial,listRows})
             <div>{(page*pagination)+1}-{(pagination*(page+1))<listRows.length ?pagination*(page+1) :listRows.length} of {listRows.length} items</div>
             <div>{page+1} of {pages} pages</div>
             <div>
-                <button className='btn-direction' onClick={decrease}>◄</button>
-                <button className='btn-direction' onClick={increase}>►</button>
+                <button className={`btn-direction-${name}`} onClick={decrease}>◄</button>
+                <button className={`btn-direction-${name}`} onClick={increase}>►</button>
             </div>
         </div>
     )

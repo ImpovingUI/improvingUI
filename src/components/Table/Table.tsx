@@ -1,10 +1,10 @@
-import React, {FC, useState, useEffect} from 'react';
+import React, {FC, useState, useLayoutEffect} from 'react';
 import './Table.css'
 import { InputFilter } from './InputFilter';
 import { Pagination } from './Pagination';
 import { TableHeader } from './TableHeader';
 import { TableBody } from './TableBody';
-import { validationColumn, validationIndex } from './validations';
+import { validationColumn, validationIndex, validationRow, validationAction } from './validations';
 
 export interface TableProps {
     filter?: Boolean,
@@ -15,30 +15,36 @@ export interface TableProps {
     actions?: JSX.Element[] 
 }
 
-export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], listRows,actions, listIndex=[]}) => {
+export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], listRows=[],actions=[], listIndex=[]}) => {
     const [initial, setInitial] = useState(listRows);
     const [initialFilter, setInitiailFilter] = useState(listRows);
     const [initialColumns, setInitialColumns] = useState<String[]>([])
     const [initialIndex, setInitialIndex] = useState<Number[]>([])
+    const [initialActions, setInitialActions] = useState<JSX.Element[]>();
+    const [initialRows, setInitialRows] = useState<Object[]>([]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const columns = validationColumn(listColumns);
         const indexs = validationIndex(listIndex);
+        const rows = validationRow(listRows);
+        const acts = validationAction(actions);
         setInitialColumns(columns);
         setInitialIndex(indexs);
+        setInitialRows(rows);
+        setInitialActions(acts);
     },[])
 
     return (
         <div>
-            {filter && <InputFilter initial={initial} setInitial={setInitial} listRows={listRows} listColumns={listColumns} setInitialFilter={setInitiailFilter} listIndex={initialIndex}/>}
-            <table>
+            {filter && <InputFilter initial={initial} setInitial={setInitial} listRows={initialRows} listColumns={listColumns} setInitialFilter={setInitiailFilter} listIndex={initialIndex}/>}
+            <table className='Table'>
                 <TableHeader
                     listColumns={initialColumns}
                     actions={actions ?true :false}
                 />
                 <TableBody
                     listRows={initial}
-                    actions={actions}
+                    actions={initialActions}
                     listColumns={listColumns}
                     listIndex={initialIndex}
                 />
