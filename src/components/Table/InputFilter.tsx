@@ -38,7 +38,7 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
                 setInitialFilter(filteredRows);
                 setInitial(filteredRows);
             }else{
-                const filteredRows = listRows.filter((row: Object) => {
+                const filteredRows = listRows.filter((row: any) => {
                     const data = row[option];
 
                     if( data.toString().toLowerCase().includes(e.target.value.toLowerCase())){
@@ -60,7 +60,7 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
                     <input type = "text" value={filter} onChange={handleChange}/>
                     <select value={option} onChange={e => setOption(e.target.value)}>
                         <option value="all">All</option>
-                        {listColumns.length > 0 && listColumns.map((column: String, index: Number) => (
+                        {listColumns.length > 0 && listColumns.map((column: string, index: number) => (
                             <option value={Object.keys(listRows[0])[index]}>{column}</option>
                         ))
 

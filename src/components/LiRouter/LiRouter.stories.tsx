@@ -1,18 +1,17 @@
 import React,{useState} from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {fireEvent, screen, userEvent } from '@storybook/testing-library';
-
-import  {Li} from './Li';
+import  {LiRouter} from './LiRouter';
 
 export default {
   title: 'ReactComponentLibrary/Li',
-  component: Li,
+  component: LiRouter,
   argTypes: {
     onClick: {action: 'clicked'},
   }
-} as ComponentMeta<typeof Li>;
+} as ComponentMeta<typeof LiRouter>;
 
-const TemplateLi: ComponentStory<typeof Li> = (args) => <Li {...args}/>;
+const TemplateLi: ComponentStory<typeof LiRouter> = (args) => <LiRouter {...args}/>;
 
 
 export const storyLi = TemplateLi.bind({});
