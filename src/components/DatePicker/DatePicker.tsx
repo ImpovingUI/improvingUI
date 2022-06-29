@@ -2,6 +2,7 @@ import React, { FC, useEffect } from "react";
 import { validationColor } from "./validation";
 import "./DatePicker.css";
 import Month from "./components/Month";
+import { getByTitle } from "@storybook/testing-library";
 const arrowleft = require("./assets/icons/arrowleft.svg");
 const arrowright = require("./assets/icons/arrowright.svg");
 
@@ -15,11 +16,15 @@ export interface DatePickerProps {
     | "info"
     | "warning"
     | "danger";
+  blockedDates?: string[];
+  value: string;
 }
 
 export const DatePicker: FC<DatePickerProps> = ({
   color = "primary",
   className,
+  blockedDates = [],
+  value,
   ...props
 }) => {
   //set state month and year
@@ -95,7 +100,6 @@ export const DatePicker: FC<DatePickerProps> = ({
     setYears([...yearMatrix]);
   };
 
-
   //change to previous month
   const prevMonth = () => {
     if (selectedOption === "") {
@@ -137,7 +141,6 @@ export const DatePicker: FC<DatePickerProps> = ({
     }
   };
 
- 
   useEffect(() => {
     //if selected date is not equal to mm/dd/yyyy add class selected to the day
     if (selectedDate !== "mm/dd/yyyy") {
@@ -149,22 +152,22 @@ export const DatePicker: FC<DatePickerProps> = ({
         // console.log(selectedDate);
       }
     }
+    value = selectedDate;
+    console.log(value);
   }, [selectedDate]);
-  
-  useEffect(() => {
-    if(month ===-1){
-      setMonthText("Invalid Date");
-    }else{
-      
-    setDaysInMonth([...getDaysInMonth(month, year)]);
 
-    let montht = new Date(year, month).toLocaleString("en-us", {
-      month: "long",
-    });
-    setMonthText(montht);
+  useEffect(() => {
+    if (month === -1) {
+      setMonthText("Invalid Date");
+    } else {
+      setDaysInMonth([...getDaysInMonth(month, year)]);
+
+      let montht = new Date(year, month).toLocaleString("en-us", {
+        month: "long",
+      });
+      setMonthText(montht);
     }
   }, [month, year]);
-  
 
   const changeDateToday = () => {
     //set selected date to today
@@ -193,9 +196,212 @@ export const DatePicker: FC<DatePickerProps> = ({
     );
   };
 
-  const content=()=>{
+  const content = () => {
+    blockedDates = ["06/10/2022", "06/15/2022"];
+    return (
+      <>
+        {daysInMonth.map((day, index) => {
+          return (
+            <tr key={index}>
+              {day.map((day, index) => {
+                let content =
+                  (month + 1 < 10 ? "0" + (month + 1) : month + 1) +
+                  "/" +
+                  (day.length < 2 ? "0" + day : day) +
+                  "/" +
+                  year;
+                return (
+                  //if content is in blockedDates, add class blocked
+                  //extract waht is inside blockedDates json
 
-  }
+                  !blockedDates.includes(content) ? (
+                    <td
+                      key={index}
+                      title={content}
+                      //if selected date is equal to the title of the day add class selected
+                      className={selectedDate === content ? "selected" : ""}
+                      // if click on day, set selectedDate to title of td
+                      onClick={() => {
+                        if (day != "") {
+                          setSelectedDate(content);
+                        }
+                      }}
+                    >
+                      {day}
+                    </td>
+                  ) : (
+                    <td key={index} title={content} className="blocked">
+                      {day}
+                    </td>
+                  )
+                );
+              })}
+            </tr>
+          );
+        })}
+        <tr className="todayButton">
+          <td colSpan={7} onClick={changeDateToday}>
+            Today
+          </td>
+        </tr>
+      </>
+    );
+  };
+
+  const showYear = () => {
+    return (
+      <div className="years">
+        <table>
+          <tbody>
+            {years.map((i, index) => {
+              return (
+                <tr key={index}>
+                  {i.map((year, index2) => {
+                    return (
+                      <td
+                        key={index2 * index}
+                        onClick={() => {
+                          setYear(year);
+                          // setDate({month:month,year:year})
+                          setSelectedOption("");
+                        }}
+                      >
+                        {year}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    );
+  };
+
+  const contentMonth = () => {
+    return (
+      <>
+        {months.map((month, index) => {
+          return (
+            <tr key={index}>
+              {month.map((month, index2) => {
+                return (
+                  <td
+                    key={index2 * index}
+                    title={month}
+                    // className={
+                    //   selectedMonth === month
+                    //     ? "selected"
+                    //     : ""
+                    // }
+                    onClick={() => {
+                      setMonth(index2 + index * 3);
+                      // setDate({month: index2 + index * 3,year:year})
+                      setSelectedOption("year");
+                      getYears(year);
+                    }}
+                  >
+                    {month}
+                  </td>
+                );
+              })}
+            </tr>
+          );
+        })}
+      </>
+    );
+  };
+
+  const onChangeHandler = (e: any) => {
+    let pos = e.target.selectionStart;
+    //set selected date to the input
+    // if (e.target.value.search(/[a-zA-Z]/g) === -1) {
+
+    if (e.target.value.length === 2 && e.target.value.search("/") === -1) {
+      e.target.value = e.target.value + "/";
+    }
+
+    if (
+      e.target.value.length === 5 &&
+      e.target.value.split("/", 2).join("/").length === 5
+    ) {
+      e.target.value = e.target.value + "/";
+    }
+    if (pos) {
+      // console.log(pos);
+      if (e.target.value[pos] === "/" && pos != 1 && pos != 4) {
+        // console.log("AAAA")
+        e.target.setSelectionRange(pos + 1, pos + 1);
+      }
+      if (e.target.value.length < selectedDate.length) {
+        // console.log("delete:"+pos)
+      }
+    }
+    if (e.target.value.length <= 10) {
+      if (e.target.value.search("/") === 3 && e.target.value.charAt(6) != "/") {
+        e.target.setSelectionRange(4, 4);
+      } else if (e.target.value.charAt(6) === "/") {
+        e.target.setSelectionRange(
+          e.target.value.split("/", 2).join("/").length + 1,
+          e.target.value.split("/", 2).join("/").length + 1
+        );
+      } else {
+        if (e.target.value.search(/[a-zA-Z]/g) === -1) {
+          setSelectedDate(e.target.value);
+        }
+      }
+    }
+    if (e.target.value.length === 10) {
+      setSelectedOption("");
+      let date = e.target.value.split("/");
+      //check if the date is valid
+      if (
+        parseInt(date[0]) <= 12 &&
+        parseInt(date[1]) <= 31 &&
+        parseInt(date[1]) > 0
+      ) {
+        setMonth(parseInt(date[0]) - 1);
+        setYear(parseInt(date[2]));
+        // setDate({month:parseInt(date[0])-1,year:parseInt(date[2])});
+        setDaysInMonth([...getDaysInMonth(month, year)]);
+        setMonthText(
+          new Date(parseInt(date[2]), parseInt(date[0]) - 1).toLocaleString(
+            "en-us",
+            {
+              month: "long",
+            }
+          )
+        );
+      } else {
+        setMonthText("Invalid date");
+        // console.log(monthText);
+        setMonth(-1);
+      }
+    }
+    // }
+  };
+  const onKeyDownHandler = (e: any) => {
+    if (e.keyCode === 8) {
+      let pos = e.currentTarget.selectionStart;
+      if (pos) {
+        // console.log("pos:" + pos);
+        if (e.currentTarget.value[pos - 1] === "/") {
+          // console.log("change:"+pos)
+          e.currentTarget.setSelectionRange(pos - 1, pos - 1);
+        }
+        if (e.currentTarget.value[pos] === "/") {
+          // console.log("delete")
+          if (e.currentTarget.value.length < 4) {
+            e.currentTarget.value =
+              e.currentTarget.value.slice(0, pos - 1) +
+              e.currentTarget.value.slice(pos);
+            e.currentTarget.setSelectionRange(pos, pos);
+          }
+        }
+      }
+    }
+  };
 
   return (
     <div id="container-datepicker">
@@ -208,169 +414,16 @@ export const DatePicker: FC<DatePickerProps> = ({
           onFocus={(e) => {
             setfocus(true);
           }}
-
-          // onChange={(e) => {
-          //   //in the input just allow to enter numbers and "/"
-          //   let value = e.target.value;
-          //   let newValue = "";
-          //   let num = 0;
-
-          //   let day ="";
-          //   let month ="";
-          //   let year ="";
-          //   let aux=""
-          //   let flag = false;
-
-          //   if(e.target.value.length < selectedDate.length){
-          //     flag = true;
-          //   }
-
-          //   for (let i = 0; i < value.length; i++) {
-          //     if (
-          //       value[i] === "/" ||
-          //       (value[i] >= "0" && value[i] <= "9")
-          //     ) {
-          //       if (value[i] >= "0" && value[i] <= "9"){
-          //         num++;
-                  
-          //         if(num<=2){
-          //           day += value[i];
-          //           console.log(day);
-          //         }
-
-          //         if(num<=4 && num>2){
-          //           month += value[i];
-          //           console.log(month);
-          //         }
-
-          //         if(num<=8 && num>4){
-          //           year += value[i];
-          //           console.log(year);
-          //         }
-          //       } 
-          //     }
-          //   }
-            
-          //   let count = (e.target.value.match(/\//g) || []).length;
-
-          //   console.log(count);
-
-          //   if (count === 2 ) {
-          //     setSelectedDate(day + "/" + month+"/"+year);  
-          // }}}
-
-          onChange={(e) => {
-
-            let pos = e.target.selectionStart;
-            //set selected date to the input
-            if(e.target.value.search(/[a-zA-Z]/g) === -1){
-            if (e.target.value.length === 2 && e.target.value.search("/") === -1) {
-              
-              if (/^\d+$/.test(e.target.value[1])) {
-              
-                e.target.value = e.target.value + "/";
-              }
-            }
-            // console.log("\n/1:"+e.target.value.search("/"));
-            // console.log("\n/2:"+e.target.value.split("/", 2).join("/").length);
-
-            if (e.target.value.length === 5  && e.target.value.split("/", 2).join("/").length===5) {
-              
-                e.target.value = e.target.value + "/";
-              
-            }
-            if(pos){
-              // console.log(pos);
-              if(e.target.value[pos] ==="/"&&pos!=1 && pos!=4){
-                // console.log("AAAA")
-                  e.target.setSelectionRange(
-                    pos+1,
-                    pos+1
-                  );
-                
-              }
-              if(e.target.value.length < selectedDate.length){
-                // console.log("delete:"+pos)
-              }
-            
-            
-          }
-            if (e.target.value.length <= 10) {
-              if (
-                e.target.value.search("/") === 3 &&
-                e.target.value.charAt(6) != "/"
-              ) {
-                e.target.setSelectionRange(4, 4);
-              } else if (e.target.value.charAt(6) === "/") {
-                // console.log("entro");
-                //delete number that is before the position
-                //e.target.value = e.target.value.slice(0, pos - 1) + e.target.value.slice(pos);
-                e.target.setSelectionRange(
-                  e.target.value.split("/", 2).join("/").length + 1,
-                  e.target.value.split("/", 2).join("/").length + 1
-                );
-              } else {
-                setSelectedDate(e.target.value);
-              }
-            }
-            if (e.target.value.length === 10) {
-
-              setSelectedOption("");
-              let date = e.target.value.split("/");
-              //check if the date is valid
-              if (
-                parseInt(date[0]) <= 12 &&
-                parseInt(date[1]) <= 31 
-              ) {
-              setMonth(parseInt(date[0]) - 1);
-              setYear(parseInt(date[2]));
-              // setDate({month:parseInt(date[0])-1,year:parseInt(date[2])});
-              setDaysInMonth([...getDaysInMonth(month, year)]);
-              setMonthText(
-                new Date(
-                  parseInt(date[2]),
-                  parseInt(date[0]) - 1
-                ).toLocaleString("en-us", {
-                  month: "long",
-                })
-              );
-            }else{
-              setMonthText("Invalid date");
-              // console.log(monthText);
-              setMonth(-1);
-            }
-          }
-          }
-        }
-        }
-          onKeyDown={(e) => {
-            if (e.keyCode === 8) {
-              let pos = e.currentTarget.selectionStart;
-              if(pos){
-                // console.log("pos:" + pos);
-                if(e.currentTarget.value[pos-1] ==="/"){
-                  // console.log("change:"+pos)
-                  e.currentTarget.setSelectionRange(pos - 1, pos - 1);
-                }
-                if(e.currentTarget.value[pos] ==="/"){
-                  // console.log("delete")
-                  if(e.currentTarget.value.length<4){
-                  e.currentTarget.value =
-                    e.currentTarget.value.slice(0, pos -1 ) +
-                    e.currentTarget.value.slice(pos);
-                  e.currentTarget.setSelectionRange(pos, pos);
-                  }
-                }
-              }
-            }
-          }}
-          
+          onChange={onChangeHandler}
+          onKeyDown={onKeyDownHandler}
           value={selectedDate}
         />
       </div>
       {focus || focusTable ? (
         <div
-          className={`container-picker ${validationColor(color)} ${className}`}
+          className={`container-picker ${validationColor(
+            color
+          )} ${className} ${blockedDates} ${value}`}
           {...props}
           onFocus={(e) => {
             setfocusTable(true);
@@ -428,75 +481,7 @@ export const DatePicker: FC<DatePickerProps> = ({
                 <thead>
                   <Month />
                 </thead>
-
-                <tbody>
-                  {daysInMonth.map((day, index) => {
-                    return (
-                      <tr key={index}>
-                        {day.map((day, index) => {
-                          return (
-                            <td
-                              key={index}
-                              title={
-                                (month + 1 < 10
-                                  ? "0" + (month + 1)
-                                  : month + 1) +
-                                "/" +
-                                (day.length < 2 ? "0" + day : day) +
-                                "/" +
-                                year
-                              }
-                              //if selected date is equal to the title of the day add class selected
-                              className={
-                                selectedDate ===
-                                (month + 1 < 10
-                                  ? "0" + (month + 1)
-                                  : month + 1) +
-                                  "/" +
-                                  (day.length < 2 ? "0" + day : day) +
-                                  "/" +
-                                  year
-                                  ? "selected"
-                                  : ""
-                              }
-                              // if click on day, set selectedDate to title of td
-                              onClick={() => {
-                                //clear the class selected
-                                // let selected = document.querySelector(
-                                //   ".selected"
-                                // );
-                                // if (selected) {
-                                //   selected.classList.remove("selected");
-                                // }
-                                if (day != "") {
-
-                                  setSelectedDate(
-                                    (month + 1 < 10
-                                      ? "0" + (month + 1)
-                                      : month + 1) +
-                                      "/" +
-                                      (day.length < 2 ? "0" + day : day) +
-                                      "/" +
-                                      year
-                                  );
-                                }
-                              }}
-
-                              //add a target event to the td that add a class selected to the td and clear the class selected of the other td
-                            >
-                              {day}
-                            </td>
-                          );
-                        })}
-                      </tr>
-                    );
-                  })}
-                  <tr className="todayButton">
-                    <td colSpan={7} onClick={changeDateToday}>
-                      Today
-                    </td>
-                  </tr>
-                </tbody>
+                <tbody>{content()}</tbody>
               </table>
             ) : null}
           </div>
@@ -504,67 +489,12 @@ export const DatePicker: FC<DatePickerProps> = ({
           {selectedOption === "month" ? (
             <div className="months">
               <table>
-                <tbody>
-                  {months.map((month, index) => {
-                    return (
-                      <tr key={index}>
-                        {month.map((month, index2) => {
-                          return (
-                            <td
-                              key={index2 * index}
-                              title={month}
-                              // className={
-                              //   selectedMonth === month
-                              //     ? "selected"
-                              //     : ""
-                              // }
-                              onClick={() => {
-                                setMonth(index2 + index * 3);
-                                // setDate({month: index2 + index * 3,year:year})
-                                setSelectedOption("year");
-                                getYears(year);
-                              }}
-                            >
-                              {month}
-                            </td>
-                          );
-                        })}
-                      </tr>
-                    );
-                  })}
-                </tbody>
+                <tbody>{contentMonth()}</tbody>
               </table>
             </div>
           ) : null}
 
-          {selectedOption === "year" ? (
-            <div className="years">
-              <table>
-                <tbody>
-                  {years.map((i, index) => {
-                    return (
-                      <tr key={index}>
-                        {i.map((year, index2) => {
-                          return (
-                            <td
-                              key={index2 * index}
-                              onClick={() => {
-                                setYear(year);
-                                // setDate({month:month,year:year})
-                                setSelectedOption("");
-                              }}
-                            >
-                              {year}
-                            </td>
-                          );
-                        })}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          ) : null}
+          {selectedOption === "year" ? showYear() : null}
         </div>
       ) : null}
     </div>

@@ -89,6 +89,10 @@
   background-color: #5BC2A7;
   border-radius: 50%;
 }
+.picker-content tbody tr td.blocked {
+  cursor: not-allowed;
+  color: #bcbcbc;
+}
 
 .months {
   height: 224px;
