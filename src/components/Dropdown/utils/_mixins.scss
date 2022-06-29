@@ -1,0 +1,33 @@
+@mixin theme-dropdown($theme){
+    &.contained{
+        color:$white;
+        background-color: $theme;
+
+        &:hover{
+            cursor: pointer;
+            opacity: $opacity-hover;
+        }
+
+        &.disabled{
+            cursor:default;
+            opacity: $opacity-hover;
+        }
+    }
+
+    &.outlined{
+        color:$theme;
+        background-color: $white;
+        border:solid 1px $theme;
+        &:hover{
+            background-color: $hover-color;
+            border: $border-color;
+            cursor: pointer;
+        }
+        &.disabled{
+            cursor:default;
+            border: 1px solid $theme;
+            background-color: $white;
+            opacity: $opacity-hover
+        }
+    }
+}

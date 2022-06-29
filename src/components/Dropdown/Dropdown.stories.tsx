@@ -11,11 +11,11 @@ export default {
         user: {control: 'string'},
         occupation: {control: 'string'},
         fullWidth: { control: 'boolean' }, 
-        size: { control: 'select', options: ['medium', 'small', 'large'] },
-        variant: { control: 'select', options: ['contained', 'outlined', 'text'] }, 
-        color: { control: 'select', options: ['primary', 'secondary', 'dark', 'success', 'info', 'warning', 'danger'] },
-        onClick: {action: 'clicked'}, 
-    } 
+        //size: { control: 'select', options: ['medium', 'small', 'large'] },
+        variant: { control: 'radio', options: ['contained', 'outlined'] },
+        color: { control: 'radio', options: ['primary', 'secondary', 'dark', 'success', 'info', 'warning', 'danger'] },
+        onClick: {action: 'clicked'},
+    }
 } as ComponentMeta<typeof Dropdown>;
 
 const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown

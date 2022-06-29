@@ -12,7 +12,7 @@ export interface DropdownProps {
     occupation?: string | undefined;
     links?: JSX.Element[] | JSX.Element;
     size?: "medium" | "small" | "large";
-    variant?: "contained" | "outlined" 
+    variant?: "contained" | "outlined"
     color?: 'primary' | 'secondary' |'dark'|'success'|'info'|'warning'|'danger'; 
 }
 
@@ -53,6 +53,7 @@ const Dropdown: FC<DropdownProps> = ({
                 <div className="content">
                     <div className="name">{user}</div>
                     <div className="occupation">{occupation}</div>
+                    <hr className="divider" />
                 </div>
                 <ul className="links">
                     {links} 
