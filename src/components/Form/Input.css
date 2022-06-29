@@ -386,12 +386,12 @@
   transition: 0.2s ease-in;
 }
 
-.inputContainer label.focused {
+.inputContainer label.focused-input {
   position: absolute;
   height: fit-content;
   line-height: 12px;
   margin: 0%;
-  top: -6px;
+  top: -16px;
   font-size: 12px;
   margin: 0;
   padding-inline: 5px;
@@ -412,6 +412,39 @@
   width: 48px;
   padding: 0;
   border-radius: 5px;
+}
+
+.inputContainer button:hover {
+  cursor: pointer;
+  background-color: #F8F9FA;
+}
+
+.required-input {
+  background-color: #ffcdd2 !important;
+  border: 2px solid #DC3545 !important;
+}
+
+.notRequired-input {
+  border: 2px solid black;
+  background-color: #fff;
+}
+
+.inputContainer p {
+  position: absolute;
+  height: fit-content;
+  width: max-content;
+  line-height: 12px;
+  margin: 0%;
+  bottom: -22px;
+  left: 15px;
+  font-size: 12px;
+  margin: 0;
+  color: #DC3545;
+}
+
+.notValid-input {
+  background-color: #ffcdd2 !important;
+  border: 2px solid #DC3545 !important;
 }
 
 /*# sourceMappingURL=Input.css.map */

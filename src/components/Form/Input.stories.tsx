@@ -9,11 +9,11 @@ export default {
   title: 'ReactComponentLibrary/Input',
   component: Input,
   argTypes: {
-    type: { options:['email','password','text'], control: {type: 'radio'} },
+    type: { options:['email','password','text', 'number'], control: {type: 'radio'} },
     variant: {options:['outlined', 'filled', 'underlined'], control: {type: 'radio'} },
     fullWidth: {options:[true, false], control: {type: 'radio'} },
     disabled: {options:[true, false], control: {type: 'radio'} },
-    color:{options: ['primary', 'success', 'warning' , 'danger' ], control: {type: 'radio'}}
+    isRequired: {options:['required', 'notRequired'], control: {type: 'radio'}}
   }
 } as ComponentMeta<typeof Input>;
 
