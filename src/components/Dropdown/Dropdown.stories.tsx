@@ -10,7 +10,7 @@ export default {
         image: {control: 'string'}, 
         user: {control: 'string'},
         occupation: {control: 'string'},
-        fullWidth: { control: 'boolean' }, 
+        //fullWidth: { control: 'boolean' }, 
         //size: { control: 'select', options: ['medium', 'small', 'large'] },
         variant: { control: 'radio', options: ['contained', 'outlined'] },
         color: { control: 'radio', options: ['primary', 'secondary', 'dark', 'success', 'info', 'warning', 'danger'] },

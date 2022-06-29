@@ -11,7 +11,7 @@ export interface DropdownProps {
     user?: string | undefined;
     occupation?: string | undefined;
     links?: JSX.Element[] | JSX.Element;
-    size?: "medium" | "small" | "large";
+    size?: "medium" | "small" | "large"; //imgBox
     variant?: "contained" | "outlined"
     color?: 'primary' | 'secondary' |'dark'|'success'|'info'|'warning'|'danger'; 
 }
@@ -49,7 +49,7 @@ const Dropdown: FC<DropdownProps> = ({
                     <img src={image} alt={user}></img>     
                 </div>
             </div>
-            <div className= {`dropdownContent dropdownToggle `} ref={dropRef}>
+            <div className= {`dropdownContent dropdownToggle ${validationVariant(variant)} ${validationColor(color)}`} ref={dropRef}>
                 <div className="content">
                     <div className="name">{user}</div>
                     <div className="occupation">{occupation}</div>
