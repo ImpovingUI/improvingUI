@@ -1,0 +1,175 @@
+@import '../css/utils/variables';
+@import './utils/mixins';
+
+.modal {
+    display: block; 
+    position: fixed;
+    z-index: $modal;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #16161650;
+
+  .modal-content {
+    background-color: #fefefe;
+    padding: 10px;
+    border: 1px solid $secondary;
+    border-radius: 0.25rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 8px 0px;
+
+    /* Height */
+    @include sm-bp {
+      margin: 0 auto;
+      height: 100%;
+      max-height: 100%;
+    }
+
+    @include md-bp {
+      margin: 15% auto;
+      max-height: 72%;
+    }
+
+    @include lg-bp {
+      max-height: 84%;
+    }
+
+    @include xl-bp {
+      max-height: 96%;
+    }
+
+    /* Content of the modal without the header */
+    .content-body-modal {
+      display: flex;
+      flex-direction: column;
+      padding: 0 1rem 1rem 1rem;
+  
+      #body, .body {
+        order: 1;
+        margin-bottom: 3rem;
+        max-height: 96%;
+        overflow-y: auto;
+      }
+  
+      #footer, .footer, footer {
+        order: 2;
+      }
+    
+    }
+
+    .close-btn {
+      
+      width: 48px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.25rem;
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      &:hover {
+        background-color: rgb(244,244,244);
+        cursor: pointer;
+      }
+    }
+
+
+  }
+  
+  /* Size */
+  .sm{
+
+    @include sm-bp {
+      width: 100%;
+    }
+
+    @include md-bp {
+      width: 48%;
+    }
+
+    @include lg-bp {
+      width: 32%;
+    }
+
+    @include xl-bp {
+      width: 24%;
+    }
+    
+  }
+  .md{
+
+    @include sm-bp {
+      width: 100%;
+    }
+
+    @include md-bp {
+      width: 60%;
+    }
+
+    @include lg-bp {
+      width: 42%;
+    }
+
+    @include xl-bp {
+      width: 36%;
+    }
+  }
+
+  .lg {
+    @include sm-bp {
+      width: 100%;
+    }
+
+    @include md-bp {
+      width: 84%;
+    }
+
+    @include lg-bp {
+      width: 60%;
+    }
+
+    @include xl-bp {
+      width: 48%;
+    }
+  }
+  .xl{
+
+    @include sm-bp {
+      width: 100%;
+    }
+
+    @include md-bp {
+      width: 96%;
+    }
+
+    @include lg-bp {
+      width: 84;
+    }
+
+    @include xl-bp {
+      width: 72%;
+    }
+  }
+
+
+  /* Sections */
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    h2 {
+      margin-top: 1rem;
+      margin-left: 1rem;
+      max-width: 90%;
+    }
+  }
+}
+
+
+  
+ 

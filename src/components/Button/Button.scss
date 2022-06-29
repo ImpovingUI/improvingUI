@@ -5,8 +5,10 @@
 //hover-color - outlined and text
 $hover-color:#cecece;
 $border-color:solid 1px black;
+$class-name:'Button';
 
-.default{
+
+.default-#{$class-name}{
     width:150px;
     height: 48px;
     border-radius: 5px;
@@ -19,7 +21,7 @@ $border-color:solid 1px black;
         opacity: $opacity-hover;
     }
 
-    &.disabled{
+    &.disabled-#{$class-name}{
         cursor:default;
         border: 1px solid transparent;
         opacity: $opacity-hover
@@ -29,29 +31,29 @@ $border-color:solid 1px black;
 $themes:('primary':$primary,'secondary':$secondary,'dark':$dark,'success':$success,'info':$info,'warning':$warning,'danger':$danger);
 
 @each $key,$theme in $themes{
-    .#{$key}{
+    .#{$key}-#{$class-name}{
         @include theme-button($theme);
     }
 }
 
-.small{
+.small-#{$class-name}{
     @include size-button(34px)
 }
-.medium{
+.medium-#{$class-name}{
     @include size-button(40px)
 }
-.large{
+.large-#{$class-name}{
     @include size-button(50px)
 }
 
-.icon-container-left{
+.icon-container-left-#{$class-name}{
     margin-right: 10px;
 }
 
-.icon-container-right{
+.icon-container-right-#{$class-name}{
     margin-left: 10px;
 }
 
-.fullWidth{
+.fullWidth-#{$class-name}{
     width: 100%;
 }

@@ -64,8 +64,8 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
                         <option value="all">All</option>
                         {listColumns.length > 0 && listColumns.map((column: String, index: number) => (
                             <option key={Object.keys(listRows[0])[index]} value={Object.keys(listRows[0])[index]}>{column}</option>
-                        ))
 
+                        ))
                         } 
                     </select> 
                 </div>

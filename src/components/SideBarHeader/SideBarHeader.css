@@ -10,7 +10,7 @@ body {
   position: fixed;
   display: flex;
   flex-direction: row;
-  z-index: 9999;
+  z-index: 9996;
   background-color: white;
   color: #343A40;
   transition: 600ms box-shadow ease-in-out;
@@ -112,6 +112,7 @@ body {
   min-width: 300px;
   flex-grow: 1;
   overflow-y: auto;
+  padding: 20px;
 }
 
 .legend-nav-container-SideBarHeader {

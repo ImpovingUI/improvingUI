@@ -11,7 +11,7 @@ export interface NavBarProps {
     children?: JSX.Element | JSX.Element[];
 }
 
-let name='NavBar'
+let name:string='NavBar'
 
 export const NavBar: FC<NavBarProps> = ({position="static",color="primary",shadow,iconSide="Menu",iconNav,className,children,...props}) => {
   const [open, setOpen] = useState(false)

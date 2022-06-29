@@ -47,7 +47,7 @@ export const validateInitProps = ( props: AlertPropsValidate ) => {
     @valueDefault: this field is the value that you want to default value in the prop.
 
 */
-const validateEnum = ( prop: string | number, enumObject: any, valueDefault : string  ) => {
+export const validateEnum = ( prop: string | number, enumObject: any, valueDefault : string  ) => {
 
     let valueCorrect = false
     let finalValue = '';
