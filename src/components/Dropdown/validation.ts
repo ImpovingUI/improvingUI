@@ -19,3 +19,10 @@ export const validationColor = (color: string) => {
     }
     return 'primary';
 }
+
+export const validationPosition = (position: string) => {
+    if(position === 'left' || position=== 'right'){
+        return position;
+    }
+    return 'right';
+}

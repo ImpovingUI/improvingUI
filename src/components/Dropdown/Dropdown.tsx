@@ -3,6 +3,7 @@ import "./Dropdown.css";
 import {
     validationVariant,
     validationSize,
+    validationPosition,
     validationColor,
 } from "./validation";
 
@@ -12,8 +13,9 @@ export interface DropdownProps {
     occupation?: string | undefined;
     links?: JSX.Element[] | JSX.Element;
     size?: "medium" | "small" | "large"; //imgBox
-    variant?: "contained" | "outlined"
-    color?: 'primary' | 'secondary' |'dark'|'success'|'info'|'warning'|'danger'; 
+    variant?: "contained" | "outlined";
+    position?: "left" | "right";
+    color?: 'primary' | 'secondary' |'dark'|'success'|'info'|'warning'|'danger';
 }
 
 const Dropdown: FC<DropdownProps> = ({
@@ -23,6 +25,7 @@ const Dropdown: FC<DropdownProps> = ({
     links,
     size = "large",
     variant = "contained",
+    position = "right",
     color = "primary", 
     //onClick,
     ...props
@@ -43,13 +46,13 @@ const Dropdown: FC<DropdownProps> = ({
         dropRef.current.classList.toggle('dropdownToggle')
     }
     return (
-        <div>
+        <div className="dropdown">
             <div className="dropdownItem">
                 <div className="imgBox" onClick={f}>
                     <img src={image} alt={user}></img>     
                 </div>
             </div>
-            <div className= {`dropdownContent dropdownToggle ${validationVariant(variant)} ${validationColor(color)}`} ref={dropRef}>
+            <div className= {`dropdownContent dropdownToggle ${validationVariant(variant)} ${validationColor(color)} ${validationPosition(position)}`} ref={dropRef}>
                 <div className="content">
                     <div className="name">{user}</div>
                     <div className="occupation">{occupation}</div>

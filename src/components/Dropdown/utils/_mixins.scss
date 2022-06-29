@@ -31,3 +31,10 @@
         }
     }
 }
+
+// non functioning
+@mixin position($rightpos) {
+    @if($rightpos == 'true'){
+        right: 0px;
+    }
+}

@@ -11,27 +11,30 @@ export default {
         user: {control: 'string'},
         occupation: {control: 'string'},
         //fullWidth: { control: 'boolean' }, 
-        //size: { control: 'select', options: ['medium', 'small', 'large'] },
+        position: { control: 'radio', options: ['left', 'right'] },
         variant: { control: 'radio', options: ['contained', 'outlined'] },
         color: { control: 'radio', options: ['primary', 'secondary', 'dark', 'success', 'info', 'warning', 'danger'] },
         onClick: {action: 'clicked'},
     }
 } as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown
-links ={
-    <>
-    <li>
-        <a href="https://www.google.com">Test</a> 
-    </li>
-    <li>
-        <a href="https://www.google.com">Test</a> 
-    </li>
-    <li> 
-        <button><a href="https://www.google.com">Test</a> </button> 
-    </li>
-    </>
-} {...args} />;
+const Template: ComponentStory<typeof Dropdown> = (args) =>
+    <div style={{display:"flex", justifyContent:"center"}}>
+        <Dropdown
+            links ={
+                <>
+                <li>
+                    <a href="https://www.google.com">Test</a> 
+                </li>
+                <li>
+                    <a href="https://www.google.com">Test</a> 
+                </li>
+                <li> 
+                    <button><a href="https://www.google.com">Test</a> </button> 
+                </li>
+                </>
+            } {...args} />
+    </div>;
 
 export const DropdownTest = Template.bind({});
 DropdownTest.args = { 

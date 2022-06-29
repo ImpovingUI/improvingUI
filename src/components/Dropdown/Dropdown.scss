@@ -2,10 +2,15 @@
 @import '../css/utils/variables';
 @import './utils/mixins';
 
+.dropdown{
+    display: inline-block;
+    position: relative;
+  }
+  
 .dropdownItem { 
     justify-content: center;
     align-items: center;
-    flex-direction: column;  
+    flex-direction: column;
     display: inline-block;
 
     .imgBox {
@@ -82,6 +87,7 @@
         }
     }
 }
+
 
 .primary{
     @include theme-dropdown($primary);
