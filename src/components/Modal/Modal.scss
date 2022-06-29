@@ -4,7 +4,7 @@
 .modal {
     display: block; 
     position: fixed;
-    z-index: 1; /* Sit on top */
+    z-index: $modal;
     left: 0;
     top: 0;
     width: 100%;
@@ -19,6 +19,7 @@
     border-radius: 0.25rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 8px 0px;
 
+    /* Height */
     @include sm-bp {
       margin: 0 auto;
       height: 100%;
@@ -38,6 +39,7 @@
       max-height: 96%;
     }
 
+    /* Content of the modal without the header */
     .content-body-modal {
       display: flex;
       flex-direction: column;
