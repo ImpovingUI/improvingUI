@@ -23,10 +23,6 @@ export const DefaultModal = Template.bind({});
         size: 'md',
         children: (
           <>
-           <div id='footer'>
-              <Button fullWidth={true}/>
-              <Button fullWidth={true}/>
-            </div>
             <div id='body'>
             <p>body</p>
       
@@ -34,7 +30,9 @@ export const DefaultModal = Template.bind({});
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, sint ad tempore doloribus commodi obcaecati aut optio earum dolores eos laboriosam fuga natus culpa incidunt odio perspiciatis. Recusandae, assumenda possimus?
               lorem*10
             </div>
-           
+            <div id='footer'>
+              <Button label='Btn Modal'/>
+            </div>
           </>
         )
     }

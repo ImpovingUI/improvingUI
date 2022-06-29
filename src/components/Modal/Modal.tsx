@@ -23,6 +23,12 @@ export const Modal: FC<ModalProps> = (
     setOpen(show)
   }, [show]);
 
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      setOpen(false)
+    }
+  })
+
   
 
   return (
@@ -31,7 +37,7 @@ export const Modal: FC<ModalProps> = (
       {
         open && (
           <div id="myModal" className="modal">
-            <div className = { `modal-content            
+            <div onClick={ e => e.stopPropagation() } className = { `modal-content            
                                 ${validateInitProps({size})}
                                 `
                              }

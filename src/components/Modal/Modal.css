@@ -28,6 +28,16 @@
 @media (min-width: 768px) {
   .modal .modal-content {
     margin: 15% auto;
+    max-height: 72%;
+  }
+}
+@media (min-width: 992px) {
+  .modal .modal-content {
+    max-height: 84%;
+  }
+}
+@media (min-width: 1200px) {
+  .modal .modal-content {
     max-height: 96%;
   }
 }

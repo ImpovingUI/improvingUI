@@ -27,6 +27,14 @@
 
     @include md-bp {
       margin: 15% auto;
+      max-height: 72%;
+    }
+
+    @include lg-bp {
+      max-height: 84%;
+    }
+
+    @include xl-bp {
       max-height: 96%;
     }
 
