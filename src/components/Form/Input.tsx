@@ -1,26 +1,33 @@
 
 import React, { FC } from "react";
-import {validationType,validationVariant} from './validation'
+import {validationType,validationVariant, validationColor} from './validation'
 import './Input.css'
 
-export interface ButtonProps {
+export interface InputProps {
   fullWidth?: boolean;
   disabled?:boolean;
   className?:string;
   width ? :number;
-  type ?: 'email'|'password'|'text';
+  type ?: 'email'|'password'|'text'|'number';
   label?:string;
   variant?:'outlined'|'filled'| 'underlined';
-  value?:string;
+  color?: 'primary' | 'secondary' |'dark'|'success'|'warning'|'danger';
+  //required?: boolean;
+  isRequired?:'required' | 'notRequired'
 }
 
 const name= 'Input'
 
-export const Input : FC<ButtonProps> = ({variant="outlined", fullWidth, disabled,className,type="text",...props}) => {
+export const Input : FC<InputProps> = ({variant="outlined", color="primary", fullWidth, isRequired, disabled,className,type="text",...props}) => {
   const [state, setState] = React.useState('notFocused');
   const [value, setValue] = React.useState('');
   const[flag, setFlag] = React.useState(false);
   const [inputType, setinputType] = React.useState('');
+  const [helper, setHelper] = React.useState('hola');
+  const [display, setDisplay] = React.useState('none');
+  //const [required, setRequiered] = React.useState(false);
+  const [required, setRequiered] = React.useState('');
+  const [validate, setValidate ] = React.useState('');
 
   React.useEffect(()=>{
     if(type === 'password'){
@@ -30,16 +37,46 @@ export const Input : FC<ButtonProps> = ({variant="outlined", fullWidth, disabled
       setFlag(false);
       setinputType(type);
     }
+    if(type === 'number'){
+      setinputType('text');
+    }
   },[type]);
 
   const handleFocus = () =>{
-      setState('focused');
+      setState('focused-input');
   }
   const handleBlur = () =>{
-    if(value.length > 0){
-      setState('focused');
+    if(isRequired === 'required' && (type === 'email' || type === 'number' || type === 'text')){
+      if(value.length > 0){
+        setRequiered('notRequired-input');
+        setDisplay('none');
+        validation();
+      }else{
+        setHelper('Field required');
+        setRequiered('required-input');
+        setDisplay('flex');
+      }
+    }else if(isRequired === 'required'){
+      if(value.length > 0){
+        setRequiered('notRequired-input');
+        setDisplay('none');
+      }else{
+        setHelper('Field required');
+        setRequiered('required-input');
+        setDisplay('flex');
+      }
+    }else if(type === 'email' || type === 'number' || type === 'text'){
+      setRequiered('notRequired-input');
+      validation();
     }else{
-      setState('notFocused');
+      setRequiered('notRequired-input');
+      setDisplay('none');
+    }
+    
+    if(value.length > 0){
+      setState('focused-input');
+    }else{
+      setState('notFocused-input');
     }
   }
   const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) =>{
@@ -53,17 +90,49 @@ export const Input : FC<ButtonProps> = ({variant="outlined", fullWidth, disabled
       setinputType('password');
     }
   }
-
+  const validation = () =>{
+    if(type === 'email'){
+      if(value.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/)){
+        setValidate('valid-input');
+        setDisplay('none');
+      }else{
+        setValidate('notValid-input');
+        setHelper('Email not valid');
+        setDisplay('flex');
+      }
+    }
+    if(type === 'text'){
+    }
+    if(type === 'number'){
+      console.log(value);
+      if(value.match(/^[0-9]*$/)){
+        console.log('es valido');
+        setValidate('valid-input');
+        setDisplay('none');
+      }else{
+        console.log('no es valido');
+        setValidate('notValid-input');
+        setHelper('Write only numbers');
+        setDisplay('flex');
+      }
+    }
+  }
 
   return( 
     <div className="inputContainer">
       <label className={state}>{props.label}</label>
-      <input type={inputType} disabled={disabled}  onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange}
-        className={`default ${fullWidth ? 'fullWidth':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
+      <input type={inputType} disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange}
+      //required = {required}
+      className={`default ${fullWidth ? 'fullWidth':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
 
       ${validationType(type)} 
       ${validationVariant(variant)}
-      ${className}`} 
+      ${validationColor(color)}
+      ${className}
+      ${validate}
+      ${required}
+      `
+      } 
 
       {...props}/>
       {flag
@@ -72,6 +141,7 @@ export const Input : FC<ButtonProps> = ({variant="outlined", fullWidth, disabled
         /></button>
       :<></>
       }
+      <p style={{display: display}}>{helper}</p>
     </div>
       
 
