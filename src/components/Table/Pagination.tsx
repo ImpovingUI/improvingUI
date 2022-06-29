@@ -17,7 +17,6 @@ export const Pagination : FC<PaginationProps> = ({initial, setInitial,listRows})
 
     useEffect(() => {
         const result = listRows.length/pagination;
-        console.log(result);
         if(!Number.isInteger(result)){
             setPage(0);
             setPages(Math.ceil(result)); //Aportación de Mayte

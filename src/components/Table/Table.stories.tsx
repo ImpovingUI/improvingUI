@@ -18,7 +18,7 @@ export default {
     <Table
         listColumns={["Name","Last Name","City","State","Phone"]}
         listRows = {ejemplo.datos}
-        actions={[<Button label="hola"/>]}
+        actions={[<Button label="hola" onClick={() => {console.log("Hello")}}/>]}
         {
             ...args
         }
