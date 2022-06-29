@@ -9,7 +9,7 @@ export interface TableProps {
 
 const name = 'Table';
 
-export const TableBody : FC<TableProps> = ({listRows=[],actions, listColumns,listIndex=[]}) => {
+export const TableBody : FC<TableProps> = ({listRows=[],actions=[], listColumns,listIndex=[]}) => {
     return (
         <tbody className={`Tbody-${name}`}>
             {listRows.length > 0
@@ -29,11 +29,11 @@ export const TableBody : FC<TableProps> = ({listRows=[],actions, listColumns,lis
                         </td>
                     ))
                     }
-                    {actions
+                    {actions.length > 0
                         ?
                         <td className={`Td-${name}`}>
                             {actions.map((action: JSX.Element) => (
-                                React.cloneElement(action,{key:action.props.onClick &&action.props.onClick(value[Object.keys(value)[0]]), onClick: () => {action.props.onClick &&action.props.onClick(value[Object.keys(value)[0]])}})
+                                React.cloneElement(action,{key: value[Object.keys(value)[0]], onClick: () => {action.props.onClick &&action.props.onClick(value[Object.keys(value)[0]])}})
                             ))}
                         </td>
                         :null

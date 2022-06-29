@@ -7,7 +7,7 @@ export interface TableProps {
 
 const name = 'Table';
 
-export const TableHeader : FC<TableProps> = ({listColumns=[],actions}) => {
+export const TableHeader : FC<TableProps> = ({listColumns=[],actions=[]}) => {
     
     return (
         <thead className={`Thead-${name}`}>

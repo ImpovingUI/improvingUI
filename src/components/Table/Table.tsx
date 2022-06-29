@@ -32,16 +32,15 @@ export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], list
         setInitialIndex(indexs);
         setInitialRows(rows);
         setInitialActions(acts);
-        
     },[])
 
     return (
-        <div>
+        <div className='ContainerTable'>
             {filter && <InputFilter initial={initial} setInitial={setInitial} listRows={initialRows} listColumns={listColumns} setInitialFilter={setInitiailFilter} listIndex={initialIndex}/>}
             <table className='Table'>
                 <TableHeader
                     listColumns={initialColumns}
-                    actions={actions ?true :false}
+                    actions={actions.length>0 ?true :false}
                 />
                 <TableBody
                     listRows={initial}
