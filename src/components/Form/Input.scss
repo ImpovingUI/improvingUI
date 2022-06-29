@@ -8,12 +8,13 @@
     height: 48px;
     border-radius: 5px;
     padding-inline: 16px;
-    border: 1px solid transparent;
+    //border: 1px solid $primary;
     gap: 20px;
 
     &:hover{
         cursor: pointer;
-        opacity: 50%;
+        pointer-events: none;
+        border: none;
     }
 
     &.disabled{
@@ -63,15 +64,15 @@
     width: 100%;
 }
 .underlined-Input{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $primary;
     border-radius: 0;
 }
 .outlined-Input{
-    border: 1px solid black;
+    border: 1px solid $primary;
 }
 .filled-Input{
     background-color: $light;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $primary;
     border-radius: 0;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -81,6 +82,12 @@
     height: 48px;
     width: 280px;
     margin: 10px 15px;
+}
+
+.inputContainer:focus{
+    outline: none;
+    border: none;
+    /*border: 1px solid $primary;*/
 }
 .inputContainer label{
     position:absolute;
@@ -97,17 +104,17 @@
 .inputContainer label.focused-input{
     position: absolute;
     height: fit-content;
-    width: max-content;
     line-height: 12px;
     margin: 0%;
     top: -16px;
     font-size: 12px;
     margin: 0;
+    padding-inline: 5px;
     left: 15px;
     color: #335599;
     background-color: #fff;
     transition: 0.2s ease-in;
-    /* outline: solid 1px red; */
+    outline: none;
 }
 .inputContainer button{
     position: absolute;

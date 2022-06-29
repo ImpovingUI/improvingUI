@@ -16,7 +16,7 @@ export interface InputProps {
   isRequired?:'required' | 'notRequired'
 }
 
-const name= 'Input'
+const name = 'Input'
 
 export const Input : FC<InputProps> = ({variant="outlined", color="primary", fullWidth, isRequired, disabled,className,type="text",...props}) => {
   const [state, setState] = React.useState('notFocused');
@@ -28,6 +28,7 @@ export const Input : FC<InputProps> = ({variant="outlined", color="primary", ful
   //const [required, setRequiered] = React.useState(false);
   const [required, setRequiered] = React.useState('');
   const [validate, setValidate ] = React.useState('');
+
 
   React.useEffect(()=>{
     if(type === 'password'){
@@ -136,7 +137,7 @@ export const Input : FC<InputProps> = ({variant="outlined", color="primary", ful
 
       {...props}/>
       {flag
-      ?<button><img src="https://img.icons8.com/ios-glyphs/30/000000/show-password.png" alt="eye"   
+      ?<button><img src={`https://img.icons8.com/ios-glyphs/30/${colors[color]}/show-password.png`} alt="eye"   
           onClick={handleClick}
         /></button>
       :<></>
