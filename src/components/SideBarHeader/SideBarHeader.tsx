@@ -11,7 +11,7 @@ export interface SideBarHeaderProps {
   children?: JSX.Element | JSX.Element[];
 }
 
-const name = 'SideBarHeader'
+const name:string = 'SideBarHeader'
 
 export const SideBarHeader: FC<SideBarHeaderProps> = ({color='primary',legendNav,iconNav,infoNav,links,children,className,...props}) => {
   const [open, setOpen] = useState(false)
