@@ -5,12 +5,12 @@
 
         &:hover{
             cursor: pointer;
-            opacity: $opacity-hover;
+            opacity: 1;
         }
 
         &.disabled{
             cursor:default;
-            opacity: $opacity-hover;
+            opacity: 1;
         }
     }
 
@@ -27,7 +27,7 @@
             cursor:default;
             border: 1px solid $theme;
             background-color: $white;
-            opacity: $opacity-hover
+            opacity: 1;
         }
     }
 }

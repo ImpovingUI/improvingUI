@@ -3,6 +3,14 @@
   position: relative;
 }
 
+.right {
+  right: 0;
+}
+
+.left {
+  left: 0;
+}
+
 .dropdownItem {
   justify-content: center;
   align-items: center;
@@ -66,7 +74,7 @@
   padding: 4px;
 }
 .dropdownContent .links li:hover {
-  background: rgb(221, 210, 210);
+  background: rgb(255, 255, 255);
 }
 .dropdownContent .links li a {
   text-decoration: none;
@@ -83,11 +91,11 @@
 }
 .primary.contained:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 1;
 }
 .primary.contained.disabled {
   cursor: default;
-  opacity: 0.8;
+  opacity: 1;
 }
 .primary.outlined {
   color: #005596;
@@ -103,7 +111,7 @@
   cursor: default;
   border: 1px solid #005596;
   background-color: white;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .secondary.contained {
@@ -112,11 +120,11 @@
 }
 .secondary.contained:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 1;
 }
 .secondary.contained.disabled {
   cursor: default;
-  opacity: 0.8;
+  opacity: 1;
 }
 .secondary.outlined {
   color: #A7A8A9;
@@ -132,7 +140,7 @@
   cursor: default;
   border: 1px solid #A7A8A9;
   background-color: white;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .dark.contained {
@@ -141,11 +149,11 @@
 }
 .dark.contained:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 1;
 }
 .dark.contained.disabled {
   cursor: default;
-  opacity: 0.8;
+  opacity: 1;
 }
 .dark.outlined {
   color: #343A40;
@@ -161,7 +169,7 @@
   cursor: default;
   border: 1px solid #343A40;
   background-color: white;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .success.contained {
@@ -170,11 +178,11 @@
 }
 .success.contained:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 1;
 }
 .success.contained.disabled {
   cursor: default;
-  opacity: 0.8;
+  opacity: 1;
 }
 .success.outlined {
   color: #5BC2A7;
@@ -190,7 +198,7 @@
   cursor: default;
   border: 1px solid #5BC2A7;
   background-color: white;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .info.contained {
@@ -199,11 +207,11 @@
 }
 .info.contained:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 1;
 }
 .info.contained.disabled {
   cursor: default;
-  opacity: 0.8;
+  opacity: 1;
 }
 .info.outlined {
   color: #4597D3;
@@ -219,7 +227,7 @@
   cursor: default;
   border: 1px solid #4597D3;
   background-color: white;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .warning.contained {
@@ -228,11 +236,11 @@
 }
 .warning.contained:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 1;
 }
 .warning.contained.disabled {
   cursor: default;
-  opacity: 0.8;
+  opacity: 1;
 }
 .warning.outlined {
   color: #FFBB41;
@@ -248,7 +256,7 @@
   cursor: default;
   border: 1px solid #FFBB41;
   background-color: white;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .danger.contained {
@@ -257,11 +265,11 @@
 }
 .danger.contained:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 1;
 }
 .danger.contained.disabled {
   cursor: default;
-  opacity: 0.8;
+  opacity: 1;
 }
 .danger.outlined {
   color: #DC3545;
@@ -277,5 +285,5 @@
   cursor: default;
   border: 1px solid #DC3545;
   background-color: white;
-  opacity: 0.8;
+  opacity: 1;
 }

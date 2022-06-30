@@ -24,7 +24,7 @@ const Dropdown: FC<DropdownProps> = ({
     occupation,
     links,
     size = "large",
-    variant = "contained",
+    variant = "outlined",
     position = "right",
     color = "primary", 
     //onClick,

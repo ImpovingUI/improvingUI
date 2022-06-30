@@ -5,8 +5,16 @@
 .dropdown{
     display: inline-block;
     position: relative;
-  }
-  
+    } 
+
+.right{ 
+    right: 0;
+    }
+
+.left{
+    left: 0;
+    }    
+        
 .dropdownItem { 
     justify-content: center;
     align-items: center;
@@ -73,7 +81,7 @@
             line-height: 30px;
             padding: 4px;
             &:hover{
-                background: rgb(221, 210, 210);
+                background: rgb(255, 255, 255);
             }
 
             a {

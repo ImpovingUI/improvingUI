@@ -9,8 +9,7 @@ export default {
     argTypes: {
         image: {control: 'string'}, 
         user: {control: 'string'},
-        occupation: {control: 'string'},
-        //fullWidth: { control: 'boolean' }, 
+        occupation: {control: 'string'}, 
         position: { control: 'radio', options: ['left', 'right'] },
         variant: { control: 'radio', options: ['contained', 'outlined'] },
         color: { control: 'radio', options: ['primary', 'secondary', 'dark', 'success', 'info', 'warning', 'danger'] },
