@@ -1,4 +1,4 @@
-.dropdown{
+.dropdown {
   display: inline-block;
   position: relative;
 }
@@ -37,17 +37,10 @@
   visibility: visible;
   transition: 0.3s;
 }
-.right{
-  right: 0px;
-}
-.left{
-  left: 0px;
-}
 .dropdownContent.dropdownToggle {
-  transform: translateX(0px);
+  transform: translateX(0);
   opacity: 0;
   visibility: hidden;
-  top: 100%;
 }
 .dropdownContent .content .name {
   font-weight: 800;

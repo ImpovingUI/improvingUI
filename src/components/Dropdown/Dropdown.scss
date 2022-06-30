@@ -24,7 +24,7 @@
             box-shadow: 2px 2px 5px rgba(0,0,0,.3);
             cursor: pointer;
             border-top: 10px;
-          }
+            }
     }
     .divider {
         margin: 10px 0;
@@ -45,7 +45,7 @@
     &.dropdownToggle {
         transform: translateX(0);
         opacity: 0; 
-        visibility: hidden;
+        visibility: hidden; 
     }
 
     .content {

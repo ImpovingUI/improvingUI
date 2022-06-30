@@ -1,9 +1,9 @@
 
 export const validationVariant = (variant: string) => {
-    if(variant === 'contained' || variant === 'outlined' || variant === 'text'){
+    if(variant === 'contained' || variant === 'outlined') {
         return variant;
     }
-    return 'contained';
+    return 'outlined';
 }
 
 export const validationSize = (size: string) => {
