@@ -38,6 +38,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   const [selectedOption, setSelectedOption] = React.useState("");
   const [yearRange, setYearRange] = React.useState("");
   const [years, setYears] = React.useState([[0], [0]]);
+  const [validDate, setValidDate] = React.useState(false);
 
   // const [date, setDate] = React.useState({year:new Date().getFullYear(),month:new Date().getMonth()});
 
@@ -143,17 +144,19 @@ export const DatePicker: FC<DatePickerProps> = ({
 
   useEffect(() => {
     //if selected date is not equal to mm/dd/yyyy add class selected to the day
-    if (selectedDate !== "mm/dd/yyyy") {
-      //add class selected to the day with the same title of the selected date
-      let day = document.querySelector(`.day[title="${selectedDate}"]`);
-      if (day) {
-        day.classList.add("selected");
-        // console.log(day);
-        // console.log(selectedDate);
-      }
+    // if (selectedDate !== "mm/dd/yyyy") {
+    //   //add class selected to the day with the same title of the selected date
+    //   let day = document.querySelector(`.day[title="${selectedDate}"]`);
+    //   if (day ) {
+    //     day.classList.add("selected");
+    //     console.log(day);
+    //     console.log(selectedDate);
+    //   }
+    // }
+    if (validDate) {
+      value = selectedDate;
+      console.log(value);
     }
-    value = selectedDate;
-    console.log(value);
   }, [selectedDate]);
 
   useEffect(() => {
@@ -170,6 +173,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   }, [month, year]);
 
   const changeDateToday = () => {
+    setValidDate(true)
     //set selected date to today
     //set month and year to today
     setMonth(new Date().getMonth());
@@ -196,6 +200,7 @@ export const DatePicker: FC<DatePickerProps> = ({
     );
   };
 
+
   const content = () => {
     blockedDates = ["06/10/2022", "06/15/2022"];
     return (
@@ -219,18 +224,23 @@ export const DatePicker: FC<DatePickerProps> = ({
                       key={index}
                       title={content}
                       //if selected date is equal to the title of the day add class selected
-                      className={selectedDate === content ? "selected" : ""}
+                      className={selectedDate === content && validDate ? "selected" : ""}
                       // if click on day, set selectedDate to title of td
                       onClick={() => {
-                        if (day != "") {
+                        if (day != "" 
+                        && parseInt(day)>0
+                        && month>0
+                        && month <=12) {
                           setSelectedDate(content);
+                          
+                          setValidDate(true);
                         }
                       }}
                     >
                       {day}
                     </td>
                   ) : (
-                    <td key={index} title={content} className="blocked">
+                    <td className="blocked">
                       {day}
                     </td>
                   )
@@ -339,6 +349,7 @@ export const DatePicker: FC<DatePickerProps> = ({
       }
     }
     if (e.target.value.length <= 10) {
+      setValidDate(false);
       if (e.target.value.search("/") === 3 && e.target.value.charAt(6) != "/") {
         e.target.setSelectionRange(4, 4);
       } else if (e.target.value.charAt(6) === "/") {
@@ -356,11 +367,17 @@ export const DatePicker: FC<DatePickerProps> = ({
       setSelectedOption("");
       let date = e.target.value.split("/");
       //check if the date is valid
+      
       if (
         parseInt(date[0]) <= 12 &&
         parseInt(date[1]) <= 31 &&
-        parseInt(date[1]) > 0
+        parseInt(date[1]) > 0   &&
+        blockedDates.indexOf(e.target.value) === -1
       ) {
+        console.log(blockedDates.indexOf(date))
+        console.log(date)
+        console.log(blockedDates)
+        setValidDate(true);
         setMonth(parseInt(date[0]) - 1);
         setYear(parseInt(date[2]));
         // setDate({month:parseInt(date[0])-1,year:parseInt(date[2])});
@@ -375,6 +392,7 @@ export const DatePicker: FC<DatePickerProps> = ({
         );
       } else {
         setMonthText("Invalid date");
+        setValidDate(false);
         // console.log(monthText);
         setMonth(-1);
       }
