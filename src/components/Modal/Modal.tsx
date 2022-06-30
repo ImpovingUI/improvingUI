@@ -12,24 +12,15 @@ export const Modal: FC<ModalProps> = (
     show = false,
     size = 'md',
     header='',
+    handleClose = () => { console.log('hi') },
   }
 
 ) => {
 
-  const [open, setOpen] = useState(show);
-
-  const closeModal = () => {
-    setOpen(false )
-  }
-
-  useEffect(() => {
-    setOpen(show)
-  }, [show]);
-
   /* This event is for closing the modal with the btn ESC */
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      setOpen(false)
+      handleClose();
     }
   })
 
@@ -37,7 +28,7 @@ export const Modal: FC<ModalProps> = (
     <div>
       
       {
-        open && (
+        show && (
           <div className="modal">
             <div onClick={ e => e.stopPropagation() } 
                                 className = { `modal-content            
@@ -48,7 +39,7 @@ export const Modal: FC<ModalProps> = (
               <div id='header'>
                  <h2> { header } </h2>
 
-                  <div onClick={ closeModal } className='close-btn'>
+                  <div onClick={handleClose} className='close-btn'>
                     <CloseIcon />
                   </div>
               </div>

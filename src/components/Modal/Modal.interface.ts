@@ -12,6 +12,7 @@ export interface ModalProps {
     header?: string;
     show: boolean;
     children: JSX.Element;
+    handleClose: () => {};
 }
 
 export interface ModalPropsValidate {
