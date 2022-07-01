@@ -30,32 +30,35 @@
 @media (min-width: 768px) {
   .modal .modal-content {
     margin: 15% auto;
-    max-height: 72%;
+    height: 72%;
   }
 }
 @media (min-width: 992px) {
   .modal .modal-content {
-    max-height: 84%;
+    height: 84%;
   }
 }
 @media (min-width: 1200px) {
   .modal .modal-content {
-    max-height: 96%;
+    height: 96%;
   }
 }
 .modal .modal-content .content-body-modal {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 0 1rem 1rem 1rem;
+  height: 91%;
 }
 .modal .modal-content .content-body-modal #body, .modal .modal-content .content-body-modal .body {
   order: 1;
   margin-bottom: 3rem;
-  max-height: 96%;
+  height: auto;
   overflow-y: auto;
 }
 .modal .modal-content .content-body-modal #footer, .modal .modal-content .content-body-modal .footer, .modal .modal-content .content-body-modal footer {
   order: 2;
+  height: auto;
 }
 .modal .modal-content .close-btn {
   width: 48px;
