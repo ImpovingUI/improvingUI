@@ -1,8 +1,10 @@
 @mixin theme-input($theme){
     &.filled{
-        color:$white;
-        background-color: $theme;
-
+        background-color: $light;
+        border-bottom: 1px solid $theme;
+        border-radius: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
         &:hover{
             cursor: pointer;
             opacity: $opacity-hover;
@@ -15,9 +17,7 @@
     }
 
     &.outlined{
-        color:$theme;
-        background-color: $white;
-        border:solid 1px $theme;
+        border: 1px solid $theme;
         &:hover{
             background-color: $hover-color;
             border: $border-color;
@@ -31,9 +31,8 @@
         }
     }
     &.underlined{
-        color:$theme;
-        background-color: $white;
-        border:solid 1px transparent;
+        border-bottom: 1px solid $theme;
+        border-radius: 0;
         &:hover{
             background-color: $hover-color;
             border:$border-color;

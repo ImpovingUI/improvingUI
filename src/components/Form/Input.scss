@@ -62,10 +62,7 @@
 .fullWidth{
     width: 100%;
 }
-.underlined-Input{
-    border-bottom: 1px solid black;
-    border-radius: 0;
-}
+
 .outlined-Input{
     border: 1px solid black;
 }
@@ -129,10 +126,7 @@
     background-color: #ffcdd2 !important;
     border: 2px solid $danger !important;
 }
-.notRequired-input{
-    border: 2px solid black;
-    background-color: #fff;
-}
+
 
 .inputContainer p{
     position: absolute;
