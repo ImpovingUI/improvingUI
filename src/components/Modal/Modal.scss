@@ -18,6 +18,7 @@
     border: 1px solid $secondary;
     border-radius: 0.25rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 8px 0px;
+    overflow-y: auto;
 
     /* Height */
     @include sm-bp {
@@ -28,15 +29,15 @@
 
     @include md-bp {
       margin: 15% auto;
-      height: 72%;
+      max-height: 72%;
     }
 
     @include lg-bp {
-      height: 84%;
+      max-height: 84%;
     }
 
     @include xl-bp {
-      height: 96%;
+      max-height: 96%;
      
     }
 
@@ -46,18 +47,18 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 0 1rem 1rem 1rem;
-      /*height: 91%;*/
+      height: 91%;
 
       #body, .body {
         order: 1;
         margin-bottom: 3rem;
-        /*height: auto;
-        overflow-y: auto;*/
+        height: auto;
+        overflow-y: auto;
       }
   
       #footer, .footer, footer {
         order: 2;
-       //height: auto;
+        height: auto;
       }
     
     }

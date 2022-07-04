@@ -1,6 +1,6 @@
 {
   "name": "improving-ui",
-  "version": "1.0.31",
+  "version": "1.0.34",
   "description": "A react component library",
   "scripts": {
     "rollup": "rollup -c",
