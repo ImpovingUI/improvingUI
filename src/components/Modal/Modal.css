@@ -17,6 +17,7 @@
   border: 1px solid #A7A8A9;
   border-radius: 0.25rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 8px 0px;
+  overflow-y: auto;
   /* Height */
   /* Content of the modal without the header */
 }
@@ -30,17 +31,17 @@
 @media (min-width: 768px) {
   .modal .modal-content {
     margin: 15% auto;
-    height: 72%;
+    max-height: 72%;
   }
 }
 @media (min-width: 992px) {
   .modal .modal-content {
-    height: 84%;
+    max-height: 84%;
   }
 }
 @media (min-width: 1200px) {
   .modal .modal-content {
-    height: 96%;
+    max-height: 96%;
   }
 }
 .modal .modal-content .content-body-modal {
