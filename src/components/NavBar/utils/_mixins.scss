@@ -1,0 +1,4 @@
+@mixin theme-NavBar($theme){
+    background-color: $theme;
+    color: $white;
+}

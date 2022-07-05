@@ -1,0 +1,27 @@
+@import '../../css/utils/variables';
+
+$px: 0.2px;
+
+@mixin sm-bp {
+     @media (min-width: $xs) and (max-width: ( $sm - $px )) {
+         @content;
+     }
+ }
+ 
+ @mixin md-bp {
+     @media (min-width: $md ) {
+         @content;
+     }
+ }
+ 
+ @mixin lg-bp {
+     @media (min-width: $lg) {
+         @content;
+     }
+ }
+
+ @mixin xl-bp {
+     @media (min-width: $xl) {
+         @content;
+     }
+ }

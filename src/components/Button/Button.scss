@@ -2,11 +2,17 @@
 @import '../css/utils/variables';
 @import './utils/mixins';
 
-.default{
+//hover-color - outlined and text
+$hover-color:#cecece;
+$border-color:solid 1px black;
+$class-name:'Button';
+
+
+.default-#{$class-name}{
     width:150px;
     height: 48px;
     border-radius: 5px;
-    padding: 10px, 40px;
+    padding: 0px, 40px;
     border: 1px solid transparent;
     gap: 20px;
 
@@ -15,59 +21,39 @@
         opacity: $opacity-hover;
     }
 
-    &.disabled{
+    &.disabled-#{$class-name}{
         cursor:default;
         border: 1px solid transparent;
         opacity: $opacity-hover
     }
 }
 
-.primary{
-    @include theme-button($primary);
+$themes:('primary':$primary,'secondary':$secondary,'dark':$dark,'success':$success,'info':$info,'warning':$warning,'danger':$danger);
+
+@each $key,$theme in $themes{
+    .#{$key}-#{$class-name}{
+        @include theme-button($theme);
+    }
 }
 
-.secondary{
-    @include theme-button($secondary);
+.small-#{$class-name}{
+    @include size-button(34px)
 }
-
-.dark{
-    @include theme-button($dark);
-}
-
-.success{
-    @include theme-button($success);
-}
-
-.info{
-    @include theme-button($info);
-}
-
-.warning{
-    @include theme-button($warning);
-}
-
-.danger{
-    @include theme-button($danger);
-}
-
-.small{
-    @include size-button(30px)
-}
-.medium{
+.medium-#{$class-name}{
     @include size-button(40px)
 }
-.large{
+.large-#{$class-name}{
     @include size-button(50px)
 }
 
-.icon-container-left{
+.icon-container-left-#{$class-name}{
     margin-right: 10px;
 }
 
-.icon-container-right{
+.icon-container-right-#{$class-name}{
     margin-left: 10px;
 }
 
-.fullWidth{
+.fullWidth-#{$class-name}{
     width: 100%;
 }
