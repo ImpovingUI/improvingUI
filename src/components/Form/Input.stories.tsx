@@ -13,7 +13,8 @@ export default {
     variant: {options:['outlined', 'filled', 'underlined'], control: {type: 'radio'} },
     fullWidth: {options:[true, false], control: {type: 'radio'} },
     disabled: {options:[true, false], control: {type: 'radio'} },
-    isRequired: {options:['required', 'notRequired'], control: {type: 'radio'}}
+    isRequired: {options:['required', 'notRequired'], control: {type: 'radio'}},
+    color:{options:['primary','success','warning','danger',], control:{type:'radio'}}
   }
 } as ComponentMeta<typeof Input>;
 

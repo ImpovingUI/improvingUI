@@ -11,13 +11,18 @@ export interface InputProps {
   type ?: 'email'|'password'|'text'|'number';
   label?:string;
   variant?:'outlined'|'filled'| 'underlined';
-  color?: 'primary' | 'secondary' |'dark'|'success'|'warning'|'danger';
+  color?: 'primary'|'success'|'warning'|'danger';
   //required?: boolean;
   isRequired?:'required' | 'notRequired'
 }
 
 const name = 'Input'
-
+const colors = {
+primary : '005596',
+success: '5BC2A7',
+warning: 'FFBB41',
+danger: 'DC3545',
+}
 export const Input : FC<InputProps> = ({variant="outlined", color="primary", fullWidth, isRequired, disabled,className,type="text",...props}) => {
   const [state, setState] = React.useState('notFocused');
   const [value, setValue] = React.useState('');
