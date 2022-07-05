@@ -145,3 +145,11 @@
     background-color: #ffcdd2 !important;
     border: 2px solid $danger !important;
 }
+.submit-input{
+    background-color: $primary !important;
+    color: $white !important;
+}
+.submit-input:hover{
+    opacity: 0.8 !important;
+    border: 2px solid $border-color !important;
+}
