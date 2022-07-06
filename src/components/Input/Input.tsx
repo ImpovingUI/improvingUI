@@ -98,11 +98,10 @@ number, then set the inputType to text. */
     }
   }
   const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) =>{
-    console.log(e.target.value)
     setValue(e.target.value);
   }
-  const handleClick = () =>{
-    console.log('hola');
+  const handleClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) =>{
+    e.preventDefault()
     if(inputType === "password"){
       setinputType('text');
     }else{
@@ -135,11 +134,9 @@ number, then set the inputType to text. */
 /* Validating the input type number. */
     if(type === 'number'){
       if(value.match(/^[0-9]*$/)){
-        console.log('es valido');
         setValidate('valid-input');
         setDisplay('none');
       }else{
-        console.log('no es valido');
         setValidate('notValid-input');
         setHelper('Write only numbers');
         setDisplay('flex');
@@ -166,7 +163,7 @@ number, then set the inputType to text. */
       {...props}/>
       {flag
       ?<button><img src="https://img.icons8.com/material-sharp/24/000000/visible.png" alt="eye"   
-          onClick={handleClick}
+          onClick={(e)=>{handleClick(e)}}
         /></button>
       :<></>
       }

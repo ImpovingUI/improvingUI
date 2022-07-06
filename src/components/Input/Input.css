@@ -358,7 +358,7 @@
 .inputContainer {
   position: relative;
   height: 48px;
-  width: 280px;
+  width: 100%;
   margin: 10px 15px;
 }
 
@@ -423,7 +423,7 @@
   width: max-content;
   line-height: 12px;
   margin: 0%;
-  bottom: -22px;
+  bottom: -16px;
   left: 15px;
   font-size: 12px;
   margin: 0;
