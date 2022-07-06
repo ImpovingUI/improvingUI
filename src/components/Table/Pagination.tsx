@@ -10,7 +10,7 @@ export interface PaginationProps {
 
 const name = 'Table';
 
-export const Pagination : FC<PaginationProps> = ({initial, setInitial,listRows}) => {
+export const Pagination : FC<PaginationProps> = ({initial, setInitial, listRows}) => {
     const [pagination, setPagination] =  useState<number>(5);
     const [pages,setPages] = useState(0);
     const [page, setPage] = useState(0);
@@ -40,7 +40,7 @@ export const Pagination : FC<PaginationProps> = ({initial, setInitial,listRows})
             filter = listRows.slice(page*pagination, (page+1)*pagination);
         }
         setInitial(filter);
-    },[page,pages])
+    },[page,pages, initial])
 
     const increase = () => {
         if(page < pages-1)

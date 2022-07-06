@@ -13,14 +13,16 @@ export interface InputProps {
 const name = 'Table';
 
 export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], listColumns=[], setInitialFilter, listIndex=[], minInput=0}) => {
-    const [filter, setFilter] = useState('');
-    const [option, setOption] = useState<string>('all');
-    const [temp, setTemp] = useState([]);
-    useEffect(()=> {
-        if(minInput) cleanTable()
+    const [filter, setFilter] = useState(''); // filter input text
+    const [option, setOption] = useState<string>('all'); // option input 
+    const [temp, setTemp] = useState([]); // security copy
+
+    /* minInput clean table in first render */
+    useEffect(() => {
+        minInput && cleanTable()
     },[])
 
-    /* Quit all the rows in table*/
+    /* Quit all the rows in table */
     const cleanTable = () => {
         setInitial([])
         setTemp([])
@@ -35,7 +37,7 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
                 setTemp([]);
                 setInitialFilter(listRows);
             } else {
-                cleanTable()    
+                cleanTable()
             }
         }else{
             if(e.target.value.length === 1 && temp.length === 0){
