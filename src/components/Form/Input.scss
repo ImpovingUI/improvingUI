@@ -1,0 +1,155 @@
+
+@import './utils/mixin';
+@import '../css/utils/variables';
+
+
+.default{
+    width:280px;
+    height: 48px;
+    border-radius: 5px;
+    padding-inline: 16px;
+    border: 1px solid transparent;
+    gap: 20px;
+
+    &:hover{
+        cursor: pointer;
+        opacity: 50%;
+    }
+
+    &.disabled{
+        cursor:default;
+        border: 1px solid transparent;
+        opacity: 50%
+    }
+}
+
+.primary{
+    @include theme-input($primary);
+}
+
+.secondary{
+    @include theme-input($secondary);
+}
+
+.dark{
+    @include theme-input($dark);
+}
+
+.success{
+    @include theme-input($success);
+}
+
+.info{
+    @include theme-input($info);
+}
+
+.warning{
+    @include theme-input($warning);
+}
+
+.danger{
+    @include theme-input($danger);
+}
+
+.icon-container-left{
+    margin-right: 10px;
+}
+
+.icon-container-right{
+    margin-left: 10px;
+}
+
+.fullWidth{
+    width: 100%;
+}
+
+.outlined-Input{
+    border: 1px solid black;
+}
+.filled-Input{
+    background-color: $light;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.inputContainer{
+    position: relative;
+    height: 48px;
+    width: 280px;
+    margin: 10px 15px;
+}
+.inputContainer label{
+    position:absolute;
+    left: 15px;
+    top: 2px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    align-items: center;
+    color: #a1a1a1;
+    pointer-events: none;
+    transition: 0.2s ease-in;
+}
+.inputContainer label.focused-input{
+    position: absolute;
+    height: fit-content;
+    width: max-content;
+    line-height: 12px;
+    margin: 0%;
+    top: -16px;
+    font-size: 12px;
+    margin: 0;
+    left: 15px;
+    color: #335599;
+    background-color: #fff;
+    transition: 0.2s ease-in;
+    /* outline: solid 1px red; */
+}
+.inputContainer button{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    right: -33px;
+    top: 2px;
+    height: 48px;
+    width: 48px;
+    padding: 0;
+    border-radius: 5px;
+}
+.inputContainer button:hover{
+    cursor: pointer;
+    background-color: $light;
+}
+  
+.required-input{
+    background-color: #ffcdd2 !important;
+    border: 2px solid $danger !important;
+}
+
+
+.inputContainer p{
+    position: absolute;
+    height: fit-content;
+    width: max-content;
+    line-height: 12px;
+    margin: 0%;
+    bottom: -22px;
+    left: 15px;
+    font-size: 12px;
+    margin: 0;
+    color: $danger;
+
+}
+.notValid-input{
+    background-color: #ffcdd2 !important;
+    border: 2px solid $danger !important;
+}
+.submit-input{
+    background-color: $primary !important;
+    color: $white !important;
+}
+.submit-input:hover{
+    opacity: 0.8 !important;
+    border: 2px solid $border-color !important;
+}

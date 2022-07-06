@@ -1,0 +1,54 @@
+@mixin theme-input($theme){
+    &.filled{
+        background-color: $light;
+        border-bottom: 1px solid $theme;
+        border-radius: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        &:hover{
+            cursor: pointer;
+            opacity: $opacity-hover;
+        }
+
+        &.disabled{
+            cursor:default;
+            opacity: $opacity-hover;
+        }
+    }
+
+    &.outlined{
+        border: 1px solid $theme;
+        &:hover{
+            background-color: $hover-color;
+            border: $border-color;
+            cursor: pointer;
+        }
+        &.disabled{
+            cursor:default;
+            border: 1px solid $theme;
+            background-color: $white;
+            opacity: $opacity-hover
+        }
+    }
+    &.underlined{
+        border-bottom: 1px solid $theme;
+        border-radius: 0;
+        &:hover{
+            background-color: $hover-color;
+            border:$border-color;
+            cursor: pointer;
+        }
+        &.disabled{
+            cursor:default;
+            border: 1px solid transparent;
+            background-color: $white;
+            opacity: $opacity-hover;
+        }
+    }
+}
+
+@mixin size-input($width){
+    width: $width;
+    border-radius: 5px;
+    height: 48px;
+}
