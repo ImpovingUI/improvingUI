@@ -5,4 +5,5 @@ export {SideBarHeader} from './SideBarHeader'
 export {LiRouter} from './LiRouter'
 export {Alert} from './Alert'
 export {Table} from './Table'
+export {Input} from './Input'
 
