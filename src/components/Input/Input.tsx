@@ -51,10 +51,6 @@ number, then set the inputType to text. */
     }
   },[type]);
 
-  React.useEffect(()=>{
-    console.log(value);
-  },[value])
-
 /**
  * It sets the state to focused-input when the input is focused.
  */

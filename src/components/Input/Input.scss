@@ -110,12 +110,16 @@
     position: absolute;
     background-color: transparent;
     border: none;
-    right: -33px;
-    top: 2px;
+    right: 0px;
+    border-bottom: 1px solid $primary;
+    border-top: 1px solid $primary;
+    border-right: 1px solid $primary;
+    top: 0px;
     height: 48px;
     width: 48px;
     padding: 0;
-    border-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .inputContainer button:hover{
     cursor: pointer;
@@ -151,5 +155,5 @@
 }
 .submit-input:hover{
     opacity: 0.8 !important;
-    border: 2px solid $border-color !important;
+    border: 2px solid $dark !important;
 }

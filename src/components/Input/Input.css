@@ -35,8 +35,8 @@
   border: 1px solid #005596;
 }
 .primary.outlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .primary.outlined.disabled {
@@ -50,8 +50,8 @@
   border-radius: 0;
 }
 .primary.underlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .primary.underlined.disabled {
@@ -80,8 +80,8 @@
   border: 1px solid #A7A8A9;
 }
 .secondary.outlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .secondary.outlined.disabled {
@@ -95,8 +95,8 @@
   border-radius: 0;
 }
 .secondary.underlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .secondary.underlined.disabled {
@@ -125,8 +125,8 @@
   border: 1px solid #343A40;
 }
 .dark.outlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .dark.outlined.disabled {
@@ -140,8 +140,8 @@
   border-radius: 0;
 }
 .dark.underlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .dark.underlined.disabled {
@@ -170,8 +170,8 @@
   border: 1px solid #5BC2A7;
 }
 .success.outlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .success.outlined.disabled {
@@ -185,8 +185,8 @@
   border-radius: 0;
 }
 .success.underlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .success.underlined.disabled {
@@ -215,8 +215,8 @@
   border: 1px solid #4597D3;
 }
 .info.outlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .info.outlined.disabled {
@@ -230,8 +230,8 @@
   border-radius: 0;
 }
 .info.underlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .info.underlined.disabled {
@@ -260,8 +260,8 @@
   border: 1px solid #FFBB41;
 }
 .warning.outlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .warning.outlined.disabled {
@@ -275,8 +275,8 @@
   border-radius: 0;
 }
 .warning.underlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .warning.underlined.disabled {
@@ -305,8 +305,8 @@
   border: 1px solid #DC3545;
 }
 .danger.outlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .danger.outlined.disabled {
@@ -320,8 +320,8 @@
   border-radius: 0;
 }
 .danger.underlined:hover {
-  background-color: #cecece;
-  border: solid 1px black;
+  background-color: 0.8;
+  border: 2px solid #343A40;
   cursor: pointer;
 }
 .danger.underlined.disabled {
@@ -395,12 +395,16 @@
   position: absolute;
   background-color: transparent;
   border: none;
-  right: -33px;
-  top: 2px;
+  right: 0px;
+  border-bottom: 1px solid #005596;
+  border-top: 1px solid #005596;
+  border-right: 1px solid #005596;
+  top: 0px;
   height: 48px;
   width: 48px;
   padding: 0;
-  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .inputContainer button:hover {
@@ -438,7 +442,5 @@
 
 .submit-input:hover {
   opacity: 0.8 !important;
-  border: 2px solid solid 1px black !important;
+  border: 2px solid #343A40 !important;
 }
-
-/*# sourceMappingURL=Input.css.map */
