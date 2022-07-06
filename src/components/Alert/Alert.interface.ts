@@ -24,7 +24,8 @@ export interface AlertProps {
      tittle?: string;
      position: `${PositionEnum}`;
      Icon?: FC;
-     config: AlertProps
+     config: AlertProps;
+     handleClose: ( state: boolean ) => {};
 }
 
 export interface AlertPropsValidate {
