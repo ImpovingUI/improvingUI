@@ -5,8 +5,14 @@
 .picker__input {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  padding: 12px;
+  padding: 10px;
   outline: none;
+  height: 26px;
+  // width: 95%;
+}
+
+.fullWidth__picker {
+  width: 95%;
 }
 
 .container-picker {
@@ -88,6 +94,9 @@ $themes: (
     cursor: not-allowed;
     color: #bcbcbc;
   }
+  .blockedCalendar {
+    color: #bcbcbc;
+  }
 }
 
 .months {
@@ -130,11 +139,10 @@ $themes: (
   }
 }
 
-.todayButton{
+.todayButton {
   // width: 100px;
   color: $primary;
   td {
     border-top: 1px solid #e6e6e6;
-
   }
 }

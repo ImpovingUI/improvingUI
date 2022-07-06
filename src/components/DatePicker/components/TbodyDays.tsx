@@ -1,28 +1,37 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
 
 export interface TbodyDaysProps {
   selectedDate: string;
-  setSelectedDate:any;
+  setSelectedDate: any;
   blockedDates: any;
   daysInMonth: any;
-  month:any;
-  year:any;
-  validDate: any;
+  month: any;
+  year: any;
+  validDate: boolean;
   setValidDate: any;
   changeDateToday: any;
 }
 
-export const TbodyDays: FC<TbodyDaysProps> = ({selectedDate, setSelectedDate, blockedDates, daysInMonth, month, year, validDate, setValidDate, changeDateToday}) => {
-
-
-  blockedDates = ["06/10/2022", "06/15/2022"];
+export const TbodyDays: FC<TbodyDaysProps> = ({
+  selectedDate,
+  setSelectedDate,
+  blockedDates,
+  daysInMonth,
+  month,
+  year,
+  validDate,
+  setValidDate,
+  changeDateToday,
+}) => {
+  // blockedDates = ["06/10/2022", "06/15/2022"];
+  // console.log(validDate);
   return (
-    <tbody>
-      {daysInMonth.map((day:string[], index:number) => {
+    <tbody className={validDate ? "" : "blockedCalendar"}>
+      {daysInMonth.map((day: string[], index: number) => {
         return (
           <tr key={index}>
             {day.map((day, index) => {
-              let content:string =
+              let content: string =
                 (month + 1 < 10 ? "0" + (month + 1) : month + 1) +
                 "/" +
                 (day.length < 2 ? "0" + day : day) +
@@ -71,4 +80,4 @@ export const TbodyDays: FC<TbodyDaysProps> = ({selectedDate, setSelectedDate, bl
       </tr>
     </tbody>
   );
-}
+};

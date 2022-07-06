@@ -20,14 +20,29 @@ export default {
       ],
       control: { type: "radio" },
     },
+    fullWidth: { options: [true, false], control: { type: "radio" } },
+    initialDate: {
+      control: {
+        type: "text",
+      },
+    },
+    blockedDates: {
+      control: {
+        type: "array",
+      },
+    },
   },
 } as ComponentMeta<typeof DatePicker>;
 
 const Template: ComponentStory<typeof DatePicker> = (args) => (
-  <DatePicker blockedDates={["20/02/2022"]} {...args} />
+  <DatePicker {...args} />
 );
 
 export const DefaultDatePicker = Template.bind({});
 DefaultDatePicker.args = {
   color: "primary",
+  fullWidth: false,
+
+  // initialDate: "07/08/2022",
+  // blockedDates: ["07/06/2022", "07/16/2022"],
 };
