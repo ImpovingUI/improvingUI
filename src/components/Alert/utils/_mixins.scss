@@ -1,0 +1,21 @@
+@mixin theme-alert($theme) {
+     &.filled {
+          background-color: $theme;
+          color: $light;
+          svg{
+               fill: $light;
+               width: 30px;
+               height: 30px;
+          }
+     }
+     &.outlined{
+          background-color: $white;
+          border:2px solid $theme;
+          color: $theme;
+          svg{
+               fill: $theme;
+               width: 30px; 
+               height: 30px;
+          }
+     }
+}

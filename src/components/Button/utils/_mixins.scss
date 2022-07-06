@@ -1,5 +1,7 @@
+$width-heigth-onlyIcon:34px;
+
 @mixin theme-button($theme){
-    &.contained{
+    &.contained-#{$class-name}{
         color:$white;
         background-color: $theme;
 
@@ -8,13 +10,19 @@
             opacity: $opacity-hover;
         }
 
-        &.disabled{
+        &.disabled-#{$class-name}{
             cursor:default;
             opacity: $opacity-hover;
         }
+
+        &.onlyIcon-#{$class-name}{
+            width: $width-heigth-onlyIcon;
+            height: $width-heigth-onlyIcon;
+            overflow: hidden;
+        }
     }
 
-    &.outlined{
+    &.outlined-#{$class-name}{
         color:$theme;
         background-color: $white;
         border:solid 1px $theme;
@@ -23,14 +31,19 @@
             border: $border-color;
             cursor: pointer;
         }
-        &.disabled{
+        &.disabled-#{$class-name}{
             cursor:default;
             border: 1px solid $theme;
             background-color: $white;
             opacity: $opacity-hover
         }
+        &.onlyIcon-#{$class-name}{
+            width: $width-heigth-onlyIcon;
+            height: $width-heigth-onlyIcon;
+            overflow: hidden;
+        }
     }
-    &.text{
+    &.text-#{$class-name}{
         color:$theme;
         background-color: $white;
         border:solid 1px transparent;
@@ -44,6 +57,11 @@
             border: 1px solid transparent;
             background-color: $white;
             opacity: $opacity-hover;
+        }
+        &.onlyIcon{
+            width: $width-heigth-onlyIcon;
+            height: $width-heigth-onlyIcon;
+            overflow: hidden;
         }
     }
 }

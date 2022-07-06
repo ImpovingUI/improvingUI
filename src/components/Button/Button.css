@@ -1,362 +1,467 @@
-.default {
+.default-Button {
   width: 150px;
   height: 48px;
   border-radius: 5px;
-  padding: 10px, 40px;
+  padding: 0px, 40px;
   border: 1px solid transparent;
   gap: 20px;
 }
-.default:hover {
+.default-Button:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.default.disabled {
+.default-Button.disabled-Button {
   cursor: default;
   border: 1px solid transparent;
   opacity: 0.8;
 }
 
-.primary.contained {
+.primary-Button.contained-Button {
   color: white;
   background-color: #005596;
 }
-.primary.contained:hover {
+.primary-Button.contained-Button:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.primary.contained.disabled {
+.primary-Button.contained-Button.disabled-Button {
   cursor: default;
   opacity: 0.8;
 }
-.primary.outlined {
+.primary-Button.contained-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.primary-Button.outlined-Button {
   color: #005596;
   background-color: white;
   border: solid 1px #005596;
 }
-.primary.outlined:hover {
+.primary-Button.outlined-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.primary.outlined.disabled {
+.primary-Button.outlined-Button.disabled-Button {
   cursor: default;
   border: 1px solid #005596;
   background-color: white;
   opacity: 0.8;
 }
-.primary.text {
+.primary-Button.outlined-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.primary-Button.text-Button {
   color: #005596;
   background-color: white;
   border: solid 1px transparent;
 }
-.primary.text:hover {
+.primary-Button.text-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.primary.text.disabled {
+.primary-Button.text-Button.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
+.primary-Button.text-Button.onlyIcon {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
 
-.secondary.contained {
+.secondary-Button.contained-Button {
   color: white;
   background-color: #A7A8A9;
 }
-.secondary.contained:hover {
+.secondary-Button.contained-Button:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.secondary.contained.disabled {
+.secondary-Button.contained-Button.disabled-Button {
   cursor: default;
   opacity: 0.8;
 }
-.secondary.outlined {
+.secondary-Button.contained-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.secondary-Button.outlined-Button {
   color: #A7A8A9;
   background-color: white;
   border: solid 1px #A7A8A9;
 }
-.secondary.outlined:hover {
+.secondary-Button.outlined-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.secondary.outlined.disabled {
+.secondary-Button.outlined-Button.disabled-Button {
   cursor: default;
   border: 1px solid #A7A8A9;
   background-color: white;
   opacity: 0.8;
 }
-.secondary.text {
+.secondary-Button.outlined-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.secondary-Button.text-Button {
   color: #A7A8A9;
   background-color: white;
   border: solid 1px transparent;
 }
-.secondary.text:hover {
+.secondary-Button.text-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.secondary.text.disabled {
+.secondary-Button.text-Button.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
+.secondary-Button.text-Button.onlyIcon {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
 
-.dark.contained {
+.dark-Button.contained-Button {
   color: white;
   background-color: #343A40;
 }
-.dark.contained:hover {
+.dark-Button.contained-Button:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.dark.contained.disabled {
+.dark-Button.contained-Button.disabled-Button {
   cursor: default;
   opacity: 0.8;
 }
-.dark.outlined {
+.dark-Button.contained-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.dark-Button.outlined-Button {
   color: #343A40;
   background-color: white;
   border: solid 1px #343A40;
 }
-.dark.outlined:hover {
+.dark-Button.outlined-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.dark.outlined.disabled {
+.dark-Button.outlined-Button.disabled-Button {
   cursor: default;
   border: 1px solid #343A40;
   background-color: white;
   opacity: 0.8;
 }
-.dark.text {
+.dark-Button.outlined-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.dark-Button.text-Button {
   color: #343A40;
   background-color: white;
   border: solid 1px transparent;
 }
-.dark.text:hover {
+.dark-Button.text-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.dark.text.disabled {
+.dark-Button.text-Button.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
+.dark-Button.text-Button.onlyIcon {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
 
-.success.contained {
+.success-Button.contained-Button {
   color: white;
   background-color: #5BC2A7;
 }
-.success.contained:hover {
+.success-Button.contained-Button:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.success.contained.disabled {
+.success-Button.contained-Button.disabled-Button {
   cursor: default;
   opacity: 0.8;
 }
-.success.outlined {
+.success-Button.contained-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.success-Button.outlined-Button {
   color: #5BC2A7;
   background-color: white;
   border: solid 1px #5BC2A7;
 }
-.success.outlined:hover {
+.success-Button.outlined-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.success.outlined.disabled {
+.success-Button.outlined-Button.disabled-Button {
   cursor: default;
   border: 1px solid #5BC2A7;
   background-color: white;
   opacity: 0.8;
 }
-.success.text {
+.success-Button.outlined-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.success-Button.text-Button {
   color: #5BC2A7;
   background-color: white;
   border: solid 1px transparent;
 }
-.success.text:hover {
+.success-Button.text-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.success.text.disabled {
+.success-Button.text-Button.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
+.success-Button.text-Button.onlyIcon {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
 
-.info.contained {
+.info-Button.contained-Button {
   color: white;
   background-color: #4597D3;
 }
-.info.contained:hover {
+.info-Button.contained-Button:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.info.contained.disabled {
+.info-Button.contained-Button.disabled-Button {
   cursor: default;
   opacity: 0.8;
 }
-.info.outlined {
+.info-Button.contained-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.info-Button.outlined-Button {
   color: #4597D3;
   background-color: white;
   border: solid 1px #4597D3;
 }
-.info.outlined:hover {
+.info-Button.outlined-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.info.outlined.disabled {
+.info-Button.outlined-Button.disabled-Button {
   cursor: default;
   border: 1px solid #4597D3;
   background-color: white;
   opacity: 0.8;
 }
-.info.text {
+.info-Button.outlined-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.info-Button.text-Button {
   color: #4597D3;
   background-color: white;
   border: solid 1px transparent;
 }
-.info.text:hover {
+.info-Button.text-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.info.text.disabled {
+.info-Button.text-Button.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
+.info-Button.text-Button.onlyIcon {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
 
-.warning.contained {
+.warning-Button.contained-Button {
   color: white;
   background-color: #FFBB41;
 }
-.warning.contained:hover {
+.warning-Button.contained-Button:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.warning.contained.disabled {
+.warning-Button.contained-Button.disabled-Button {
   cursor: default;
   opacity: 0.8;
 }
-.warning.outlined {
+.warning-Button.contained-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.warning-Button.outlined-Button {
   color: #FFBB41;
   background-color: white;
   border: solid 1px #FFBB41;
 }
-.warning.outlined:hover {
+.warning-Button.outlined-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.warning.outlined.disabled {
+.warning-Button.outlined-Button.disabled-Button {
   cursor: default;
   border: 1px solid #FFBB41;
   background-color: white;
   opacity: 0.8;
 }
-.warning.text {
+.warning-Button.outlined-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.warning-Button.text-Button {
   color: #FFBB41;
   background-color: white;
   border: solid 1px transparent;
 }
-.warning.text:hover {
+.warning-Button.text-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.warning.text.disabled {
+.warning-Button.text-Button.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
+.warning-Button.text-Button.onlyIcon {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
 
-.danger.contained {
+.danger-Button.contained-Button {
   color: white;
   background-color: #DC3545;
 }
-.danger.contained:hover {
+.danger-Button.contained-Button:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.danger.contained.disabled {
+.danger-Button.contained-Button.disabled-Button {
   cursor: default;
   opacity: 0.8;
 }
-.danger.outlined {
+.danger-Button.contained-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.danger-Button.outlined-Button {
   color: #DC3545;
   background-color: white;
   border: solid 1px #DC3545;
 }
-.danger.outlined:hover {
+.danger-Button.outlined-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.danger.outlined.disabled {
+.danger-Button.outlined-Button.disabled-Button {
   cursor: default;
   border: 1px solid #DC3545;
   background-color: white;
   opacity: 0.8;
 }
-.danger.text {
+.danger-Button.outlined-Button.onlyIcon-Button {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+.danger-Button.text-Button {
   color: #DC3545;
   background-color: white;
   border: solid 1px transparent;
 }
-.danger.text:hover {
+.danger-Button.text-Button:hover {
   background-color: #cecece;
   border: solid 1px black;
   cursor: pointer;
 }
-.danger.text.disabled {
+.danger-Button.text-Button.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
-
-.small {
-  width: 150px;
-  border-radius: 5px;
-  height: 30px;
+.danger-Button.text-Button.onlyIcon {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
 }
 
-.medium {
+.small-Button {
+  width: 150px;
+  border-radius: 5px;
+  height: 34px;
+}
+
+.medium-Button {
   width: 150px;
   border-radius: 5px;
   height: 40px;
 }
 
-.large {
+.large-Button {
   width: 150px;
   border-radius: 5px;
   height: 50px;
 }
 
-.icon-container-left {
+.icon-container-left-Button {
   margin-right: 10px;
 }
 
-.icon-container-right {
+.icon-container-right-Button {
   margin-left: 10px;
 }
 
-.fullWidth {
+.fullWidth-Button {
   width: 100%;
 }
