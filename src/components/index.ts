@@ -6,4 +6,6 @@ export {LiRouter} from './LiRouter'
 export {Alert} from './Alert'
 export {Table} from './Table'
 export {Input} from './Input'
+export {DatePicker} from './DatePicker'
+export {Loader} from './Loader'
 

@@ -9,6 +9,8 @@ $themes:('primary':$primary,'secondary':$secondary,'dark':$dark);
 .container-gral-#{$class-name}{
     opacity: .75;
     position: fixed;
+    top:0px;
+    left:0px;
     height: 100vh;
     width: 100vw;
     z-index: $loader;
