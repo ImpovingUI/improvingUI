@@ -7,7 +7,7 @@ export interface InputProps {
   fullWidth?: boolean;
   disabled?:boolean;
   className?:string;
-  width ? :number;
+  height?: string;
   type ?: 'email'|'password'|'text'|'number'|'submit';
   label?:string;
   variant?:'outlined'|'filled'| 'underlined';
@@ -17,7 +17,7 @@ export interface InputProps {
 
 const name= 'Input'
 
-export const Input : FC<InputProps> = ({variant="outlined", color="primary", fullWidth, isRequired, disabled,className,type="text",...props}) => {
+export const Input : FC<InputProps> = ({variant="outlined", color="primary", height, fullWidth, isRequired, disabled,className,type="text",...props}) => {
   const [state, setState] = React.useState('notFocused');
   const [value, setValue] = React.useState('');
   const[flag, setFlag] = React.useState(false);
@@ -50,10 +50,6 @@ number, then set the inputType to text. */
       setSubmit('')
     }
   },[type]);
-
-  React.useEffect(()=>{
-    console.log(value);
-  },[value])
 
 /**
  * It sets the state to focused-input when the input is focused.
@@ -102,11 +98,10 @@ number, then set the inputType to text. */
     }
   }
   const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) =>{
-    console.log(e.target.value)
     setValue(e.target.value);
   }
-  const handleClick = () =>{
-    console.log('hola');
+  const handleClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) =>{
+    e.preventDefault()
     if(inputType === "password"){
       setinputType('text');
     }else{
@@ -139,11 +134,9 @@ number, then set the inputType to text. */
 /* Validating the input type number. */
     if(type === 'number'){
       if(value.match(/^[0-9]*$/)){
-        console.log('es valido');
         setValidate('valid-input');
         setDisplay('none');
       }else{
-        console.log('no es valido');
         setValidate('notValid-input');
         setHelper('Write only numbers');
         setDisplay('flex');
@@ -152,7 +145,7 @@ number, then set the inputType to text. */
   }
 
   return( 
-    <div className="inputContainer">
+    <div className="inputContainer" style={{height: height}}>
       <label className={state}>{props.label}</label>
       <input type={inputType} disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} value={value}
       className={`default ${fullWidth ? 'fullWidth':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
@@ -170,7 +163,7 @@ number, then set the inputType to text. */
       {...props}/>
       {flag
       ?<button><img src="https://img.icons8.com/material-sharp/24/000000/visible.png" alt="eye"   
-          onClick={handleClick}
+          onClick={(e)=>{handleClick(e)}}
         /></button>
       :<></>
       }

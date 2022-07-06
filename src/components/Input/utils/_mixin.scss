@@ -19,8 +19,8 @@
     &.outlined{
         border: 1px solid $theme;
         &:hover{
-            background-color: $hover-color;
-            border: $border-color;
+            background-color: $opacity-hover;
+            border: 2px solid $dark;
             cursor: pointer;
         }
         &.disabled{
@@ -34,8 +34,8 @@
         border-bottom: 1px solid $theme;
         border-radius: 0;
         &:hover{
-            background-color: $hover-color;
-            border:$border-color;
+            background-color: $opacity-hover;
+            border:2px solid $dark;
             cursor: pointer;
         }
         &.disabled{
