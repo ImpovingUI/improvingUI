@@ -3,8 +3,6 @@ import { validationColor } from "./validation";
 import "./DatePicker.css";
 import Month from "./components/Month";
 import { getByTitle } from "@storybook/testing-library";
-const arrowleft = require("./assets/icons/arrowleft.svg");
-const arrowright = require("./assets/icons/arrowright.svg");
 import { Input } from "./components/Input";
 import { TbodyDays } from "./components/TbodyDays";
 import { MonthYearSelection } from "./components/MonthYearSelection";
@@ -244,11 +242,7 @@ export const DatePicker: FC<DatePickerProps> = ({
         >
           <div className="container-picker__header">
             <span>
-              <img
-                src={arrowleft}
-                alt="arrow-left"
-                onClick={() => prevMonth()}
-              />
+              <label onClick={()=>prevMonth()}>←</label>
             </span>
             <div className="container-picker__date">
               {selectedOption === "year" ? (
@@ -274,11 +268,12 @@ export const DatePicker: FC<DatePickerProps> = ({
               )}
             </div>
             <span>
-              <img
+              {/* <img
                 src={arrowright}
                 alt="arrow-right"
-                onClick={() => nextMonth()}
-              />
+                
+              /> */}
+              <label onClick={() => nextMonth()}>→</label>
             </span>
           </div>
 
