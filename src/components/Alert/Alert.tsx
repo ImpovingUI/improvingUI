@@ -20,7 +20,8 @@ export const Alert: FC<AlertProps> = ( {
     tittle = "",
     position = "top-right",
     Icon = validateIcon(variant),
-    config
+    config,
+    handleClose
 } ) => {
   
 
@@ -28,14 +29,19 @@ export const Alert: FC<AlertProps> = ( {
 
   const closeAlert = () =>{
     
-    if ( position.includes("left"))
-      alertRef.current?.classList.add("animate__backOutLeft");
-
-    if (position.includes("right"))
-      alertRef.current?.classList.add('animate__backOutRight');
+    if ( position.includes("left") ) {
+        alertRef.current?.classList.remove('animate__fadeInLeft');
+        alertRef.current?.classList.add("animate__backOutLeft");
+    }
+      
+    if ( position.includes("right") ) {
+        alertRef.current?.classList.remove('animate__fadeInRight');
+        alertRef.current?.classList.add('animate__backOutRight');
+    }
+      
+    handleClose( false );
 
   }
-
 
   useLayoutEffect(() => {
 
@@ -56,11 +62,28 @@ export const Alert: FC<AlertProps> = ( {
     setTimeout(() => {
 
       // Add animate class for hide the alert dependent on position of the alert
-      if ( position.includes('left') )
+      if ( position.includes('left') ) {
+        alertRef.current?.classList.remove('animate__fadeInLeft');
         alertRef.current?.classList.add('hide-left');
+      }
+        
 
-      if (position.includes('right'))
+      if (position.includes('right')) {
+        alertRef.current?.classList.remove('animate__fadeInRight');
         alertRef.current?.classList.add('hide-right');
+      }
+
+      // Romeving the class for closing the alert
+      setTimeout( () => {
+        if ( position.includes('left') )
+          alertRef.current?.classList.remove('hide-left');
+
+        if (position.includes('right'))
+          alertRef.current?.classList.remove('hide-right');
+
+        handleClose( false );
+
+      }, timeOut );
 
     }, timeOut);
 
@@ -102,8 +125,7 @@ export const Alert: FC<AlertProps> = ( {
         
         </div>
       )}
-
-      
+            
     </div>
   );
 };
