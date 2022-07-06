@@ -3,7 +3,7 @@
   font-size: 16px;
   padding: 10px;
   outline: none;
-  height: 26px;
+  height: 48px;
 }
 
 .fullWidth__picker {
@@ -66,6 +66,9 @@
 }
 .container-picker__header span:hover {
   color: #e6e6e6;
+}
+.container-picker__header span label {
+  cursor: pointer;
 }
 
 .container-picker__date {

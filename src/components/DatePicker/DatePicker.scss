@@ -7,7 +7,7 @@
   font-size: 16px;
   padding: 10px;
   outline: none;
-  height: 26px;
+  height: 48px;
   // width: 95%;
 }
 
@@ -54,6 +54,10 @@ $themes: (
 
     &:hover {
       color: #e6e6e6;
+    }
+    label {
+      cursor: pointer;
+      // height: 100%;
     }
   }
 }
