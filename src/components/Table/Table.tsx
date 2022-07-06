@@ -12,10 +12,11 @@ export interface TableProps {
     listRows?: Object[],
     listColumns?: String [],
     listIndex?: Number[],
-    actions?: JSX.Element[] 
+    actions?: JSX.Element[],
+    minInput?: Number | undefined
 }
 
-export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], listRows=[],actions=[], listIndex=[]}) => {
+export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], listRows=[],actions=[], listIndex=[], minInput}) => {
     const [initial, setInitial] = useState(listRows);
     const [initialFilter, setInitiailFilter] = useState(listRows);
     const [initialColumns, setInitialColumns] = useState<String[]>([])
@@ -36,7 +37,7 @@ export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], list
 
     return (
         <div className='ContainerTable'>
-            {filter && <InputFilter initial={initial} setInitial={setInitial} listRows={initialRows} listColumns={listColumns} setInitialFilter={setInitiailFilter} listIndex={initialIndex}/>}
+            {filter && <InputFilter initial={initial} setInitial={setInitial} listRows={initialRows} listColumns={listColumns} setInitialFilter={setInitiailFilter} listIndex={initialIndex} minInput={minInput || 0}/>}
             <table className='Table'>
                 <TableHeader
                     listColumns={initialColumns}
