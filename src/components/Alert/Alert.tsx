@@ -38,9 +38,11 @@ export const Alert: FC<AlertProps> = ( {
         alertRef.current?.classList.remove('animate__fadeInRight');
         alertRef.current?.classList.add('animate__backOutRight');
     }
-      
-    handleClose( false );
 
+    setTimeout(() => {
+      handleClose( false );
+    }, 1000 );
+      
   }
 
   useLayoutEffect(() => {
