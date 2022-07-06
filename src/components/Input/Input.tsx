@@ -7,7 +7,7 @@ export interface InputProps {
   fullWidth?: boolean;
   disabled?:boolean;
   className?:string;
-  width ? :number;
+  height?: string;
   type ?: 'email'|'password'|'text'|'number'|'submit';
   label?:string;
   variant?:'outlined'|'filled'| 'underlined';
@@ -17,7 +17,7 @@ export interface InputProps {
 
 const name= 'Input'
 
-export const Input : FC<InputProps> = ({variant="outlined", color="primary", fullWidth, isRequired, disabled,className,type="text",...props}) => {
+export const Input : FC<InputProps> = ({variant="outlined", color="primary", height, fullWidth, isRequired, disabled,className,type="text",...props}) => {
   const [state, setState] = React.useState('notFocused');
   const [value, setValue] = React.useState('');
   const[flag, setFlag] = React.useState(false);
@@ -145,7 +145,7 @@ number, then set the inputType to text. */
   }
 
   return( 
-    <div className="inputContainer">
+    <div className="inputContainer" style={{height: height}}>
       <label className={state}>{props.label}</label>
       <input type={inputType} disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} value={value}
       className={`default ${fullWidth ? 'fullWidth':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 

@@ -1,6 +1,6 @@
 .default {
   width: 280px;
-  height: 48px;
+  height: 100%;
   border-radius: 5px;
   padding-inline: 16px;
   border: 1px solid transparent;
