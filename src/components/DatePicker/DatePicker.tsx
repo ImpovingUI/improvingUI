@@ -130,11 +130,14 @@ export const DatePicker: FC<DatePickerProps> = ({
   };
 
   useEffect(() => {
+    // console.log(selectedDate)
     if (validDate) {
-      // console.log(selectedDate)
       setValue(selectedDate);
-
     }
+    else{
+      setValue("");
+    }
+    // console.log(value)
   }, [selectedDate]);
 
   useEffect(() => {
