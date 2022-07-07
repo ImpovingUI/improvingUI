@@ -24,7 +24,7 @@ export interface DatePickerProps {
 }
 
 export const DatePicker: FC<DatePickerProps> = ({
-  initialDate="",
+  initialDate = "",
   color = "primary",
   className,
   blockedDates = [],
@@ -226,7 +226,9 @@ export const DatePicker: FC<DatePickerProps> = ({
       </div>
       {focus || focusTable ? (
         <div
-          className={`container-picker ${validationColor(color)} ${className} `}
+          className={`container-picker ${validationColor(
+            color
+          )}-picker ${className} `}
           {...props}
           // ${value}
           // {blockedDates}
@@ -242,7 +244,7 @@ export const DatePicker: FC<DatePickerProps> = ({
         >
           <div className="container-picker__header">
             <span>
-              <label onClick={()=>prevMonth()}>←</label>
+              <label onClick={() => prevMonth()}>←</label>
             </span>
             <div className="container-picker__date">
               {selectedOption === "year" ? (
@@ -268,11 +270,6 @@ export const DatePicker: FC<DatePickerProps> = ({
               )}
             </div>
             <span>
-              {/* <img
-                src={arrowright}
-                alt="arrow-right"
-                
-              /> */}
               <label onClick={() => nextMonth()}>→</label>
             </span>
           </div>
