@@ -1,44 +1,42 @@
 //globals variables
 //colors theme --------------------------------------------------------------
-$primary : #005596;
-$secondary: #A7A8A9;
-$light: #F8F9FA;
-$dark: #343A40;
+$primary: #005596;
+$secondary: #a7a8a9;
+$light: #f8f9fa;
+$dark: #343a40;
 
+$success: #5bc2a7;
+$info: #4597d3;
+$warning: #ffbb41;
+$danger: #dc3545;
 
-$success: #5BC2A7;
-$info: #4597D3;
-$warning: #FFBB41;
-$danger: #DC3545;
-
-$primary-hover:#c7e7ff;
+$primary-hover: #c7e7ff;
 
 //color-text / contained
-$white:white;
+$white: white;
 //hover opacity
 //opacidad contaned
-$opacity-hover:0.8;
+$opacity-hover: 0.8;
 //colors theme --------------------------------------------------------------
 
 //breaks points ------------------------------------------------------------
-$xs : 0px; //minor than or queal to
-$sm : 576px; //bigger or equal to
-$md : 768px; //bigger or equal to
-$lg : 992px; //bigger or equal to
-$xl : 1200px; //bigger or equal to
-$xxl : 1400px; //bigger or equal to
+$xs: 0px; //minor than or queal to
+$sm: 576px; //bigger or equal to
+$md: 768px; //bigger or equal to
+$lg: 992px; //bigger or equal to
+$xl: 1200px; //bigger or equal to
+$xxl: 1400px; //bigger or equal to
 
-$min-w : 300px; //minimal with that a windows can have
+$min-w: 300px; //minimal with that a windows can have
 
 //breaks points ------------------------------------------------------------
 
 // pagination table------------------------------------------
-$pagination: #D7D7D7;
+$pagination: #d7d7d7;
 
 //z-index-------------------------------------------------------------------
-$navbarheader-z : 9996;
-$modal : 9997;
-$loader : 9998;
-$alert : 9999;
-
-
+$navbarheader-z: 9995;
+$modal: 9996;
+$datepicker: 9997;
+$loader: 9998;
+$alert: 9999;
