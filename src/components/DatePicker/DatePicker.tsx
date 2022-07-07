@@ -21,6 +21,7 @@ export interface DatePickerProps {
   fullWidth?: boolean;
   blockedDates?: string[];
   value: string;
+  setValue:any;
 }
 
 export const DatePicker: FC<DatePickerProps> = ({
@@ -30,6 +31,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   blockedDates = [],
   fullWidth,
   value,
+  setValue,
   ...props
 }) => {
   //set state month and year
@@ -129,11 +131,14 @@ export const DatePicker: FC<DatePickerProps> = ({
 
   useEffect(() => {
     if (validDate) {
-      value = selectedDate;
+      // value = selectedDate;
+      setValue(selectedDate);
+
     }
   }, [selectedDate]);
 
   useEffect(() => {
+    console.log("valuye")
     if (month === -1) {
       setMonthText("Invalid Date");
     } else {
@@ -146,36 +151,41 @@ export const DatePicker: FC<DatePickerProps> = ({
     }
   }, [month, year]);
 
+
+
   useLayoutEffect(() => {
     if (initialDate !== "") {
-      let date = initialDate.split("/");
+     
       //check if the date is valid
-
-      if (
-        parseInt(date[0]) <= 12 &&
-        parseInt(date[1]) <= 31 &&
-        parseInt(date[1]) > 0 &&
-        blockedDates.indexOf(initialDate) === -1
-      ) {
-        setValidDate(true);
-        setMonth(parseInt(date[0]) - 1);
-        setYear(parseInt(date[2]));
-        setDaysInMonth([...getDaysInMonth(month, year)]);
-        setMonthText(
-          new Date(parseInt(date[2]), parseInt(date[0]) - 1).toLocaleString(
-            "en-us",
-            {
-              month: "long",
-            }
-          )
-        );
-      } else {
-        setMonthText("Invalid date");
-        setValidDate(false);
-        setMonth(-1);
-      }
+      handleDate(initialDate);
     }
   }, []);
+  const handleDate =(dateString:string) =>{
+    let date = dateString.split("/");
+    if (
+      parseInt(date[0]) <= 12 &&
+      parseInt(date[1]) <= 31 &&
+      parseInt(date[1]) > 0 &&
+      blockedDates.indexOf(initialDate) === -1
+    ) {
+      setValidDate(true);
+      setMonth(parseInt(date[0]) - 1);
+      setYear(parseInt(date[2]));
+      setDaysInMonth([...getDaysInMonth(month, year)]);
+      setMonthText(
+        new Date(parseInt(date[2]), parseInt(date[0]) - 1).toLocaleString(
+          "en-us",
+          {
+            month: "long",
+          }
+        )
+      );
+    } else {
+      setMonthText("Invalid date");
+      setValidDate(false);
+      setMonth(-1);
+    }
+  }
 
   const changeDateToday = () => {
     setValidDate(true);
