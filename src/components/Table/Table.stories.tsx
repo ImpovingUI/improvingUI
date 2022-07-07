@@ -30,3 +30,10 @@ DefaultTable.args = {
     filter: true,
     pagination: true
 };
+
+export const SafeTable = Template.bind({});
+SafeTable.args = {
+    filter: true,
+    pagination: true,
+    minInput: 3
+};

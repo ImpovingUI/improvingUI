@@ -1,4 +1,4 @@
-import React, {FC, ChangeEvent, useState} from 'react';
+import React, {FC, ChangeEvent, useState, useEffect} from 'react';
 
 export interface InputProps {
     initial?: any,
@@ -6,22 +6,39 @@ export interface InputProps {
     listRows?: Object[],
     listColumns: any,
     setInitialFilter: any,
-    listIndex: any
+    listIndex: any,
+    minInput: Number
 }
 
 const name = 'Table';
 
-export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], listColumns=[], setInitialFilter, listIndex=[]}) => {
+export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], listColumns=[], setInitialFilter, listIndex=[], minInput=0}) => {
     const [filter, setFilter] = useState('');
     const [option, setOption] = useState<string>('all');
     const [temp, setTemp] = useState([]);
 
+    /* minInput clean table in first render */
+    useEffect(() => {
+        minInput && cleanTable()
+    },[])
+
+    /* Quit all the rows in table */
+    const cleanTable = () => {
+        setInitial([])
+        setTemp([])
+        setInitialFilter([])
+    }
+
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFilter(e.target.value);
-        if(e.target.value.length === 0){
-            setInitial(temp);
-            setTemp([]);
-            setInitialFilter(listRows);
+        if(e.target.value.length < minInput){
+            if(minInput <= 0) { 
+                setInitial(temp);
+                setTemp([]);
+                setInitialFilter(listRows);
+            } else {
+                cleanTable()
+            }
         }else{
             if(e.target.value.length === 1 && temp.length === 0){
                 setTemp(initial);
