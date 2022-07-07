@@ -16,6 +16,24 @@
   opacity: 50%;
 }
 
+.default-textarea {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  padding: 16px;
+  border: 1px solid transparent;
+  gap: 20px;
+}
+.default-textarea:hover {
+  cursor: pointer;
+  opacity: 50%;
+}
+.default-textarea.disabled {
+  cursor: default;
+  border: 1px solid transparent;
+  opacity: 50%;
+}
+
 .primary-input.filled {
   background-color: #F8F9FA;
   border-bottom: 1px solid #005596;
@@ -382,11 +400,7 @@
 
 .inputContainer label.focused-input {
   position: absolute;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   line-height: 12px;
   margin: 0%;
@@ -427,11 +441,7 @@
 
 .inputContainer p {
   position: absolute;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   line-height: 12px;
   margin: 0%;

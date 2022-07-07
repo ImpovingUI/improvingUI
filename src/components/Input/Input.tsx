@@ -8,18 +8,20 @@ export interface InputProps {
   disabled?:boolean;
   className?:string;
   height?: string;
-  type ?: 'email'|'password'|'text'|'number'|'submit';
+  type ?: 'email'|'password'|'text'|'number'|'submit'|'text-area';
   label?:string;
   variant?:'outlined'|'filled'| 'underlined';
   color?: 'primary' | 'secondary' |'dark'|'success'|'warning'|'danger';
   isRequired?:'required' | 'notRequired'
+  value: string;
+  setValue:(value:string)=>void;
 }
 
 const name= 'Input'
 
-export const Input : FC<InputProps> = ({variant="outlined", color="primary", height, fullWidth, isRequired, disabled,className,type="text",...props}) => {
+export const Input : FC<InputProps> = ({variant="outlined", color="primary", height, fullWidth, isRequired, disabled,className,type="text", value, setValue, ...props}) => {
   const [state, setState] = React.useState('notFocused');
-  const [value, setValue] = React.useState('');
+  //const [value, setValue] = React.useState('');
   const[flag, setFlag] = React.useState(false);
   const [inputType, setinputType] = React.useState('');
   const [helper, setHelper] = React.useState('hola');
@@ -27,6 +29,7 @@ export const Input : FC<InputProps> = ({variant="outlined", color="primary", hei
   const [required, setRequiered] = React.useState('');
   const [validate, setValidate ] = React.useState('');
   const [submit, setSubmit] = React.useState('');
+  const [isText, setisText] = React.useState(false);
   
 
 /* Checking if the type is password, then set the flag to true and the inputType to password. If the
@@ -43,6 +46,12 @@ number, then set the inputType to text. */
     }
     if(type === 'number'){
       setinputType('text');
+    }
+    if(type ==='text-area'){
+      setinputType('text-area')
+      setisText(true);
+    }else{
+      setisText(false);
     }
     if(type === 'submit'){
       setSubmit('submit-input');
@@ -64,7 +73,7 @@ number, then set the inputType to text. */
  * Field required, set the required state to required-input, and set the display state to flex
  */
   const handleBlur = () =>{
-    if(isRequired === 'required' && (type === 'email' || type === 'number' || type === 'text' || type === 'submit')){
+    if(isRequired === 'required' && (type === 'email' || type === 'number' || type === 'text' || type === 'submit' ||'text-area')){
       if(value.length > 0){
         setRequiered('notRequired-input');
         setDisplay('none');
@@ -83,7 +92,7 @@ number, then set the inputType to text. */
         setRequiered('required-input');
         setDisplay('flex');
       }
-    }else if(type === 'email' || type === 'number' || type === 'text' || type === 'submit'){
+    }else if(type === 'email' || type === 'number' || type === 'text' || type === 'submit'||'text-area'){
       setRequiered('notRequired-input');
       validation();
     }else{
@@ -97,9 +106,9 @@ number, then set the inputType to text. */
       setState('notFocused-input');
     }
   }
-  const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) =>{
+  /*const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) =>{
     setValue(e.target.value);
-  }
+  }*/
   const handleClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) =>{
     e.preventDefault()
     if(inputType === "password"){
@@ -127,6 +136,10 @@ number, then set the inputType to text. */
       setValidate('valid-input');
       setDisplay('none');
     }
+    if(type==='text-area'){
+      setValidate('valid-input');
+      setDisplay('none');
+    }
     if(type === 'submit'){
       setValidate('valid-input');
       setDisplay('none');
@@ -147,20 +160,35 @@ number, then set the inputType to text. */
   return( 
     <div className={`inputContainer ${fullWidth ? 'fullWidth-input':''}`} style={{height: height}}>
       <label className={state}>{props.label}</label>
-      <input type={inputType} disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} 
-      className={`default-input ${fullWidth ? 'fullWidth-input':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
+      {isText 
+        ? <textarea rows={10} cols={50} 
+        className={`default-textarea ${fullWidth ? 'fullWidth-input':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
 
-      ${validationType(type)} 
-      ${validationVariant(variant)}
-      ${validationColor(color)}
-      ${className}
-      ${validate}
-      ${required}
-      ${submit}
-      `
-      } 
+        ${validationType(type)} 
+        ${validationVariant(variant)}
+        ${validationColor(color)}
+        ${className}
+        ${required}
+        `
+        }
+        disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} /*onChange={handleChange}*/ value={value}
+        />
+        : <input type={inputType} disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} /*onChange={handleChange}*/     value={value} 
+      
+        className={`default-input ${fullWidth ? 'fullWidth-input':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
 
-      {...props}/>
+        ${validationType(type)} 
+        ${validationVariant(variant)}
+        ${validationColor(color)}
+        ${className}
+        ${validate}
+        ${required}
+        ${submit}
+        `
+        } 
+
+        {...props}/>
+      }
       {flag
       ?<button><img src="https://img.icons8.com/material-sharp/24/000000/visible.png" alt="eye"   
           onClick={(e)=>{handleClick(e)}}
