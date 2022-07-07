@@ -73,7 +73,7 @@ number, then set the inputType to text. */
  * Field required, set the required state to required-input, and set the display state to flex
  */
   const handleBlur = () =>{
-    if(isRequired === 'required' && (type === 'email' || type === 'number' || type === 'text' || type === 'submit' ||'text-area')){
+    if(isRequired === 'required' && (type === 'email' || type === 'number' || type === 'text' || type === 'submit' ||type === 'text-area')){
       if(value.length > 0){
         setRequiered('notRequired-input');
         setDisplay('none');
@@ -162,16 +162,20 @@ number, then set the inputType to text. */
       <label className={state}>{props.label}</label>
       {isText 
         ? <textarea rows={10} cols={50} 
-        className={`default-textarea ${fullWidth ? 'fullWidth-input':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
+           disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} /*onChange={handleChange}*/     value={value} 
+      
+        className={`default-input ${fullWidth ? 'fullWidth-input':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
 
         ${validationType(type)} 
         ${validationVariant(variant)}
         ${validationColor(color)}
         ${className}
+        ${validate}
         ${required}
+        ${submit}
         `
-        }
-        disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} /*onChange={handleChange}*/ value={value}
+        } 
+        {...props}
         />
         : <input type={inputType} disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} /*onChange={handleChange}*/     value={value} 
       
