@@ -7,12 +7,13 @@ export interface InputProps {
     listColumns: any,
     setInitialFilter: any,
     listIndex: any,
-    minInput: Number
+    minInput: Number,
+    emptyMessage: any
 }
 
 const name = 'Table';
 
-export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], listColumns=[], setInitialFilter, listIndex=[], minInput=0}) => {
+export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], listColumns=[], setInitialFilter, listIndex=[], minInput=0, emptyMessage}) => {
     const [filter, setFilter] = useState('');
     const [option, setOption] = useState<string>('all');
     const [temp, setTemp] = useState([]);
@@ -22,6 +23,7 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
         minInput && cleanTable()
     },[])
 
+    // emptyMessage= emptyMessage[1](!emptyMessage[0])
     /* Quit all the rows in table */
     const cleanTable = () => {
         setInitial([])
@@ -30,6 +32,7 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
     }
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        
         setFilter(e.target.value);
         if(e.target.value.length < minInput){
             if(minInput <= 0) { 
@@ -38,8 +41,11 @@ export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], lis
                 setInitialFilter(listRows);
             } else {
                 cleanTable()
+                emptyMessage && emptyMessage[1](false)
             }
         }else{
+            emptyMessage && emptyMessage[1](true)
+
             if(e.target.value.length === 1 && temp.length === 0){
                 setTemp(initial);
             }
