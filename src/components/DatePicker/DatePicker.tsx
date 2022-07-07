@@ -205,7 +205,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   };
 
   return (
-    <div id="container-datepicker">
+    <div id="container-datepicker" className="container-picker-grl">
       <div className="container-datepicker-input">
         <Input
           selectedDate={selectedDate}
