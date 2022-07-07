@@ -79,9 +79,9 @@ export const Input: FC<InputProps> = ({
         parseInt(date[1]) > 0 &&
         blockedDates.indexOf(e.target.value) === -1
       ) {
-        console.log(blockedDates.indexOf(date));
-        console.log(date);
-        console.log(blockedDates);
+        // console.log(blockedDates.indexOf(date));
+        // console.log(date);
+        // console.log(blockedDates);
         setValidDate(true);
         setMonth(parseInt(date[0]) - 1);
         setYear(parseInt(date[2]));
