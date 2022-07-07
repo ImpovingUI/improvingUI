@@ -26,6 +26,11 @@ export default {
         type: "text",
       },
     },
+    setValue: {
+      control: {
+        type: "text",
+      },
+    },
     blockedDates: {
       control: {
         type: "array",
