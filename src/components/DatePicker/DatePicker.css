@@ -13,42 +13,45 @@
 .container-picker {
   font-family: Arial, Helvetica, sans-serif;
   max-width: 280px;
-  margin-top: 10px;
+  position: absolute;
+  top: 70px;
+  left: 16px;
   box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
   border-radius: 4px;
+  z-index: 4;
 }
 
-.primary {
+.primary-picker {
   background-color: #005596;
   color: white;
 }
 
-.secondary {
+.secondary-picker {
   background-color: #A7A8A9;
   color: white;
 }
 
-.dark {
+.dark-picker {
   background-color: #343A40;
   color: white;
 }
 
-.success {
+.success-picker {
   background-color: #5BC2A7;
   color: white;
 }
 
-.info {
+.info-picker {
   background-color: #4597D3;
   color: white;
 }
 
-.warning {
+.warning-picker {
   background-color: #FFBB41;
   color: white;
 }
 
-.danger {
+.danger-picker {
   background-color: #DC3545;
   color: white;
 }
