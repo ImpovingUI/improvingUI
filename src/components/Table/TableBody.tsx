@@ -5,12 +5,12 @@ export interface TableProps {
     actions: any,
     listColumns: any,
     listIndex: any,
-    minInput: Number | undefined
+    emptyMessage?: Boolean | undefined
 }
 
 const name = 'Table';
 
-export const TableBody : FC<TableProps> = ({listRows=[],actions=[], listColumns,listIndex=[], minInput}) => {
+export const TableBody : FC<TableProps> = ({listRows=[],actions=[], listColumns,listIndex=[], emptyMessage=true}) => {
     return (
         <tbody className={`Tbody-${name}`}>
             {listRows.length > 0
@@ -43,8 +43,7 @@ export const TableBody : FC<TableProps> = ({listRows=[],actions=[], listColumns,
             ))
                 :<tr>
                     <td className={`Td-${name} message`} colSpan={listColumns.length}>
-                        {/* {minInput ? "Not data found" : "Type to search"} */}
-                        {"Not data found "}
+                        {emptyMessage ? "Not data found" : "Type to search"}
                     </td>
                 </tr>
             }

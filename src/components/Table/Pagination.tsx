@@ -40,7 +40,7 @@ export const Pagination : FC<PaginationProps> = ({initial, setInitial, listRows}
             filter = listRows.slice(page*pagination, (page+1)*pagination);
         }
         setInitial(filter);
-    },[page,pages, initial])
+    },[page,pages,listRows])
 
     const increase = () => {
         if(page < pages-1)
