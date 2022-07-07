@@ -11,17 +11,17 @@ export interface DatePickerProps {
   initialDate: string;
   className?: string;
   color?:
-    | "primary"
-    | "secondary"
-    | "dark"
-    | "success"
-    | "info"
-    | "warning"
-    | "danger";
+  | "primary"
+  | "secondary"
+  | "dark"
+  | "success"
+  | "info"
+  | "warning"
+  | "danger";
   fullWidth?: boolean;
   blockedDates?: string[];
   value: string;
-  setValue:(value:string)=>void;
+  setValue: (value: string) => void;
 }
 
 export const DatePicker: FC<DatePickerProps> = ({
@@ -131,15 +131,13 @@ export const DatePicker: FC<DatePickerProps> = ({
 
   useEffect(() => {
     if (validDate) {
-      console.log(selectedDate)
-      // value = selectedDate;
+      // console.log(selectedDate)
       setValue(selectedDate);
 
     }
   }, [selectedDate]);
 
   useEffect(() => {
-    console.log("valuye")
     if (month === -1) {
       setMonthText("Invalid Date");
     } else {
@@ -156,12 +154,12 @@ export const DatePicker: FC<DatePickerProps> = ({
 
   useLayoutEffect(() => {
     if (initialDate !== "") {
-     
+
       //check if the date is valid
       handleDate(initialDate);
     }
   }, []);
-  const handleDate =(dateString:string) =>{
+  const handleDate = (dateString: string) => {
     let date = dateString.split("/");
     if (
       parseInt(date[0]) <= 12 &&
@@ -208,10 +206,10 @@ export const DatePicker: FC<DatePickerProps> = ({
 
     setSelectedDate(
       (month1 + 1 < 10 ? "0" + (month1 + 1) : month1 + 1) +
-        "/" +
-        (day1.length < 2 ? "0" + day1 : day1) +
-        "/" +
-        year1
+      "/" +
+      (day1.length < 2 ? "0" + day1 : day1) +
+      "/" +
+      year1
     );
   };
 
