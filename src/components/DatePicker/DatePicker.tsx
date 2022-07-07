@@ -21,7 +21,7 @@ export interface DatePickerProps {
   fullWidth?: boolean;
   blockedDates?: string[];
   value: string;
-  setValue:any;
+  setValue:(value:string)=>void;
 }
 
 export const DatePicker: FC<DatePickerProps> = ({
@@ -131,6 +131,7 @@ export const DatePicker: FC<DatePickerProps> = ({
 
   useEffect(() => {
     if (validDate) {
+      console.log(selectedDate)
       // value = selectedDate;
       setValue(selectedDate);
 
