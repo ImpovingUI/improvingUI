@@ -377,7 +377,11 @@
 
 .inputContainer label.focused-input {
   position: absolute;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   line-height: 12px;
   margin: 0%;
@@ -419,7 +423,11 @@
 
 .inputContainer p {
   position: absolute;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   line-height: 12px;
   margin: 0%;
