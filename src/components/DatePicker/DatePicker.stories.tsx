@@ -47,7 +47,7 @@ export const DefaultDatePicker = Template.bind({});
 DefaultDatePicker.args = {
   color: "primary",
   fullWidth: false,
-
+  setValue:(string)=>{}
   // initialDate: "07/08/2022",
   // blockedDates: ["07/06/2022", "07/16/2022"],
 };

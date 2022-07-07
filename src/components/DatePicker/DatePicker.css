@@ -8,6 +8,7 @@
   padding: 10px;
   outline: none;
   height: 48px;
+  border-radius: 5px;
 }
 
 .fullWidth__picker {
@@ -16,7 +17,7 @@
 
 .container-picker {
   font-family: Arial, Helvetica, sans-serif;
-  width: 280px;
+  width: 250px;
   position: absolute;
   top: 60px;
   left: auto;
@@ -94,7 +95,7 @@
   text-align: center;
   cursor: pointer;
   width: 50px;
-  height: 36.17px;
+  height: 30px;
 }
 .picker-content tbody tr td:hover {
   background-color: #e6e6e6;
@@ -113,7 +114,7 @@
 }
 
 .months {
-  height: 224px;
+  height: 200px;
   color: black;
   background-color: #fff;
 }
@@ -130,7 +131,7 @@
 }
 
 .years {
-  height: 224px;
+  height: 200px;
   color: black;
   background-color: #fff;
 }
