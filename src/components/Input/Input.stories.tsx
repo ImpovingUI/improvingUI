@@ -10,6 +10,7 @@ export default {
   component: Input,
   argTypes: {
     type: { options:['email','password','text', 'number','submit'], control: {type: 'radio'} },
+    color: {options:['primary','secondary','dark','success','info','warning','danger'], control: {type: 'radio'} },
     variant: {options:['outlined', 'filled', 'underlined'], control: {type: 'radio'} },
     fullWidth: {options:[true, false], control: {type: 'radio'} },
     disabled: {options:[true, false], control: {type: 'radio'} },
