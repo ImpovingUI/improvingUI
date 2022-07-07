@@ -48,6 +48,7 @@ export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], list
                     actions={initialActions}
                     listColumns={listColumns}
                     listIndex={initialIndex}
+                    minInput={minInput}
                 />
             </table>
             {pagination && <Pagination initial={initial} setInitial={setInitial} listRows={initialFilter}/>}

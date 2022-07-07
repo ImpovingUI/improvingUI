@@ -13,9 +13,9 @@ export interface InputProps {
 const name = 'Table';
 
 export const InputFilter: FC<InputProps> =({initial,setInitial, listRows=[], listColumns=[], setInitialFilter, listIndex=[], minInput=0}) => {
-    const [filter, setFilter] = useState(''); // filter input text
-    const [option, setOption] = useState<string>('all'); // option input 
-    const [temp, setTemp] = useState([]); // security copy
+    const [filter, setFilter] = useState('');
+    const [option, setOption] = useState<string>('all');
+    const [temp, setTemp] = useState([]);
 
     /* minInput clean table in first render */
     useEffect(() => {
