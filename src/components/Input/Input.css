@@ -16,315 +16,315 @@
   opacity: 50%;
 }
 
-.primary.filled {
+.primary-input.filled {
   background-color: #F8F9FA;
   border-bottom: 1px solid #005596;
   border-radius: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.primary.filled:hover {
+.primary-input.filled:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.primary.filled.disabled {
+.primary-input.filled.disabled {
   cursor: default;
   opacity: 0.8;
 }
-.primary.outlined {
+.primary-input.outlined {
   border: 1px solid #005596;
 }
-.primary.outlined:hover {
+.primary-input.outlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.primary.outlined.disabled {
+.primary-input.outlined.disabled {
   cursor: default;
   border: 1px solid #005596;
   background-color: white;
   opacity: 0.8;
 }
-.primary.underlined {
+.primary-input.underlined {
   border-bottom: 1px solid #005596;
   border-radius: 0;
 }
-.primary.underlined:hover {
+.primary-input.underlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.primary.underlined.disabled {
+.primary-input.underlined.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.secondary.filled {
+.secondary-input.filled {
   background-color: #F8F9FA;
   border-bottom: 1px solid #A7A8A9;
   border-radius: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.secondary.filled:hover {
+.secondary-input.filled:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.secondary.filled.disabled {
+.secondary-input.filled.disabled {
   cursor: default;
   opacity: 0.8;
 }
-.secondary.outlined {
+.secondary-input.outlined {
   border: 1px solid #A7A8A9;
 }
-.secondary.outlined:hover {
+.secondary-input.outlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.secondary.outlined.disabled {
+.secondary-input.outlined.disabled {
   cursor: default;
   border: 1px solid #A7A8A9;
   background-color: white;
   opacity: 0.8;
 }
-.secondary.underlined {
+.secondary-input.underlined {
   border-bottom: 1px solid #A7A8A9;
   border-radius: 0;
 }
-.secondary.underlined:hover {
+.secondary-input.underlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.secondary.underlined.disabled {
+.secondary-input.underlined.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.dark.filled {
+.dark-input.filled {
   background-color: #F8F9FA;
   border-bottom: 1px solid #343A40;
   border-radius: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.dark.filled:hover {
+.dark-input.filled:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.dark.filled.disabled {
+.dark-input.filled.disabled {
   cursor: default;
   opacity: 0.8;
 }
-.dark.outlined {
+.dark-input.outlined {
   border: 1px solid #343A40;
 }
-.dark.outlined:hover {
+.dark-input.outlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.dark.outlined.disabled {
+.dark-input.outlined.disabled {
   cursor: default;
   border: 1px solid #343A40;
   background-color: white;
   opacity: 0.8;
 }
-.dark.underlined {
+.dark-input.underlined {
   border-bottom: 1px solid #343A40;
   border-radius: 0;
 }
-.dark.underlined:hover {
+.dark-input.underlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.dark.underlined.disabled {
+.dark-input.underlined.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.success.filled {
+.success-input.filled {
   background-color: #F8F9FA;
   border-bottom: 1px solid #5BC2A7;
   border-radius: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.success.filled:hover {
+.success-input.filled:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.success.filled.disabled {
+.success-input.filled.disabled {
   cursor: default;
   opacity: 0.8;
 }
-.success.outlined {
+.success-input.outlined {
   border: 1px solid #5BC2A7;
 }
-.success.outlined:hover {
+.success-input.outlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.success.outlined.disabled {
+.success-input.outlined.disabled {
   cursor: default;
   border: 1px solid #5BC2A7;
   background-color: white;
   opacity: 0.8;
 }
-.success.underlined {
+.success-input.underlined {
   border-bottom: 1px solid #5BC2A7;
   border-radius: 0;
 }
-.success.underlined:hover {
+.success-input.underlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.success.underlined.disabled {
+.success-input.underlined.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.info.filled {
+.info-input.filled {
   background-color: #F8F9FA;
   border-bottom: 1px solid #4597D3;
   border-radius: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.info.filled:hover {
+.info-input.filled:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.info.filled.disabled {
+.info-input.filled.disabled {
   cursor: default;
   opacity: 0.8;
 }
-.info.outlined {
+.info-input.outlined {
   border: 1px solid #4597D3;
 }
-.info.outlined:hover {
+.info-input.outlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.info.outlined.disabled {
+.info-input.outlined.disabled {
   cursor: default;
   border: 1px solid #4597D3;
   background-color: white;
   opacity: 0.8;
 }
-.info.underlined {
+.info-input.underlined {
   border-bottom: 1px solid #4597D3;
   border-radius: 0;
 }
-.info.underlined:hover {
+.info-input.underlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.info.underlined.disabled {
+.info-input.underlined.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.warning.filled {
+.warning-input.filled {
   background-color: #F8F9FA;
   border-bottom: 1px solid #FFBB41;
   border-radius: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.warning.filled:hover {
+.warning-input.filled:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.warning.filled.disabled {
+.warning-input.filled.disabled {
   cursor: default;
   opacity: 0.8;
 }
-.warning.outlined {
+.warning-input.outlined {
   border: 1px solid #FFBB41;
 }
-.warning.outlined:hover {
+.warning-input.outlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.warning.outlined.disabled {
+.warning-input.outlined.disabled {
   cursor: default;
   border: 1px solid #FFBB41;
   background-color: white;
   opacity: 0.8;
 }
-.warning.underlined {
+.warning-input.underlined {
   border-bottom: 1px solid #FFBB41;
   border-radius: 0;
 }
-.warning.underlined:hover {
+.warning-input.underlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.warning.underlined.disabled {
+.warning-input.underlined.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
   opacity: 0.8;
 }
 
-.danger.filled {
+.danger-input.filled {
   background-color: #F8F9FA;
   border-bottom: 1px solid #DC3545;
   border-radius: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.danger.filled:hover {
+.danger-input.filled:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-.danger.filled.disabled {
+.danger-input.filled.disabled {
   cursor: default;
   opacity: 0.8;
 }
-.danger.outlined {
+.danger-input.outlined {
   border: 1px solid #DC3545;
 }
-.danger.outlined:hover {
+.danger-input.outlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.danger.outlined.disabled {
+.danger-input.outlined.disabled {
   cursor: default;
   border: 1px solid #DC3545;
   background-color: white;
   opacity: 0.8;
 }
-.danger.underlined {
+.danger-input.underlined {
   border-bottom: 1px solid #DC3545;
   border-radius: 0;
 }
-.danger.underlined:hover {
+.danger-input.underlined:hover {
   background-color: 0.8;
   border: 2px solid #343A40;
   cursor: pointer;
 }
-.danger.underlined.disabled {
+.danger-input.underlined.disabled {
   cursor: default;
   border: 1px solid transparent;
   background-color: white;
@@ -339,7 +339,7 @@
   margin-left: 10px;
 }
 
-.fullWidth {
+.fullWidth-input {
   width: 100%;
 }
 
@@ -392,7 +392,6 @@
   color: #335599;
   background-color: #fff;
   transition: 0.2s ease-in;
-  /* outline: solid 1px red; */
 }
 
 .inputContainer button {

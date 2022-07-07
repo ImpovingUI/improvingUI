@@ -148,7 +148,7 @@ number, then set the inputType to text. */
     <div className="inputContainer" style={{height: height}}>
       <label className={state}>{props.label}</label>
       <input type={inputType} disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} value={value}
-      className={`default ${fullWidth ? 'fullWidth':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
+      className={`default ${fullWidth ? 'fullWidth-input':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
 
       ${validationType(type)} 
       ${validationVariant(variant)}
