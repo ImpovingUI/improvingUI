@@ -23,6 +23,7 @@ export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], list
     const [initialIndex, setInitialIndex] = useState<Number[]>([])
     const [initialActions, setInitialActions] = useState<JSX.Element[]>();
     const [initialRows, setInitialRows] = useState<Object[]>([]);
+    const emptyMessage = useState(false)
 
     useLayoutEffect(() => {
         const columns = validationColumn(listColumns);
@@ -37,7 +38,7 @@ export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], list
 
     return (
         <div className='ContainerTable'>
-            {filter && <InputFilter initial={initial} setInitial={setInitial} listRows={initialRows} listColumns={listColumns} setInitialFilter={setInitiailFilter} listIndex={initialIndex} minInput={minInput || 0}/>}
+            {filter && <InputFilter initial={initial} setInitial={setInitial} listRows={initialRows} listColumns={listColumns} setInitialFilter={setInitiailFilter} listIndex={initialIndex} minInput={minInput || 0} emptyMessage={emptyMessage}/>}
             <table className='Table'>
                 <TableHeader
                     listColumns={initialColumns}
@@ -48,7 +49,7 @@ export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], list
                     actions={initialActions}
                     listColumns={listColumns}
                     listIndex={initialIndex}
-                    minInput={minInput}
+                    emptyMessage={emptyMessage[0]}
                 />
             </table>
             {pagination && <Pagination initial={initial} setInitial={setInitial} listRows={initialFilter}/>}

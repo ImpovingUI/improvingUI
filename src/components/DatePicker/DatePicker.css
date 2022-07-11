@@ -1,24 +1,29 @@
+.container-picker-grl {
+  position: relative;
+}
+
 .picker__input {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   padding: 10px;
   outline: none;
   height: 48px;
+  border-radius: 5px;
 }
 
 .fullWidth__picker {
-  width: 95%;
+  width: 100%;
 }
 
 .container-picker {
   font-family: Arial, Helvetica, sans-serif;
-  max-width: 280px;
+  width: 250px;
   position: absolute;
-  top: 70px;
-  left: 16px;
+  top: 60px;
+  left: auto;
   box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
   border-radius: 4px;
-  z-index: 4;
+  z-index: 9997;
 }
 
 .primary-picker {
@@ -27,32 +32,32 @@
 }
 
 .secondary-picker {
-  background-color: #A7A8A9;
+  background-color: #a7a8a9;
   color: white;
 }
 
 .dark-picker {
-  background-color: #343A40;
+  background-color: #343a40;
   color: white;
 }
 
 .success-picker {
-  background-color: #5BC2A7;
+  background-color: #5bc2a7;
   color: white;
 }
 
 .info-picker {
-  background-color: #4597D3;
+  background-color: #4597d3;
   color: white;
 }
 
 .warning-picker {
-  background-color: #FFBB41;
+  background-color: #ffbb41;
   color: white;
 }
 
 .danger-picker {
-  background-color: #DC3545;
+  background-color: #dc3545;
   color: white;
 }
 
@@ -90,14 +95,14 @@
   text-align: center;
   cursor: pointer;
   width: 50px;
-  height: 36.17px;
+  height: 30px;
 }
 .picker-content tbody tr td:hover {
   background-color: #e6e6e6;
 }
 .picker-content tbody tr td.selected {
   color: #fff;
-  background-color: #5BC2A7;
+  background-color: #5bc2a7;
   border-radius: 50%;
 }
 .picker-content tbody tr td.blocked {
@@ -109,7 +114,7 @@
 }
 
 .months {
-  height: 224px;
+  height: 200px;
   color: black;
   background-color: #fff;
 }
@@ -126,7 +131,7 @@
 }
 
 .years {
-  height: 224px;
+  height: 200px;
   color: black;
   background-color: #fff;
 }
