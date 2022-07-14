@@ -34,7 +34,7 @@ export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], list
         setInitialIndex(indexs);
         setInitialRows(rows);
         setInitialActions(acts);
-    },[])
+    },[listRows])
 
     return (
         <div className='ContainerTable'>
