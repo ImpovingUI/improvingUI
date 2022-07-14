@@ -78,7 +78,7 @@
 
 .secondary-Button.contained-Button {
   color: white;
-  background-color: #A7A8A9;
+  background-color: #a7a8a9;
 }
 .secondary-Button.contained-Button:hover {
   cursor: pointer;
@@ -94,9 +94,9 @@
   overflow: hidden;
 }
 .secondary-Button.outlined-Button {
-  color: #A7A8A9;
+  color: #a7a8a9;
   background-color: white;
-  border: solid 1px #A7A8A9;
+  border: solid 1px #a7a8a9;
 }
 .secondary-Button.outlined-Button:hover {
   background-color: #cecece;
@@ -105,7 +105,7 @@
 }
 .secondary-Button.outlined-Button.disabled-Button {
   cursor: default;
-  border: 1px solid #A7A8A9;
+  border: 1px solid #a7a8a9;
   background-color: white;
   opacity: 0.8;
 }
@@ -115,7 +115,7 @@
   overflow: hidden;
 }
 .secondary-Button.text-Button {
-  color: #A7A8A9;
+  color: #a7a8a9;
   background-color: white;
   border: solid 1px transparent;
 }
@@ -138,7 +138,7 @@
 
 .dark-Button.contained-Button {
   color: white;
-  background-color: #343A40;
+  background-color: #343a40;
 }
 .dark-Button.contained-Button:hover {
   cursor: pointer;
@@ -154,9 +154,9 @@
   overflow: hidden;
 }
 .dark-Button.outlined-Button {
-  color: #343A40;
+  color: #343a40;
   background-color: white;
-  border: solid 1px #343A40;
+  border: solid 1px #343a40;
 }
 .dark-Button.outlined-Button:hover {
   background-color: #cecece;
@@ -165,7 +165,7 @@
 }
 .dark-Button.outlined-Button.disabled-Button {
   cursor: default;
-  border: 1px solid #343A40;
+  border: 1px solid #343a40;
   background-color: white;
   opacity: 0.8;
 }
@@ -175,7 +175,7 @@
   overflow: hidden;
 }
 .dark-Button.text-Button {
-  color: #343A40;
+  color: #343a40;
   background-color: white;
   border: solid 1px transparent;
 }
@@ -198,7 +198,7 @@
 
 .success-Button.contained-Button {
   color: white;
-  background-color: #5BC2A7;
+  background-color: #5bc2a7;
 }
 .success-Button.contained-Button:hover {
   cursor: pointer;
@@ -214,9 +214,9 @@
   overflow: hidden;
 }
 .success-Button.outlined-Button {
-  color: #5BC2A7;
+  color: #5bc2a7;
   background-color: white;
-  border: solid 1px #5BC2A7;
+  border: solid 1px #5bc2a7;
 }
 .success-Button.outlined-Button:hover {
   background-color: #cecece;
@@ -225,7 +225,7 @@
 }
 .success-Button.outlined-Button.disabled-Button {
   cursor: default;
-  border: 1px solid #5BC2A7;
+  border: 1px solid #5bc2a7;
   background-color: white;
   opacity: 0.8;
 }
@@ -235,7 +235,7 @@
   overflow: hidden;
 }
 .success-Button.text-Button {
-  color: #5BC2A7;
+  color: #5bc2a7;
   background-color: white;
   border: solid 1px transparent;
 }
@@ -258,7 +258,7 @@
 
 .info-Button.contained-Button {
   color: white;
-  background-color: #4597D3;
+  background-color: #4597d3;
 }
 .info-Button.contained-Button:hover {
   cursor: pointer;
@@ -274,9 +274,9 @@
   overflow: hidden;
 }
 .info-Button.outlined-Button {
-  color: #4597D3;
+  color: #4597d3;
   background-color: white;
-  border: solid 1px #4597D3;
+  border: solid 1px #4597d3;
 }
 .info-Button.outlined-Button:hover {
   background-color: #cecece;
@@ -285,7 +285,7 @@
 }
 .info-Button.outlined-Button.disabled-Button {
   cursor: default;
-  border: 1px solid #4597D3;
+  border: 1px solid #4597d3;
   background-color: white;
   opacity: 0.8;
 }
@@ -295,7 +295,7 @@
   overflow: hidden;
 }
 .info-Button.text-Button {
-  color: #4597D3;
+  color: #4597d3;
   background-color: white;
   border: solid 1px transparent;
 }
@@ -318,7 +318,7 @@
 
 .warning-Button.contained-Button {
   color: white;
-  background-color: #FFBB41;
+  background-color: #ffbb41;
 }
 .warning-Button.contained-Button:hover {
   cursor: pointer;
@@ -334,9 +334,9 @@
   overflow: hidden;
 }
 .warning-Button.outlined-Button {
-  color: #FFBB41;
+  color: #ffbb41;
   background-color: white;
-  border: solid 1px #FFBB41;
+  border: solid 1px #ffbb41;
 }
 .warning-Button.outlined-Button:hover {
   background-color: #cecece;
@@ -345,7 +345,7 @@
 }
 .warning-Button.outlined-Button.disabled-Button {
   cursor: default;
-  border: 1px solid #FFBB41;
+  border: 1px solid #ffbb41;
   background-color: white;
   opacity: 0.8;
 }
@@ -355,7 +355,7 @@
   overflow: hidden;
 }
 .warning-Button.text-Button {
-  color: #FFBB41;
+  color: #ffbb41;
   background-color: white;
   border: solid 1px transparent;
 }
@@ -378,7 +378,7 @@
 
 .danger-Button.contained-Button {
   color: white;
-  background-color: #DC3545;
+  background-color: #dc3545;
 }
 .danger-Button.contained-Button:hover {
   cursor: pointer;
@@ -394,9 +394,9 @@
   overflow: hidden;
 }
 .danger-Button.outlined-Button {
-  color: #DC3545;
+  color: #dc3545;
   background-color: white;
-  border: solid 1px #DC3545;
+  border: solid 1px #dc3545;
 }
 .danger-Button.outlined-Button:hover {
   background-color: #cecece;
@@ -405,7 +405,7 @@
 }
 .danger-Button.outlined-Button.disabled-Button {
   cursor: default;
-  border: 1px solid #DC3545;
+  border: 1px solid #dc3545;
   background-color: white;
   opacity: 0.8;
 }
@@ -415,7 +415,7 @@
   overflow: hidden;
 }
 .danger-Button.text-Button {
-  color: #DC3545;
+  color: #dc3545;
   background-color: white;
   border: solid 1px transparent;
 }
