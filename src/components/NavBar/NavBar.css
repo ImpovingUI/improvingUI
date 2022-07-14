@@ -22,37 +22,37 @@
 }
 
 .secondary-NavBar {
-  background-color: #A7A8A9;
+  background-color: #a7a8a9;
   color: white;
 }
 
 .dark-NavBar {
-  background-color: #343A40;
+  background-color: #343a40;
   color: white;
 }
 
 .info-NavBar {
-  background-color: #4597D3;
+  background-color: #4597d3;
   color: white;
 }
 
 .success-NavBar {
-  background-color: #5BC2A7;
+  background-color: #5bc2a7;
   color: white;
 }
 
 .warning-NavBar {
-  background-color: #FFBB41;
+  background-color: #ffbb41;
   color: white;
 }
 
 .danger-NavBar {
-  background-color: #DC3545;
+  background-color: #dc3545;
   color: white;
 }
 
 .shadow-NavBar {
-  box-shadow: 0px 5px 2px #343A40;
+  box-shadow: 0px 5px 2px #343a40;
 }
 
 .icon-NavBar {
@@ -141,7 +141,7 @@
   position: fixed;
   top: 0px;
   bottom: 0px;
-  background-color: #A7A8A9;
+  background-color: #a7a8a9;
   color: white;
   transition: transform 300ms ease-in-out;
   transform: translate(-300px);
@@ -159,7 +159,7 @@
   position: fixed;
   top: 0px;
   bottom: 0px;
-  background-color: #343A40;
+  background-color: #343a40;
   color: white;
   transition: transform 300ms ease-in-out;
   transform: translate(-300px);
@@ -177,7 +177,7 @@
   position: fixed;
   top: 0px;
   bottom: 0px;
-  background-color: #4597D3;
+  background-color: #4597d3;
   color: white;
   transition: transform 300ms ease-in-out;
   transform: translate(-300px);
@@ -195,7 +195,7 @@
   position: fixed;
   top: 0px;
   bottom: 0px;
-  background-color: #5BC2A7;
+  background-color: #5bc2a7;
   color: white;
   transition: transform 300ms ease-in-out;
   transform: translate(-300px);
@@ -213,7 +213,7 @@
   position: fixed;
   top: 0px;
   bottom: 0px;
-  background-color: #FFBB41;
+  background-color: #ffbb41;
   color: white;
   transition: transform 300ms ease-in-out;
   transform: translate(-300px);
@@ -231,7 +231,7 @@
   position: fixed;
   top: 0px;
   bottom: 0px;
-  background-color: #DC3545;
+  background-color: #dc3545;
   color: white;
   transition: transform 300ms ease-in-out;
   transform: translate(-300px);

@@ -10,9 +10,9 @@ body {
   position: fixed;
   display: flex;
   flex-direction: row;
-  z-index: 9996;
+  z-index: 9995;
   background-color: white;
-  color: #343A40;
+  color: #343a40;
   transition: 600ms box-shadow ease-in-out;
   box-shadow: rgba(99, 99, 99, 0.2) 302px 2px 8px 0px;
 }
@@ -89,7 +89,7 @@ body {
 }
 .sidebar-SideBarHeader .links-SideBarHeader a {
   text-decoration: none;
-  color: #343A40;
+  color: #343a40;
   width: 90%;
   display: flex;
   justify-content: center;
@@ -121,7 +121,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #343A40;
+  color: #343a40;
 }
 @media screen and (max-width: 768px) {
   .legend-nav-container-SideBarHeader {

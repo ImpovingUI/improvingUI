@@ -168,78 +168,78 @@
   /*Div with the message and the icon for close de alert*/
 }
 .alert.success.filled {
-  background-color: #5BC2A7;
-  color: #F8F9FA;
+  background-color: #5bc2a7;
+  color: #f8f9fa;
 }
 .alert.success.filled svg {
-  fill: #F8F9FA;
+  fill: #f8f9fa;
   width: 30px;
   height: 30px;
 }
 .alert.success.outlined {
   background-color: white;
-  border: 2px solid #5BC2A7;
-  color: #5BC2A7;
+  border: 2px solid #5bc2a7;
+  color: #5bc2a7;
 }
 .alert.success.outlined svg {
-  fill: #5BC2A7;
+  fill: #5bc2a7;
   width: 30px;
   height: 30px;
 }
 .alert.error.filled {
-  background-color: #DC3545;
-  color: #F8F9FA;
+  background-color: #dc3545;
+  color: #f8f9fa;
 }
 .alert.error.filled svg {
-  fill: #F8F9FA;
+  fill: #f8f9fa;
   width: 30px;
   height: 30px;
 }
 .alert.error.outlined {
   background-color: white;
-  border: 2px solid #DC3545;
-  color: #DC3545;
+  border: 2px solid #dc3545;
+  color: #dc3545;
 }
 .alert.error.outlined svg {
-  fill: #DC3545;
+  fill: #dc3545;
   width: 30px;
   height: 30px;
 }
 .alert.warning.filled {
-  background-color: #FFBB41;
-  color: #F8F9FA;
+  background-color: #ffbb41;
+  color: #f8f9fa;
 }
 .alert.warning.filled svg {
-  fill: #F8F9FA;
+  fill: #f8f9fa;
   width: 30px;
   height: 30px;
 }
 .alert.warning.outlined {
   background-color: white;
-  border: 2px solid #FFBB41;
-  color: #FFBB41;
+  border: 2px solid #ffbb41;
+  color: #ffbb41;
 }
 .alert.warning.outlined svg {
-  fill: #FFBB41;
+  fill: #ffbb41;
   width: 30px;
   height: 30px;
 }
 .alert.info.filled {
-  background-color: #4597D3;
-  color: #F8F9FA;
+  background-color: #4597d3;
+  color: #f8f9fa;
 }
 .alert.info.filled svg {
-  fill: #F8F9FA;
+  fill: #f8f9fa;
   width: 30px;
   height: 30px;
 }
 .alert.info.outlined {
   background-color: white;
-  border: 2px solid #4597D3;
-  color: #4597D3;
+  border: 2px solid #4597d3;
+  color: #4597d3;
 }
 .alert.info.outlined svg {
-  fill: #4597D3;
+  fill: #4597d3;
   width: 30px;
   height: 30px;
 }
