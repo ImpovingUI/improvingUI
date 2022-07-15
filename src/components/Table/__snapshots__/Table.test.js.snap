@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`General table tests Tabla exists 1`] = `
+<div>
+  <div
+    class="ContainerTable"
+    role="data"
+  >
+    <div>
+      <div>
+        <input
+          class="input-Table"
+          type="text"
+          value=""
+        />
+        <select
+          class="select-Table"
+        >
+          <option
+            value="all"
+          >
+            All
+          </option>
+          <option
+            value="nombre"
+          >
+            Name
+          </option>
+          <option
+            value="apellido"
+          >
+            Last Name
+          </option>
+          <option
+            value="ciudad"
+          >
+            City
+          </option>
+          <option
+            value="estado"
+          >
+            State
+          </option>
+          <option
+            value="numero"
+          >
+            Phone
+          </option>
+        </select>
+      </div>
+    </div>
+    <table
+      class="Table"
+    >
+      <thead
+        class="Thead-Table"
+      >
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Last Name
+          </th>
+          <th>
+            City
+          </th>
+          <th>
+            State
+          </th>
+          <th>
+            Phone
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="Tbody-Table"
+      >
+        <tr>
+          <td
+            class="Td-Table message"
+            colspan="5"
+          >
+            Type to search
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div
+      class="containerPagin-Table"
+    >
+      <div>
+        <select
+          class="selectPage-Table"
+        >
+          <option
+            value="5"
+          >
+            Items per page: 5
+          </option>
+          <option
+            value="10"
+          >
+            Items per page: 10
+          </option>
+          <option
+            value="50"
+          >
+            Items per page: 50
+          </option>
+          <option
+            value="100"
+          >
+            Items per page: 100
+          </option>
+        </select>
+      </div>
+      <div>
+        1
+        -
+        0
+         of 
+        0
+         items
+      </div>
+      <div>
+        1
+         of 
+        1
+         pages
+      </div>
+      <div>
+        <button
+          class="btn-direction-Table"
+        >
+          ◄
+        </button>
+        <button
+          class="btn-direction-Table"
+        >
+          ►
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

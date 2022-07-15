@@ -37,7 +37,7 @@ export const Table : FC<TableProps> = ({filter, pagination, listColumns=[], list
     },[listRows])
 
     return (
-        <div className='ContainerTable'>
+        <div className='ContainerTable' role="data">
             {filter && <InputFilter initial={initial} setInitial={setInitial} listRows={initialRows} listColumns={listColumns} setInitialFilter={setInitiailFilter} listIndex={initialIndex} minInput={minInput || 0} emptyMessage={emptyMessage}/>}
             <table className='Table'>
                 <TableHeader
