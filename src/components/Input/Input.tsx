@@ -24,7 +24,7 @@ export const Input : FC<InputProps> = ({variant="outlined", color="primary", hei
   //const [value, setValue] = React.useState('');
   const[flag, setFlag] = React.useState(false);
   const [inputType, setinputType] = React.useState('');
-  const [helper, setHelper] = React.useState('hola');
+  const [helper, setHelper] = React.useState('');
   const [display, setDisplay] = React.useState('none');
   const [required, setRequiered] = React.useState('');
   const [validate, setValidate ] = React.useState('');
