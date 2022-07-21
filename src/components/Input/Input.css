@@ -5,6 +5,7 @@
   padding-inline: 16px;
   border: 1px solid transparent;
   gap: 20px;
+  outline: none;
 }
 .default-input:hover {
   cursor: pointer;
@@ -34,6 +35,12 @@
   opacity: 50%;
 }
 
+.primary-input.input-icon-eye {
+  fill: #005596;
+}
+.primary-input.focused-input {
+  color: #005596;
+}
 .primary-input.filled {
   background-color: #f8f9fa;
   border-bottom: 1px solid #005596;
@@ -54,7 +61,7 @@
 }
 .primary-input.outlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #005596;
   cursor: pointer;
 }
 .primary-input.outlined.disabled {
@@ -69,7 +76,7 @@
 }
 .primary-input.underlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #005596;
   cursor: pointer;
 }
 .primary-input.underlined.disabled {
@@ -79,6 +86,12 @@
   opacity: 0.8;
 }
 
+.secondary-input.input-icon-eye {
+  fill: #a7a8a9;
+}
+.secondary-input.focused-input {
+  color: #a7a8a9;
+}
 .secondary-input.filled {
   background-color: #f8f9fa;
   border-bottom: 1px solid #a7a8a9;
@@ -99,7 +112,7 @@
 }
 .secondary-input.outlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #a7a8a9;
   cursor: pointer;
 }
 .secondary-input.outlined.disabled {
@@ -114,7 +127,7 @@
 }
 .secondary-input.underlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #a7a8a9;
   cursor: pointer;
 }
 .secondary-input.underlined.disabled {
@@ -124,6 +137,12 @@
   opacity: 0.8;
 }
 
+.dark-input.input-icon-eye {
+  fill: #343a40;
+}
+.dark-input.focused-input {
+  color: #343a40;
+}
 .dark-input.filled {
   background-color: #f8f9fa;
   border-bottom: 1px solid #343a40;
@@ -169,6 +188,12 @@
   opacity: 0.8;
 }
 
+.success-input.input-icon-eye {
+  fill: #5bc2a7;
+}
+.success-input.focused-input {
+  color: #5bc2a7;
+}
 .success-input.filled {
   background-color: #f8f9fa;
   border-bottom: 1px solid #5bc2a7;
@@ -189,7 +214,7 @@
 }
 .success-input.outlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #5bc2a7;
   cursor: pointer;
 }
 .success-input.outlined.disabled {
@@ -204,7 +229,7 @@
 }
 .success-input.underlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #5bc2a7;
   cursor: pointer;
 }
 .success-input.underlined.disabled {
@@ -214,6 +239,12 @@
   opacity: 0.8;
 }
 
+.info-input.input-icon-eye {
+  fill: #4597d3;
+}
+.info-input.focused-input {
+  color: #4597d3;
+}
 .info-input.filled {
   background-color: #f8f9fa;
   border-bottom: 1px solid #4597d3;
@@ -234,7 +265,7 @@
 }
 .info-input.outlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #4597d3;
   cursor: pointer;
 }
 .info-input.outlined.disabled {
@@ -249,7 +280,7 @@
 }
 .info-input.underlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #4597d3;
   cursor: pointer;
 }
 .info-input.underlined.disabled {
@@ -259,6 +290,12 @@
   opacity: 0.8;
 }
 
+.warning-input.input-icon-eye {
+  fill: #ffbb41;
+}
+.warning-input.focused-input {
+  color: #ffbb41;
+}
 .warning-input.filled {
   background-color: #f8f9fa;
   border-bottom: 1px solid #ffbb41;
@@ -279,7 +316,7 @@
 }
 .warning-input.outlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #ffbb41;
   cursor: pointer;
 }
 .warning-input.outlined.disabled {
@@ -294,7 +331,7 @@
 }
 .warning-input.underlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #ffbb41;
   cursor: pointer;
 }
 .warning-input.underlined.disabled {
@@ -304,6 +341,12 @@
   opacity: 0.8;
 }
 
+.danger-input.input-icon-eye {
+  fill: #dc3545;
+}
+.danger-input.focused-input {
+  color: #dc3545;
+}
 .danger-input.filled {
   background-color: #f8f9fa;
   border-bottom: 1px solid #dc3545;
@@ -324,7 +367,7 @@
 }
 .danger-input.outlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #dc3545;
   cursor: pointer;
 }
 .danger-input.outlined.disabled {
@@ -339,7 +382,7 @@
 }
 .danger-input.underlined:hover {
   background-color: 0.8;
-  border: 2px solid #343a40;
+  border: 2px solid #dc3545;
   cursor: pointer;
 }
 .danger-input.underlined.disabled {
@@ -400,31 +443,28 @@
 
 .inputContainer label.focused-input {
   position: absolute;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   line-height: 12px;
   margin: 0%;
-  top: -16px;
+  top: -6px;
+  padding-left: 4px;
+  padding-right: 4px;
   font-size: 12px;
+  font-weight: bold;
   margin: 0;
   left: 15px;
-  color: #335599;
   background-color: #fff;
   transition: 0.2s ease-in;
+  z-index: 5;
 }
 
 .inputContainer button {
   position: absolute;
   background-color: transparent;
   border: none;
+  outline: none;
   right: 0px;
-  border-bottom: 1px solid #005596;
-  border-top: 1px solid #005596;
-  border-right: 1px solid #005596;
   top: 0px;
   height: 48px;
   width: 48px;
@@ -435,7 +475,6 @@
 
 .inputContainer button:hover {
   cursor: pointer;
-  background-color: #f8f9fa;
 }
 
 .required-input {
@@ -445,11 +484,7 @@
 
 .inputContainer p {
   position: absolute;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   line-height: 12px;
   margin: 0%;
@@ -474,3 +509,14 @@
   opacity: 0.8 !important;
   border: 2px solid #343a40 !important;
 }
+
+.input-icon-eye {
+  fill: red;
+  outline: none;
+}
+
+.input-icon-eye:hover {
+  outline: none;
+}
+
+/*# sourceMappingURL=Input.css.map */

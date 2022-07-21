@@ -10,7 +10,7 @@
     padding-inline: 16px;
     border: 1px solid transparent;
     gap: 20px;
-
+    outline: none;
     &:hover{
         cursor: pointer;
         opacity: 50%;
@@ -121,22 +121,26 @@
     width: max-content;
     line-height: 12px;
     margin: 0%;
-    top: -16px;
+    top: -6px;
+    padding-left: 4px;
+    padding-right: 4px;
     font-size: 12px;
+    font-weight: bold;
     margin: 0;
     left: 15px;
-    color: #335599;
     background-color: #fff;
     transition: 0.2s ease-in;
+    z-index: 5;
 }
 .inputContainer button{
     position: absolute;
     background-color: transparent;
     border: none;
+    outline: none;
     right: 0px;
-    border-bottom: 1px solid $primary;
-    border-top: 1px solid $primary;
-    border-right: 1px solid $primary;
+    //border-bottom: 1px solid $primary;
+    //border-top: 1px solid $primary;
+    //border-right: 1px solid $primary;
     top: 0px;
     height: 48px;
     width: 48px;
@@ -146,7 +150,7 @@
 }
 .inputContainer button:hover{
     cursor: pointer;
-    background-color: $light;
+    //background-color: $light;
 }
   
 .required-input{
@@ -179,4 +183,13 @@
 .submit-input:hover{
     opacity: 0.8 !important;
     border: 2px solid $dark !important;
+}
+
+.input-icon-eye{
+    fill: red;
+    outline: none;
+}
+
+.input-icon-eye:hover{
+    outline: none;
 }

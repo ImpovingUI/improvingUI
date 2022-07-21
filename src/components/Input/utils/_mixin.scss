@@ -1,4 +1,10 @@
 @mixin theme-input($theme){
+    &.input-icon-eye{
+        fill: $theme;
+    }
+    &.focused-input{
+        color: $theme;
+    }
     &.filled{
         background-color: $light;
         border-bottom: 1px solid $theme;
@@ -18,9 +24,10 @@
 
     &.outlined{
         border: 1px solid $theme;
+
         &:hover{
             background-color: $opacity-hover;
-            border: 2px solid $dark;
+            border: 2px solid $theme;
             cursor: pointer;
         }
         &.disabled{
@@ -30,12 +37,13 @@
             opacity: $opacity-hover
         }
     }
+
     &.underlined{
         border-bottom: 1px solid $theme;
         border-radius: 0;
         &:hover{
             background-color: $opacity-hover;
-            border:2px solid $dark;
+            border: 2px solid $theme;
             cursor: pointer;
         }
         &.disabled{
