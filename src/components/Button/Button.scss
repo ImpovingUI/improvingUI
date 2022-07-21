@@ -28,7 +28,7 @@ $class-name:'Button';
     }
 }
 
-$themes:('primary':$primary,'secondary':$secondary,'dark':$dark,'success':$success,'info':$info,'warning':$warning,'danger':$danger);
+$themes:('primary':$primary,'secondary':$secondary,'dark':$dark,'success':$success,'info':$info,'warning':$warning,'danger':$danger,'ghost':$ghost);
 
 @each $key,$theme in $themes{
     .#{$key}-#{$class-name}{
