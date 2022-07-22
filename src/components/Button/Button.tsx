@@ -12,7 +12,7 @@ export interface ButtonProps {
   onlyIcon?:JSX.Element;
   size?: "medium" | "small" | "large";
   variant?: "contained" | "outlined" | "text";
-  color?: 'primary' | 'secondary' |'dark'|'success'|'info'|'warning'|'danger';
+  color?: 'primary' | 'secondary' |'dark'|'success'|'info'|'warning'|'danger'|'ghost';
 }
 
 const name:string='Button';
