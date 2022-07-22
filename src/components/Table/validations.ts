@@ -1,5 +1,8 @@
 import { isValidElement } from "react";
 
+/*
+    typeof(variant[0]) lo que se hace es que sacas el tipo de dato del primer elemento en el arreglo.
+*/
 export const validationColumn = (variant: String[]) => {
     if(Array.isArray(variant) && variant.length > 0 && typeof(variant[0]) === 'string'){
         return variant;
