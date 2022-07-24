@@ -31,7 +31,7 @@ export const SideBarHeader: FC<SideBarHeaderProps> = ({color='primary',legendNav
   }
 
   return (
-    <>
+    <div className='SideBarHear'>
       <div className={`header-${name} ${color && `${color}-${name}`} ${open && `close-header-${name}`} `}>
         <div className={`legend-nav-container-${name}`}>
             <div className={`legend-nav-${name}`}>
@@ -59,6 +59,6 @@ export const SideBarHeader: FC<SideBarHeaderProps> = ({color='primary',legendNav
               {children}
           </div>
       </div>
-    </>
+    </div>
   )
 }
