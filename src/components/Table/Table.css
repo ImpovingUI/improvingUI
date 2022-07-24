@@ -23,10 +23,10 @@ Table {
 }
 
 .Tbody-Table tr {
-  border: 1px solid #F8F9FA;
+  border: 1px solid #f8f9fa;
 }
 .Tbody-Table tr:hover {
-  background-color: #D7D7D7;
+  background-color: #d7d7d7;
 }
 
 .Td-Table {
@@ -39,22 +39,22 @@ Table {
 
 .input-Table {
   border-radius: 5px;
-  border: solid 1px #A7A8A9;
+  border: solid 1px #a7a8a9;
   margin-bottom: 15px;
   height: 24px;
   width: 225px;
-  color: #A7A8A9;
+  color: #a7a8a9;
   font-size: 12px;
   padding: 1px 8px;
 }
 
 .select-Table {
   border-radius: 5px;
-  border: solid 1px #A7A8A9;
+  border: solid 1px #a7a8a9;
   margin-bottom: 15px;
   height: 25px;
   width: 100px;
-  color: #A7A8A9;
+  color: #a7a8a9;
   font-size: 12px;
   padding: 1px 8px;
   margin-left: 5px;
@@ -70,7 +70,7 @@ Table {
   height: 41px;
   left: 120px;
   top: 334px;
-  background-color: #D7D7D7;
+  background-color: #d7d7d7;
   border-radius: 0px 0px 0.25rem 0.25rem;
 }
 
@@ -96,7 +96,7 @@ Table {
 }
 
 .selectPage-Table {
-  background-color: #D7D7D7;
+  background-color: #d7d7d7;
   border: none;
   width: 50%;
   margin-top: 10px;

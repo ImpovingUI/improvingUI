@@ -21,21 +21,52 @@ $width-heigth-onlyIcon:34px;
             overflow: hidden;
         }
     }
+        
+    
 
     &.outlined-#{$class-name}{
         color:$theme;
-        background-color: $white;
+        background-color: transparent;
         border:solid 1px $theme;
         &:hover{
-            background-color: $hover-color;
-            border: $border-color;
+            background-color: $ghost;
             cursor: pointer;
         }
         &.disabled-#{$class-name}{
             cursor:default;
-            border: 1px solid $theme;
-            background-color: $white;
-            opacity: $opacity-hover
+            background-color: transparent;
+            opacity: $opacity-hover;
+            &:hover{
+                background-color: transparent;
+                border: 1px solid $theme;
+            }
+            
+        }
+        &.onlyIcon-#{$class-name}{
+            width: $width-heigth-onlyIcon;
+            height: $width-heigth-onlyIcon;
+            overflow: hidden;
+        }
+        
+    }
+
+    &.text-#{$class-name}{
+        color:$theme;
+        background-color: transparent;
+        border:solid 1px transparent;
+        &:hover{
+            background-color: $ghost;
+            cursor: pointer;
+        }
+        &.disabled-#{$class-name}{
+            cursor:default;
+            border: 1px solid transparent;
+            background-color: transparent;
+            opacity: $opacity-hover;
+            &:hover{
+                background-color: transparent;
+                border: 1px solid transparent;
+            }
         }
         &.onlyIcon-#{$class-name}{
             width: $width-heigth-onlyIcon;
@@ -43,27 +74,7 @@ $width-heigth-onlyIcon:34px;
             overflow: hidden;
         }
     }
-    &.text-#{$class-name}{
-        color:$theme;
-        background-color: $white;
-        border:solid 1px transparent;
-        &:hover{
-            background-color: $hover-color;
-            border:$border-color;
-            cursor: pointer;
-        }
-        &.disabled{
-            cursor:default;
-            border: 1px solid transparent;
-            background-color: $white;
-            opacity: $opacity-hover;
-        }
-        &.onlyIcon{
-            width: $width-heigth-onlyIcon;
-            height: $width-heigth-onlyIcon;
-            overflow: hidden;
-        }
-    }
+    
 }
 
 @mixin size-button($height){
