@@ -10,6 +10,7 @@ export interface TbodyDaysProps {
   validDate: boolean;
   setValidDate: any;
   changeDateToday: any;
+  format: string;
 }
 
 export const TbodyDays: FC<TbodyDaysProps> = ({
@@ -22,6 +23,7 @@ export const TbodyDays: FC<TbodyDaysProps> = ({
   validDate,
   setValidDate,
   changeDateToday,
+  format,
 }) => {
   // blockedDates = ["06/10/2022", "06/15/2022"];
   // console.log(validDate);
@@ -31,12 +33,24 @@ export const TbodyDays: FC<TbodyDaysProps> = ({
         return (
           <tr key={index}>
             {day.map((day, index) => {
-              let content: string =
+              let content="";
+              if (format === "mm/dd/yyyy") {
+
+              content =
                 (month + 1 < 10 ? "0" + (month + 1) : month + 1) +
                 "/" +
                 (day.length < 2 ? "0" + day : day) +
                 "/" +
                 year;
+              }
+              if (format === "dd/mm/yyyy") {
+                content =
+                  (day.length < 2 ? "0" + day : day) +
+                  "/" +
+                  (month + 1 < 10 ? "0" + (month + 1) : month + 1) +
+                  "/" +
+                  year;
+              }
               return (
                 //if content is in blockedDates, add class blocked
                 //extract waht is inside blockedDates json
@@ -54,7 +68,8 @@ export const TbodyDays: FC<TbodyDaysProps> = ({
                       if (
                         day != "" &&
                         parseInt(day) > 0 &&
-                        month > 0 &&
+                        parseInt(day) <= 31 &&
+                        month >= 0 &&
                         month <= 12
                       ) {
                         setSelectedDate(content);

@@ -15,6 +15,7 @@ export interface InputProps {
   month: any;
   year: any;
   fullWidth?: boolean;
+  format?: string;
 }
 
 export const Input: FC<InputProps> = ({
@@ -32,6 +33,7 @@ export const Input: FC<InputProps> = ({
   month,
   year,
   fullWidth,
+  format,
 }) => {
   const onChangeHandler = (e: any) => {
     let pos = e.target.selectionStart;
@@ -75,8 +77,11 @@ export const Input: FC<InputProps> = ({
 
       if (
         parseInt(date[0]) <= 12 &&
+        parseInt(date[0]) >= 1 &&
         parseInt(date[1]) <= 31 &&
         parseInt(date[1]) > 0 &&
+
+        format === "mm/dd/yyyy" &&
         blockedDates.indexOf(e.target.value) === -1
       ) {
         // console.log(blockedDates.indexOf(date));
@@ -94,6 +99,29 @@ export const Input: FC<InputProps> = ({
             }
           )
         );
+        console.log("mes aaaaaaa");
+      } else if (
+        parseInt(date[1]) <= 12 &&
+        parseInt(date[1]) >= 1 &&
+        parseInt(date[0]) <= 31 &&
+        parseInt(date[0]) > 0 &&
+        format === "dd/mm/yyyy" &&
+        blockedDates.indexOf(e.target.value) === -1
+      ) {
+        setValidDate(true);
+        setMonth(parseInt(date[1]) - 1);
+        setYear(parseInt(date[2]));
+        setDaysInMonth([...getDaysInMonth(month, year)]);
+        setMonthText(
+          new Date(parseInt(date[2]), parseInt(date[1]) - 1).toLocaleString(
+            "en-us",
+            {
+              month: "long",
+            }
+          )
+        );
+
+        console.log("dia aaaaaaa");
       } else {
         setMonthText("Invalid date");
         setValidDate(false);
@@ -123,7 +151,7 @@ export const Input: FC<InputProps> = ({
     <input
       autoComplete="off"
       type="text"
-      placeholder="mm/dd/yyyy"
+      placeholder={format}
       className={`picker__input ${fullWidth ? "fullWidth__picker" : ""}`}
       id="input"
       onFocus={(e) => {

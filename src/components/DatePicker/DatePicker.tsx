@@ -10,14 +10,15 @@ import { MonthYearSelection } from "./components/MonthYearSelection";
 export interface DatePickerProps {
   initialDate: string;
   className?: string;
+  format?: string;
   color?:
-  | "primary"
-  | "secondary"
-  | "dark"
-  | "success"
-  | "info"
-  | "warning"
-  | "danger";
+    | "primary"
+    | "secondary"
+    | "dark"
+    | "success"
+    | "info"
+    | "warning"
+    | "danger";
   fullWidth?: boolean;
   blockedDates?: string[];
   value: string;
@@ -28,6 +29,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   initialDate = "",
   color = "primary",
   className,
+  format = "dd/mm/yyyy",
   blockedDates = [],
   fullWidth,
   value,
@@ -133,8 +135,7 @@ export const DatePicker: FC<DatePickerProps> = ({
     // console.log(selectedDate)
     if (validDate) {
       setValue(selectedDate);
-    }
-    else{
+    } else {
       setValue("");
     }
     // console.log(value)
@@ -153,42 +154,7 @@ export const DatePicker: FC<DatePickerProps> = ({
     }
   }, [month, year]);
 
-
-
-  useLayoutEffect(() => {
-    if (initialDate !== "") {
-
-      //check if the date is valid
-      handleDate(initialDate);
-    }
-  }, []);
-  const handleDate = (dateString: string) => {
-    let date = dateString.split("/");
-    if (
-      parseInt(date[0]) <= 12 &&
-      parseInt(date[1]) <= 31 &&
-      parseInt(date[1]) > 0 &&
-      blockedDates.indexOf(initialDate) === -1
-    ) {
-      setValidDate(true);
-      setMonth(parseInt(date[0]) - 1);
-      setYear(parseInt(date[2]));
-      setDaysInMonth([...getDaysInMonth(month, year)]);
-      setMonthText(
-        new Date(parseInt(date[2]), parseInt(date[0]) - 1).toLocaleString(
-          "en-us",
-          {
-            month: "long",
-          }
-        )
-      );
-    } else {
-      setMonthText("Invalid date");
-      setValidDate(false);
-      setMonth(-1);
-    }
-  }
-
+  
   const changeDateToday = () => {
     setValidDate(true);
     //set selected date to today
@@ -207,13 +173,24 @@ export const DatePicker: FC<DatePickerProps> = ({
     let month1 = new Date().getMonth();
     let year1 = new Date().getFullYear();
 
-    setSelectedDate(
-      (month1 + 1 < 10 ? "0" + (month1 + 1) : month1 + 1) +
-      "/" +
-      (day1.length < 2 ? "0" + day1 : day1) +
-      "/" +
-      year1
-    );
+    if (format === "mm/dd/yyyy") {
+      setSelectedDate(
+        (month1 + 1 < 10 ? "0" + (month1 + 1) : month1 + 1) +
+          "/" +
+          (day1.length < 2 ? "0" + day1 : day1) +
+          "/" +
+          year1
+      );
+    }
+    if (format === "dd/mm/yyyy") {
+      setSelectedDate(
+        (day1.length < 2 ? "0" + day1 : day1) +
+          "/" +
+          (month1 + 1 < 10 ? "0" + (month1 + 1) : month1 + 1) +
+          "/" +
+          year1
+      );
+    }
   };
 
   return (
@@ -234,6 +211,7 @@ export const DatePicker: FC<DatePickerProps> = ({
           getDaysInMonth={getDaysInMonth}
           setFocus={setFocus}
           fullWidth={fullWidth}
+          format={format}
         />
       </div>
       {focus || focusTable ? (
@@ -302,6 +280,7 @@ export const DatePicker: FC<DatePickerProps> = ({
                   year={year}
                   blockedDates={blockedDates}
                   validDate={validDate}
+                  format={format}
                 />
               </table>
             ) : null}
