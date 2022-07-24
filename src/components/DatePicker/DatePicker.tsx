@@ -42,7 +42,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   const [seperator, setSeparator] = useState(format.includes("/") ? "/" : "-");
   const [month, setMonth] = React.useState(new Date().getMonth());
   const [year, setYear] = React.useState(new Date().getFullYear());
-  const [focus, setFocus] = React.useState(false);
+  const [focus, setFocus] = React.useState(true);
   const [focusTable, setfocusTable] = React.useState(false);
   const [selectedDate, setSelectedDate] = React.useState(initialDate);
   //hook of matriz of days
@@ -58,6 +58,9 @@ export const DatePicker: FC<DatePickerProps> = ({
       month: "long",
     })
   );
+
+  const [showTable, setShowTable] = React.useState("none");
+  const [aqui, setAqui] = React.useState(false);
 
   const getDaysInMonth = (month: number, year: number) => {
     let firstDay = new Date(year, month, 1);
@@ -135,13 +138,13 @@ export const DatePicker: FC<DatePickerProps> = ({
   };
 
   useEffect(() => {
-    // console.log(selectedDate)
+    
     if (validDate) {
       setValue(selectedDate);
     } else {
       setValue("");
     }
-    // console.log(value)
+    
   }, [selectedDate]);
 
   useEffect(() => {
@@ -196,42 +199,76 @@ export const DatePicker: FC<DatePickerProps> = ({
   };
 
   return (
-    <div id="container-datepicker" className="container-picker-grl">
-      <div className="container-datepicker-input">
-        <Input
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          setValidDate={setValidDate}
-          setMonth={setMonth}
-          month={month}
-          setYear={setYear}
-          year={year}
-          setDaysInMonth={setDaysInMonth}
-          setMonthText={setMonthText}
-          setSelectedOption={setSelectedOption}
-          blockedDates={blockedDates}
-          getDaysInMonth={getDaysInMonth}
-          setFocus={setFocus}
-          fullWidth={fullWidth}
-          format={format}
-          seperator={seperator}
-        />
+    <div
+      id="container-datepicker"
+      className="container-picker-grl"
+
+      // onBlur={(e) => {
+      //   setFocus(false);
+      //   setShowTable("none");
+      
+      // }}
+    >
+      <div
+        onFocus={(e) => {
+          setFocus(true);
+          setShowTable("block");
+        }}
+        onBlur={(e) => {
+          if(!aqui){
+            setFocus(false);
+            setShowTable("none");
+          }
+        }}
+      >
+        <div className="container-datepicker-input">
+          <Input
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            setValidDate={setValidDate}
+            setMonth={setMonth}
+            month={month}
+            setYear={setYear}
+            year={year}
+            setDaysInMonth={setDaysInMonth}
+            setMonthText={setMonthText}
+            setSelectedOption={setSelectedOption}
+            blockedDates={blockedDates}
+            getDaysInMonth={getDaysInMonth}
+            fullWidth={fullWidth}
+            format={format}
+            seperator={seperator}
+          />
+        </div>
       </div>
-      {focus || focusTable ? (
+
+      {/* const background = position.x < window.innerWidth / 2 ? "#ffaaff" : "#32abce";
+          const showTable = focus ? "block" : "none"
+      */}
+      <div
+        style={{ display: showTable }}
+
+        onMouseOver={(e) => {
+           
+          setAqui(true);
+        }}
+        onMouseLeave={(e) => {
+          setAqui(false);
+        }
+        }
+        onBlur={(e) => { 
+          setAqui(false);
+          setFocus(false);
+          setShowTable("none");
+        }
+        }
+
+      >
         <div
           className={`container-picker ${validationColor(
             color
           )}-picker ${className} `}
           {...props}
-          // ${value}
-          // {blockedDates}
-          onFocus={(e) => {
-            setfocusTable(true);
-          }}
-          onBlur={(e) => {
-            setFocus(false);
-            setfocusTable(false);
-          }}
           tabIndex={0}
           id="container-datepicker"
         >
@@ -267,7 +304,12 @@ export const DatePicker: FC<DatePickerProps> = ({
             </span>
           </div>
 
-          <div className="container-picker__body">
+          <div
+            className="container-picker__body"
+            onFocus={(e) => {
+              
+            }}
+          >
             {selectedOption == "" ? (
               <table id="calendar" className="picker-content">
                 <thead>
@@ -301,7 +343,7 @@ export const DatePicker: FC<DatePickerProps> = ({
             getYears={getYears}
           />
         </div>
-      ) : null}
+      </div>
     </div>
   );
 };

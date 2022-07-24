@@ -10,7 +10,6 @@ export interface InputProps {
   setDaysInMonth: any;
   getDaysInMonth: any;
   setMonthText: any;
-  setFocus: any;
   blockedDates: any;
   month: any;
   year: any;
@@ -29,7 +28,6 @@ export const Input: FC<InputProps> = ({
   getDaysInMonth,
   setDaysInMonth,
   setMonthText,
-  setFocus,
   blockedDates,
   month,
   year,
@@ -159,9 +157,6 @@ export const Input: FC<InputProps> = ({
       placeholder={format}
       className={`picker__input ${fullWidth ? "fullWidth__picker" : ""}`}
       id="input"
-      onFocus={(e) => {
-        setFocus(true);
-      }}
       onChange={onChangeHandler}
       onKeyDown={onKeyDownHandler}
       value={selectedDate}
