@@ -37,7 +37,7 @@ export default {
       },
     },
     format: {
-      options: ["dd/mm/yyyy", "mm/dd/yyyy"],
+      options: ["dd/mm/yyyy", "mm/dd/yyyy", "dd-mm-yyyy", "mm-dd-yyyy"],
       control: { type: "radio" },
     },
   },

@@ -15,7 +15,8 @@ export interface InputProps {
   month: any;
   year: any;
   fullWidth?: boolean;
-  format?: string;
+  format: string;
+  seperator: string;
 }
 
 export const Input: FC<InputProps> = ({
@@ -34,22 +35,23 @@ export const Input: FC<InputProps> = ({
   year,
   fullWidth,
   format,
+  seperator,
 }) => {
   const onChangeHandler = (e: any) => {
     let pos = e.target.selectionStart;
 
-    if (e.target.value.length === 2 && e.target.value.search("/") === -1) {
-      e.target.value = e.target.value + "/";
+    if (e.target.value.length === 2 && e.target.value.search(seperator) === -1) {
+      e.target.value = e.target.value + seperator;
     }
 
     if (
       e.target.value.length === 5 &&
-      e.target.value.split("/", 2).join("/").length === 5
+      e.target.value.split(seperator, 2).join(seperator).length === 5
     ) {
-      e.target.value = e.target.value + "/";
+      e.target.value = e.target.value + seperator;
     }
     if (pos) {
-      if (e.target.value[pos] === "/" && pos != 1 && pos != 4) {
+      if (e.target.value[pos] === seperator && pos != 1 && pos != 4) {
         e.target.setSelectionRange(pos + 1, pos + 1);
       }
       if (e.target.value.length < selectedDate.length) {
@@ -57,12 +59,15 @@ export const Input: FC<InputProps> = ({
     }
     if (e.target.value.length <= 10) {
       setValidDate(false);
-      if (e.target.value.search("/") === 3 && e.target.value.charAt(6) != "/") {
+      if (
+        e.target.value.search(seperator) === 3 &&
+        e.target.value.charAt(6) != seperator
+      ) {
         e.target.setSelectionRange(4, 4);
-      } else if (e.target.value.charAt(6) === "/") {
+      } else if (e.target.value.charAt(6) === seperator) {
         e.target.setSelectionRange(
-          e.target.value.split("/", 2).join("/").length + 1,
-          e.target.value.split("/", 2).join("/").length + 1
+          e.target.value.split(seperator, 2).join(seperator).length + 1,
+          e.target.value.split(seperator, 2).join(seperator).length + 1
         );
       } else {
         if (e.target.value.search(/[a-zA-Z]/g) === -1) {
@@ -72,7 +77,7 @@ export const Input: FC<InputProps> = ({
     }
     if (e.target.value.length === 10) {
       setSelectedOption("");
-      let date = e.target.value.split("/");
+      let date = e.target.value.split(seperator);
       //check if the date is valid
 
       if (
@@ -81,7 +86,7 @@ export const Input: FC<InputProps> = ({
         parseInt(date[1]) <= 31 &&
         parseInt(date[1]) > 0 &&
 
-        format === "mm/dd/yyyy" &&
+        (format === "mm/dd/yyyy" || format=== "mm-dd-yyyy") &&
         blockedDates.indexOf(e.target.value) === -1
       ) {
         // console.log(blockedDates.indexOf(date));
@@ -105,7 +110,7 @@ export const Input: FC<InputProps> = ({
         parseInt(date[1]) >= 1 &&
         parseInt(date[0]) <= 31 &&
         parseInt(date[0]) > 0 &&
-        format === "dd/mm/yyyy" &&
+        (format === "dd/mm/yyyy" || format === "dd-mm-yyyy") &&
         blockedDates.indexOf(e.target.value) === -1
       ) {
         setValidDate(true);
@@ -133,10 +138,10 @@ export const Input: FC<InputProps> = ({
     if (e.keyCode === 8) {
       let pos = e.currentTarget.selectionStart;
       if (pos) {
-        if (e.currentTarget.value[pos - 1] === "/") {
+        if (e.currentTarget.value[pos - 1] === seperator) {
           e.currentTarget.setSelectionRange(pos - 1, pos - 1);
         }
-        if (e.currentTarget.value[pos] === "/") {
+        if (e.currentTarget.value[pos] === seperator) {
           if (e.currentTarget.value.length < 4) {
             e.currentTarget.value =
               e.currentTarget.value.slice(0, pos - 1) +

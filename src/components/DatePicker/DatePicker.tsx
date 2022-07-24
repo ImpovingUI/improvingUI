@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useLayoutEffect } from "react";
+import { useState, createContext, useContext } from "react";
 import { validationColor } from "./validation";
 import "./DatePicker.css";
 import Month from "./components/Month";
@@ -10,7 +11,7 @@ import { MonthYearSelection } from "./components/MonthYearSelection";
 export interface DatePickerProps {
   initialDate: string;
   className?: string;
-  format?: string;
+  format?: "dd/mm/yyyy" | "mm/dd/yyyy" | "dd-mm-yyyy" | "mm-dd-yyyy";
   color?:
     | "primary"
     | "secondary"
@@ -37,6 +38,8 @@ export const DatePicker: FC<DatePickerProps> = ({
   ...props
 }) => {
   //set state month and year
+
+  const [seperator, setSeparator] = useState(format.includes("/") ? "/" : "-");
   const [month, setMonth] = React.useState(new Date().getMonth());
   const [year, setYear] = React.useState(new Date().getFullYear());
   const [focus, setFocus] = React.useState(false);
@@ -154,7 +157,6 @@ export const DatePicker: FC<DatePickerProps> = ({
     }
   }, [month, year]);
 
-  
   const changeDateToday = () => {
     setValidDate(true);
     //set selected date to today
@@ -173,21 +175,21 @@ export const DatePicker: FC<DatePickerProps> = ({
     let month1 = new Date().getMonth();
     let year1 = new Date().getFullYear();
 
-    if (format === "mm/dd/yyyy") {
+    if (format === "mm/dd/yyyy" || format === "mm-dd-yyyy") {
       setSelectedDate(
         (month1 + 1 < 10 ? "0" + (month1 + 1) : month1 + 1) +
-          "/" +
+          seperator +
           (day1.length < 2 ? "0" + day1 : day1) +
-          "/" +
+          seperator +
           year1
       );
     }
-    if (format === "dd/mm/yyyy") {
+    if (format === "dd/mm/yyyy" || format === "dd-mm-yyyy") {
       setSelectedDate(
         (day1.length < 2 ? "0" + day1 : day1) +
-          "/" +
+          seperator +
           (month1 + 1 < 10 ? "0" + (month1 + 1) : month1 + 1) +
-          "/" +
+          seperator +
           year1
       );
     }
@@ -212,6 +214,7 @@ export const DatePicker: FC<DatePickerProps> = ({
           setFocus={setFocus}
           fullWidth={fullWidth}
           format={format}
+          seperator={seperator}
         />
       </div>
       {focus || focusTable ? (
@@ -281,6 +284,7 @@ export const DatePicker: FC<DatePickerProps> = ({
                   blockedDates={blockedDates}
                   validDate={validDate}
                   format={format}
+                  separator={seperator}
                 />
               </table>
             ) : null}
