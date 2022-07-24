@@ -49,7 +49,7 @@ export const SideBarHeader: FC<SideBarHeaderProps> = ({color='primary',legendNav
         </div>
       </div>
       <div className={`container-${name} ${open && `close-container-${name}`}`}>
-          <div className={`sidebar-${name} ${open && `close-${name}`} `}>
+          <div className={`sidebar-${name} ${open && `close-sidebar-${name}`} `}>
               <div className={`line-${name}`}></div>
               <nav className={`links-${name}`}>
                 {links}
