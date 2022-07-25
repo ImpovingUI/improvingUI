@@ -14,8 +14,10 @@ export interface InputProps {
   month: any;
   year: any;
   fullWidth?: boolean;
+  name?: string;
   format: string;
   seperator: string;
+  onChange(): any;
 }
 
 export const Input: FC<InputProps> = ({
@@ -32,13 +34,18 @@ export const Input: FC<InputProps> = ({
   month,
   year,
   fullWidth,
+  name,
   format,
   seperator,
+  onChange,
 }) => {
   const onChangeHandler = (e: any) => {
     let pos = e.target.selectionStart;
 
-    if (e.target.value.length === 2 && e.target.value.search(seperator) === -1) {
+    if (
+      e.target.value.length === 2 &&
+      e.target.value.search(seperator) === -1
+    ) {
       e.target.value = e.target.value + seperator;
     }
 
@@ -83,8 +90,7 @@ export const Input: FC<InputProps> = ({
         parseInt(date[0]) >= 1 &&
         parseInt(date[1]) <= 31 &&
         parseInt(date[1]) > 0 &&
-
-        (format === "mm/dd/yyyy" || format=== "mm-dd-yyyy") &&
+        (format === "mm/dd/yyyy" || format === "mm-dd-yyyy") &&
         blockedDates.indexOf(e.target.value) === -1
       ) {
         // console.log(blockedDates.indexOf(date));
@@ -152,12 +158,17 @@ export const Input: FC<InputProps> = ({
   };
   return (
     <input
-      autoComplete="off"
       type="text"
+      name={name}
+      id="input"
+      autoComplete="off"
       placeholder={format}
       className={`picker__input ${fullWidth ? "fullWidth__picker" : ""}`}
-      id="input"
-      onChange={onChangeHandler}
+      // call onChangeHandle and onChange in the Onchange event
+      onChange={(e) => {
+        onChangeHandler(e);
+        onChange();
+      }}
       onKeyDown={onKeyDownHandler}
       value={selectedDate}
     />

@@ -22,8 +22,11 @@ export interface DatePickerProps {
     | "danger";
   fullWidth?: boolean;
   blockedDates?: string[];
-  value: string;
+  value: any;
+  name?:string;
   setValue: (value: string) => void;
+  //pedir una funcion typescript
+  onChange(): any;
 }
 
 export const DatePicker: FC<DatePickerProps> = ({
@@ -34,7 +37,9 @@ export const DatePicker: FC<DatePickerProps> = ({
   blockedDates = [],
   fullWidth,
   value,
+  name,
   setValue,
+  onChange,
   ...props
 }) => {
   //set state month and year
@@ -42,8 +47,6 @@ export const DatePicker: FC<DatePickerProps> = ({
   const [seperator, setSeparator] = useState(format.includes("/") ? "/" : "-");
   const [month, setMonth] = React.useState(new Date().getMonth());
   const [year, setYear] = React.useState(new Date().getFullYear());
-  const [focus, setFocus] = React.useState(true);
-  const [focusTable, setfocusTable] = React.useState(false);
   const [selectedDate, setSelectedDate] = React.useState(initialDate);
   //hook of matriz of days
   const [daysInMonth, setDaysInMonth] = React.useState([[""], [""]]);
@@ -60,7 +63,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   );
 
   const [showTable, setShowTable] = React.useState("none");
-  const [aqui, setAqui] = React.useState(false);
+  const [FocusTable, setFocusTable] = React.useState(false);
 
   const getDaysInMonth = (month: number, year: number) => {
     let firstDay = new Date(year, month, 1);
@@ -140,9 +143,13 @@ export const DatePicker: FC<DatePickerProps> = ({
   useEffect(() => {
     
     if (validDate) {
-      setValue(selectedDate);
+      // setValue(selectedDate);
+      // onChange(selectedDate);
+      
+      setValue({...value, selectedDate: selectedDate});
     } else {
-      setValue("");
+      // setValue("");
+      setValue({ ...value, selectedDate: "" });
     }
     
   }, [selectedDate]);
@@ -211,12 +218,10 @@ export const DatePicker: FC<DatePickerProps> = ({
     >
       <div
         onFocus={(e) => {
-          setFocus(true);
           setShowTable("block");
         }}
         onBlur={(e) => {
-          if(!aqui){
-            setFocus(false);
+          if(!FocusTable){
             setShowTable("none");
           }
         }}
@@ -237,28 +242,25 @@ export const DatePicker: FC<DatePickerProps> = ({
             getDaysInMonth={getDaysInMonth}
             fullWidth={fullWidth}
             format={format}
+            name={name}
             seperator={seperator}
+            onChange={onChange}
           />
         </div>
       </div>
 
-      {/* const background = position.x < window.innerWidth / 2 ? "#ffaaff" : "#32abce";
-          const showTable = focus ? "block" : "none"
-      */}
       <div
         style={{ display: showTable }}
 
         onMouseOver={(e) => {
-           
-          setAqui(true);
+          setFocusTable(true);
         }}
         onMouseLeave={(e) => {
-          setAqui(false);
+          setFocusTable(false);
         }
         }
         onBlur={(e) => { 
-          setAqui(false);
-          setFocus(false);
+          setFocusTable(false);
           setShowTable("none");
         }
         }

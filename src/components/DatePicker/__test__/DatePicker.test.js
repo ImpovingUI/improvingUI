@@ -10,12 +10,19 @@ import { DatePicker } from "../DatePicker";
 
 //Description of the test and tests in the callback
 describe("Component DatePicker test", () => {
+  var date = "aa";
+  function myFunction(val) {
+    console.log("The input value has changed. The new value is: " + val);
+  }
   beforeEach(() => {
     const props = {
       color: "primary",
       initialDate: "",
       value: "",
       setValue: (string) => {},
+      onChange: (string) => {
+        myFunction(date);
+      },
     };
     render(<DatePicker {...props} />);
   });
@@ -40,11 +47,14 @@ describe("Component DatePicker test", () => {
   });
 
   test.only("it should change value for a select", () => {
-    const inputDate = screen.getByPlaceholderText("mm/dd/yyyy");
+    const inputDate = screen.getByPlaceholderText("dd/mm/yyyy");
     fireEvent.focus(inputDate);
 
     fireEvent.change(inputDate, { target: { value: "05/02/2022" } });
-    expect(inputDate.value).toBe("05/02/2022");
+    fireEvent.change(inputDate, { target: { value: "06/02/2022" } });
+    expect(inputDate.value).toBe("06/02/2022");
+
+    console.log("popo "+ date)
 
     // screen.debug();
   });

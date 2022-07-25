@@ -4,6 +4,12 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { DatePicker } from "./DatePicker";
 
+function myFunction(val:string){
+  console.log("The input value has changed. The new value is: " + val);
+}
+
+
+
 export default {
   title: "ReactComponentLibrary/DatePicker",
   component: DatePicker,
@@ -52,6 +58,10 @@ DefaultDatePicker.args = {
   color: "primary",
   fullWidth: false,
   setValue: (string) => {},
+  //CREATE A FUNCTION THAT RECEIVE A STRING AND SET THE VALUE TO ONCHANGE
+  onChange: ()=> {myFunction("caca")},
+  
   // initialDate: "07/08/2022",
   // blockedDates: ["07/06/2022", "07/16/2022"],
+
 };
