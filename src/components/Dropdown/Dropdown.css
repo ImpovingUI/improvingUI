@@ -18,8 +18,8 @@
   display: inline-block;
 }
 .dropdownItem .imgBox {
-  width: 60px;
-  height: 60px;
+  width: 32px;
+  height: 32px;
 }
 .dropdownItem .imgBox img {
   width: 100%;
@@ -40,7 +40,7 @@
   border-radius: 10px;
   position: absolute;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-  transform: translateY(1px);
+  transform: translateY(5px);
   opacity: 1;
   visibility: visible;
   transition: 0.3s;
@@ -73,9 +73,6 @@
   line-height: 30px;
   padding: 4px;
 }
-.dropdownContent .links li:hover {
-  background: rgb(255, 255, 255);
-}
 .dropdownContent .links li a {
   text-decoration: none;
   color: #333;
@@ -103,7 +100,7 @@
   border: solid 1px #005596;
 }
 .primary.outlined:hover {
-  background-color: #cecece;
+  background-color: transparent;
   border: solid 1px black;
   cursor: pointer;
 }
@@ -132,7 +129,7 @@
   border: solid 1px #A7A8A9;
 }
 .secondary.outlined:hover {
-  background-color: #cecece;
+  background-color: transparent;
   border: solid 1px black;
   cursor: pointer;
 }
@@ -161,7 +158,7 @@
   border: solid 1px #343A40;
 }
 .dark.outlined:hover {
-  background-color: #cecece;
+  background-color: transparent;
   border: solid 1px black;
   cursor: pointer;
 }
@@ -190,7 +187,7 @@
   border: solid 1px #5BC2A7;
 }
 .success.outlined:hover {
-  background-color: #cecece;
+  background-color: transparent;
   border: solid 1px black;
   cursor: pointer;
 }
@@ -219,7 +216,7 @@
   border: solid 1px #4597D3;
 }
 .info.outlined:hover {
-  background-color: #cecece;
+  background-color: transparent;
   border: solid 1px black;
   cursor: pointer;
 }
@@ -248,7 +245,7 @@
   border: solid 1px #FFBB41;
 }
 .warning.outlined:hover {
-  background-color: #cecece;
+  background-color: transparent;
   border: solid 1px black;
   cursor: pointer;
 }
@@ -277,7 +274,7 @@
   border: solid 1px #DC3545;
 }
 .danger.outlined:hover {
-  background-color: #cecece;
+  background-color: transparent;
   border: solid 1px black;
   cursor: pointer;
 }

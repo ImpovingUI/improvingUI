@@ -1,7 +1,7 @@
 import React from "react"; 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {fireEvent, screen, userEvent } from '@storybook/testing-library';
-import Dropdown from "./Dropdown";
+import {Dropdown} from "./Dropdown";
 
 export default {
     title: 'ReactComponentLibrary/Dropdown',
