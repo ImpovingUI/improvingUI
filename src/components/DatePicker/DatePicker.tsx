@@ -22,13 +22,13 @@ export interface DatePickerProps {
     | "danger";
   fullWidth?: boolean;
   blockedDates?: string[];
-  name?: string;
+  name: string;
   label: string;
   isRequired?: boolean;
   value: any;
   setValue: (value: string) => void;
   //pedir una funcion typescript
-  onChange(): any;
+  onChange(e:any): any;
 }
 
 export const DatePicker: FC<DatePickerProps> = ({
@@ -150,10 +150,10 @@ export const DatePicker: FC<DatePickerProps> = ({
       // setValue(selectedDate);
       // onChange(selectedDate);
 
-      setValue({ ...value, selectedDate: selectedDate });
+      setValue({ ...value, [name]: selectedDate });
     } else {
       // setValue("");
-      setValue({ ...value, selectedDate: "" });
+      setValue({ ...value, [name]: "" });
     }
   }, [selectedDate]);
 
