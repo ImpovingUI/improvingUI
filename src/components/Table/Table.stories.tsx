@@ -14,10 +14,12 @@ export default {
     }
   } as ComponentMeta<typeof Table>;
 
+  const nombres = ejemplo.datos;
+
   const Template: ComponentStory<typeof Table> = (args) => 
     <Table
         listColumns={["Name","Last Name","City","State","Phone"]}
-        listRows = {ejemplo.datos}
+        listRows = {nombres}
         actions={[<Button label="hola" onClick={() => {console.log("Hello")}}/>]}
         {
             ...args

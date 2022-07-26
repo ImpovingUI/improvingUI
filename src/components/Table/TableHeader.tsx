@@ -10,8 +10,8 @@ const name = 'Table';
 export const TableHeader : FC<TableProps> = ({listColumns=[],actions=[]}) => {
     
     return (
-        <thead className={`Thead-${name}`}>
-                <tr>
+        <thead className={`Thead-${name}`} >
+                <tr data-testid = "tHeader">
                     {listColumns.map((value: String,index: Number) => (
                         <th key={index+"a"}>{value}</th>
                     ))}

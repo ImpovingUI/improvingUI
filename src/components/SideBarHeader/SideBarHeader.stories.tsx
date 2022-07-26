@@ -6,6 +6,8 @@ import '../css/main.css'
 import  {SideBarHeader} from './SideBarHeader';
 import { Button } from '../Button';
 import { LiRouter } from '../LiRouter';
+import { Modal } from '../Modal';
+import { Alert } from '../Alert';
 
 export default {
   title: 'ReactComponentLibrary/SideBarHeader',
@@ -22,6 +24,8 @@ const TemplateSideBarHeader: ComponentStory<typeof SideBarHeader> = (args) => <S
 
   children={
     <div>
+      {/* <Alert show={true}/> */}
+      {/* <Modal style={{backgroundColor:'red'}} show={true} /> */}
       <h1>Contenido principal</h1>
     </div>
   }
