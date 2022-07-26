@@ -185,7 +185,7 @@ export const Input: FC<InputProps> = ({
 
     if (
       (isRequired && selectedDate.length <= 0) ||
-      monthText === "Invalid Date"
+      monthText === "Invalid Date" || (isRequired && selectedDate.length <10)
     ) {
       setAddClassValidate("invalid-date");
     } else {
