@@ -255,6 +255,7 @@ export const DatePicker: FC<DatePickerProps> = ({
           isRequired={isRequired}
           seperator={seperator}
           onChange={onChange}
+          {...props}
         />
         {/* <div className="container-datepicker-input">
         </div> */}

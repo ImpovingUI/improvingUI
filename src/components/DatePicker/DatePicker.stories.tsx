@@ -45,6 +45,9 @@ export default {
       options: ["dd/mm/yyyy", "mm/dd/yyyy", "dd-mm-yyyy", "mm-dd-yyyy"],
       control: { type: "radio" },
     },
+    onClick:{
+      action:'clicked'
+    }
   },
 } as ComponentMeta<typeof DatePicker>;
 
@@ -65,7 +68,6 @@ DefaultDatePicker.args = {
   // onChange: () => {
   //   myFunction("here");
   // },
-
   // initialDate: "07/08/2022",
   // blockedDates: ["07/06/2022", "07/16/2022"],
 };
