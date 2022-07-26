@@ -1,9 +1,12 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 export interface InputProps {
   selectedDate: string;
   setSelectedDate: any;
   setValidDate: any;
+  setAddClassValidate: any;
+  addClassValidate: string;
+  monthText: string;
   setSelectedOption: any;
   setMonth: any;
   setYear: any;
@@ -15,7 +18,9 @@ export interface InputProps {
   year: any;
   fullWidth?: boolean;
   name?: string;
+  label: string;
   format: string;
+  isRequired?: boolean;
   seperator: string;
   onChange(): any;
 }
@@ -24,6 +29,9 @@ export const Input: FC<InputProps> = ({
   selectedDate,
   setSelectedDate,
   setValidDate,
+  setAddClassValidate,
+  addClassValidate,
+  monthText,
   setSelectedOption,
   setMonth,
   setYear,
@@ -35,10 +43,14 @@ export const Input: FC<InputProps> = ({
   year,
   fullWidth,
   name,
+  label,
   format,
+  isRequired,
   seperator,
   onChange,
 }) => {
+  const [changeClass, setChangeClass] = useState("notFocused");
+
   const onChangeHandler = (e: any) => {
     let pos = e.target.selectionStart;
 
@@ -156,21 +168,56 @@ export const Input: FC<InputProps> = ({
       }
     }
   };
+
+  const handleFocus = () => {
+    setChangeClass("focused-input");
+  };
+
+  // Validate length input and if they have a text invalid date
+  const handelBlur = () => {
+    // console.log(selectedDate.length);
+    if (selectedDate.length > 0) {
+      setChangeClass("focused-input");
+    } else {
+      setChangeClass("notFocused");
+    }
+
+    if (
+      (isRequired && selectedDate.length <= 0) ||
+      monthText === "Invalid Date"
+    ) {
+      setAddClassValidate("invalid-date");
+    } else {
+      setAddClassValidate("");
+    }
+  };
+
+  useEffect(() => {
+    handelBlur();
+  }, [selectedDate]);
+
   return (
-    <input
-      type="text"
-      name={name}
-      id="input"
-      autoComplete="off"
-      placeholder={format}
-      className={`picker__input ${fullWidth ? "fullWidth__picker" : ""}`}
-      // call onChangeHandle and onChange in the Onchange event
-      onChange={(e) => {
-        onChangeHandler(e);
-        onChange();
-      }}
-      onKeyDown={onKeyDownHandler}
-      value={selectedDate}
-    />
+    <>
+      <label className={changeClass}>{label}</label>
+      <input
+        type="text"
+        name={name}
+        id="input"
+        autoComplete="off"
+        // placeholder={format}
+        className={`picker__input ${
+          fullWidth ? "fullWidth__picker" : ""
+        } ${addClassValidate}`}
+        // call onChangeHandle and onChange in the Onchange event
+        onChange={(e) => {
+          onChangeHandler(e);
+          onChange();
+        }}
+        onKeyDown={onKeyDownHandler}
+        value={selectedDate}
+        onFocus={handleFocus}
+        onBlur={handelBlur}
+      />
+    </>
   );
 };

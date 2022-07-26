@@ -2,13 +2,53 @@
   position: relative;
 }
 
+.container-picker-input_label {
+  position: relative;
+  height: 48px;
+  margin: 10px 0px;
+}
+.container-picker-input_label label {
+  position: absolute;
+  left: 15px;
+  top: -1px;
+  height: 48px;
+  line-height: 48px;
+  font-size: 16px;
+  align-items: center;
+  color: #a1a1a1;
+  pointer-events: none;
+  transition: 0.2s ease-in;
+}
+.container-picker-input_label label.focused-input {
+  position: absolute;
+  height: fit-content;
+  width: max-content;
+  line-height: 12px;
+  margin: 0%;
+  top: -16px;
+  font-size: 12px;
+  margin: 0;
+  left: 15px;
+  color: #335599;
+  background-color: #fff;
+  transition: 0.2s ease-in;
+}
+
 .picker__input {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  padding: 10px;
+  padding: 16px;
   outline: none;
   height: 48px;
+  width: 280px;
   border-radius: 5px;
+  border: 1px solid #005596;
+}
+.picker__input:hover {
+  opacity: 50%;
+}
+.picker__input.invalid-date {
+  border: 1px solid #dc3545;
 }
 
 .fullWidth__picker {
@@ -17,7 +57,8 @@
 
 .container-picker {
   font-family: Arial, Helvetica, sans-serif;
-  width: 250px;
+  font-size: 14px;
+  width: 245px;
   position: absolute;
   top: 60px;
   left: auto;
@@ -87,6 +128,7 @@
 .picker-content {
   color: black;
   background-color: #fff;
+  border-radius: 0 0 4px 4px;
 }
 .picker-content thead tr td {
   text-align: center;
@@ -95,7 +137,7 @@
   text-align: center;
   cursor: pointer;
   width: 50px;
-  height: 30px;
+  height: 34px;
 }
 .picker-content tbody tr td:hover {
   background-color: #e6e6e6;
@@ -103,7 +145,7 @@
 .picker-content tbody tr td.selected {
   color: #fff;
   background-color: #5bc2a7;
-  border-radius: 50%;
+  border-radius: 150%;
 }
 .picker-content tbody tr td.blocked {
   cursor: not-allowed;

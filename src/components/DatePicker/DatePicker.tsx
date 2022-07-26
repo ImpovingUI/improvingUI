@@ -22,8 +22,10 @@ export interface DatePickerProps {
     | "danger";
   fullWidth?: boolean;
   blockedDates?: string[];
+  name?: string;
+  label: string;
+  isRequired?: boolean;
   value: any;
-  name?:string;
   setValue: (value: string) => void;
   //pedir una funcion typescript
   onChange(): any;
@@ -36,8 +38,10 @@ export const DatePicker: FC<DatePickerProps> = ({
   format = "dd/mm/yyyy",
   blockedDates = [],
   fullWidth,
-  value,
   name,
+  label,
+  isRequired,
+  value,
   setValue,
   onChange,
   ...props
@@ -54,6 +58,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   const [yearRange, setYearRange] = React.useState("");
   const [years, setYears] = React.useState([[0], [0]]);
   const [validDate, setValidDate] = React.useState(false);
+  const [addClassValidate, setAddClassValidate] = useState("");
 
   //get month in text
   const [monthText, setMonthText] = React.useState(
@@ -141,22 +146,21 @@ export const DatePicker: FC<DatePickerProps> = ({
   };
 
   useEffect(() => {
-    
     if (validDate) {
       // setValue(selectedDate);
       // onChange(selectedDate);
-      
-      setValue({...value, selectedDate: selectedDate});
+
+      setValue({ ...value, selectedDate: selectedDate });
     } else {
       // setValue("");
       setValue({ ...value, selectedDate: "" });
     }
-    
   }, [selectedDate]);
 
   useEffect(() => {
     if (month === -1) {
       setMonthText("Invalid Date");
+      setAddClassValidate("invalid-date");
     } else {
       setDaysInMonth([...getDaysInMonth(month, year)]);
 
@@ -164,6 +168,7 @@ export const DatePicker: FC<DatePickerProps> = ({
         month: "long",
       });
       setMonthText(montht);
+      setAddClassValidate("");
     }
   }, [month, year]);
 
@@ -213,58 +218,60 @@ export const DatePicker: FC<DatePickerProps> = ({
       // onBlur={(e) => {
       //   setFocus(false);
       //   setShowTable("none");
-      
+
       // }}
     >
       <div
+        className="container-picker-input_label"
         onFocus={(e) => {
           setShowTable("block");
         }}
         onBlur={(e) => {
-          if(!FocusTable){
+          if (!FocusTable) {
             setShowTable("none");
           }
         }}
       >
-        <div className="container-datepicker-input">
-          <Input
-            selectedDate={selectedDate}
-            setSelectedDate={setSelectedDate}
-            setValidDate={setValidDate}
-            setMonth={setMonth}
-            month={month}
-            setYear={setYear}
-            year={year}
-            setDaysInMonth={setDaysInMonth}
-            setMonthText={setMonthText}
-            setSelectedOption={setSelectedOption}
-            blockedDates={blockedDates}
-            getDaysInMonth={getDaysInMonth}
-            fullWidth={fullWidth}
-            format={format}
-            name={name}
-            seperator={seperator}
-            onChange={onChange}
-          />
-        </div>
+        <Input
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          setValidDate={setValidDate}
+          setAddClassValidate={setAddClassValidate}
+          addClassValidate={addClassValidate}
+          monthText={monthText}
+          setMonth={setMonth}
+          month={month}
+          setYear={setYear}
+          year={year}
+          setDaysInMonth={setDaysInMonth}
+          setMonthText={setMonthText}
+          setSelectedOption={setSelectedOption}
+          blockedDates={blockedDates}
+          getDaysInMonth={getDaysInMonth}
+          fullWidth={fullWidth}
+          format={format}
+          name={name}
+          label={label}
+          isRequired={isRequired}
+          seperator={seperator}
+          onChange={onChange}
+        />
+        {/* <div className="container-datepicker-input">
+        </div> */}
       </div>
 
       <div
         style={{ display: showTable }}
-
         onMouseOver={(e) => {
           setFocusTable(true);
         }}
         onMouseLeave={(e) => {
           setFocusTable(false);
-        }
-        }
-        onBlur={(e) => { 
+        }}
+        onBlur={(e) => {
           setFocusTable(false);
           setShowTable("none");
-        }
-        }
-
+        }}
       >
         <div
           className={`container-picker ${validationColor(
@@ -306,12 +313,7 @@ export const DatePicker: FC<DatePickerProps> = ({
             </span>
           </div>
 
-          <div
-            className="container-picker__body"
-            onFocus={(e) => {
-              
-            }}
-          >
+          <div className="container-picker__body" onFocus={(e) => {}}>
             {selectedOption == "" ? (
               <table id="calendar" className="picker-content">
                 <thead>

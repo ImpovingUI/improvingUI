@@ -4,11 +4,9 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { DatePicker } from "./DatePicker";
 
-function myFunction(val:string){
+function myFunction(val: string) {
   console.log("The input value has changed. The new value is: " + val);
 }
-
-
 
 export default {
   title: "ReactComponentLibrary/DatePicker",
@@ -27,6 +25,7 @@ export default {
       control: { type: "radio" },
     },
     fullWidth: { options: [true, false], control: { type: "radio" } },
+    isRequired: { options: [true, false], control: { type: "radio" } },
     initialDate: {
       control: {
         type: "text",
@@ -55,13 +54,18 @@ const Template: ComponentStory<typeof DatePicker> = (args) => (
 
 export const DefaultDatePicker = Template.bind({});
 DefaultDatePicker.args = {
+  name: "date",
   color: "primary",
   fullWidth: false,
+  isRequired: true,
+  format: "dd/mm/yyyy",
+  label: "Birthday",
   setValue: (string) => {},
   //CREATE A FUNCTION THAT RECEIVE A STRING AND SET THE VALUE TO ONCHANGE
-  onChange: ()=> {myFunction("caca")},
-  
+  // onChange: () => {
+  //   myFunction("here");
+  // },
+
   // initialDate: "07/08/2022",
   // blockedDates: ["07/06/2022", "07/16/2022"],
-
 };
