@@ -17,12 +17,12 @@ export interface InputProps {
   month: any;
   year: any;
   fullWidth?: boolean;
-  name?: string;
+  name: string;
   label: string;
   format: string;
   isRequired?: boolean;
   seperator: string;
-  onChange(): any;
+  onChange(e:any): any;
 }
 
 export const Input: FC<InputProps> = ({
@@ -212,7 +212,7 @@ export const Input: FC<InputProps> = ({
         // call onChangeHandle and onChange in the Onchange event
         onChange={(e) => {
           onChangeHandler(e);
-          onChange();
+          onChange(e);
         }}
         onKeyDown={onKeyDownHandler}
         value={selectedDate}
