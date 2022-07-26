@@ -16,13 +16,12 @@ export interface InputProps {
   blockedDates: any;
   month: any;
   year: any;
-  fullWidth?: boolean;
   name: string;
   label: string;
   format: string;
   isRequired?: boolean;
   seperator: string;
-  onChange(e:any): any;
+  // onChange(e:any): any;
 }
 
 export const Input: FC<InputProps> = ({
@@ -41,13 +40,12 @@ export const Input: FC<InputProps> = ({
   blockedDates,
   month,
   year,
-  fullWidth,
   name,
   label,
   format,
   isRequired,
   seperator,
-  onChange,
+  // onChange,
   ...props
 }) => {
   const [changeClass, setChangeClass] = useState("notFocused");
@@ -121,7 +119,7 @@ export const Input: FC<InputProps> = ({
             }
           )
         );
-        console.log("mes aaaaaaa");
+        // console.log("mes aaaaaaa");
       } else if (
         parseInt(date[1]) <= 12 &&
         parseInt(date[1]) >= 1 &&
@@ -143,7 +141,7 @@ export const Input: FC<InputProps> = ({
           )
         );
 
-        console.log("dia aaaaaaa");
+        // console.log("dia aaaaaaa");
       } else {
         setMonthText("Invalid date");
         setValidDate(false);
@@ -206,13 +204,11 @@ export const Input: FC<InputProps> = ({
         id="input"
         autoComplete="off"
         // placeholder={format}
-        className={`picker__input ${
-          fullWidth ? "fullWidth__picker" : ""
-        } ${addClassValidate}`}
+        className={`picker__input ${addClassValidate}`}
         // call onChangeHandle and onChange in the Onchange event
         onChange={(e) => {
           onChangeHandler(e);
-          onChange(e);
+          // onChange(e);
         }}
         onKeyDown={onKeyDownHandler}
         value={selectedDate}

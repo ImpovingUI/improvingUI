@@ -28,7 +28,7 @@ export interface DatePickerProps {
   value: any;
   setValue: (value: string) => void;
   //pedir una funcion typescript
-  onChange(e:any): any;
+  // onChange(e:any): any;
 }
 
 export const DatePicker: FC<DatePickerProps> = ({
@@ -43,7 +43,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   isRequired,
   value,
   setValue,
-  onChange,
+  // onChange,
   ...props
 }) => {
   //set state month and year
@@ -147,13 +147,13 @@ export const DatePicker: FC<DatePickerProps> = ({
 
   useEffect(() => {
     if (validDate) {
-      // setValue(selectedDate);
+      setValue(selectedDate);
       // onChange(selectedDate);
 
-      setValue({ ...value, [name]: selectedDate });
+      // setValue({ ...value, [name]: selectedDate });
     } else {
-      // setValue("");
-      setValue({ ...value, [name]: "" });
+      setValue("");
+      // setValue({ ...value, [name]: "" });
     }
   }, [selectedDate]);
 
@@ -222,7 +222,9 @@ export const DatePicker: FC<DatePickerProps> = ({
       // }}
     >
       <div
-        className="container-picker-input_label"
+        className={`container-picker-input_label ${
+          fullWidth ? "fullWidth__picker" : ""
+        } `}
         onFocus={(e) => {
           setShowTable("block");
         }}
@@ -248,13 +250,12 @@ export const DatePicker: FC<DatePickerProps> = ({
           setSelectedOption={setSelectedOption}
           blockedDates={blockedDates}
           getDaysInMonth={getDaysInMonth}
-          fullWidth={fullWidth}
           format={format}
           name={name}
           label={label}
           isRequired={isRequired}
           seperator={seperator}
-          onChange={onChange}
+          // onChange={onChange}
           {...props}
         />
         {/* <div className="container-datepicker-input">
