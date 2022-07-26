@@ -48,6 +48,7 @@ export const Input: FC<InputProps> = ({
   isRequired,
   seperator,
   onChange,
+  ...props
 }) => {
   const [changeClass, setChangeClass] = useState("notFocused");
 
@@ -217,6 +218,7 @@ export const Input: FC<InputProps> = ({
         value={selectedDate}
         onFocus={handleFocus}
         onBlur={handelBlur}
+        {...props}
       />
     </>
   );
