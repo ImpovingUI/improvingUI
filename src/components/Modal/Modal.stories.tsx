@@ -23,19 +23,9 @@ export const DefaultModal = Template.bind({});
         children: (
           <>
             <div id='body'>
-            <p>body</p>
-      
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, sint ad tempore doloribus commodi obcaecati aut optio earum dolores eos laboriosam fuga natus culpa incidunt odio perspiciatis. Recusandae, assumenda possimus?
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, sint ad tempore doloribus commodi obcaecati aut optio earum dolores eos laboriosam fuga natus culpa incidunt odio perspiciatis. Recusandae, assumenda possimus?
-              lorem*10
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, sint ad tempore doloribus commodi obcaecati aut optio earum dolores eos laboriosam fuga natus culpa incidunt odio perspiciatis. Recusandae, assumenda possimus?
-              lorem*10
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, sint ad tempore doloribus commodi obcaecati aut optio earum dolores eos laboriosam fuga natus culpa incidunt odio perspiciatis. Recusandae, assumenda possimus?
-              lorem*10
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, sint ad tempore doloribus commodi obcaecati aut optio earum dolores eos laboriosam fuga natus culpa incidunt odio perspiciatis. Recusandae, assumenda possimus?
-              lorem*10
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, sint ad tempore doloribus commodi obcaecati aut optio earum dolores eos laboriosam fuga natus culpa incidunt odio perspiciatis. Recusandae, assumenda possimus?
-              lorem*10
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur quaerat accusamus facilis nesciunt deleniti, animi consequuntur maiores odio libero vitae id molestias, fugit tempore! Placeat veritatis eos praesentium ipsa?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quis, saepe temporibus non expedita, quidem id ipsam aspernatur culpa facere sit accusamus? Earum autem delectus aspernatur quas odit provident odio?
+            </p>
             </div>
             <div id='footer'>
               <Button label='Btn Modal'/>

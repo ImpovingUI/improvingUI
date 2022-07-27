@@ -17,7 +17,6 @@
   border: 1px solid #a7a8a9;
   border-radius: 0.25rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 8px 0px;
-  overflow-y: auto;
   /* Height */
   /* Content of the modal without the header */
 }
@@ -166,4 +165,13 @@
   margin-top: 1rem;
   margin-left: 1rem;
   max-width: 90%;
+}
+
+.div_contenedor {
+  position: absolute;
+  top: auto;
+  left: auto;
+  width: 50px;
+  height: 200px;
+  background-color: blue;
 }
