@@ -8,15 +8,60 @@
   // margin-top: 40px;
 }
 
+.container-picker-input_label {
+  position: relative;
+  height: 48px;
+  width: 280px;
+  margin: 10px 0px;
+
+  label {
+    position: absolute;
+    left: 15px;
+    top: -1px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    align-items: center;
+    color: #a1a1a1;
+    pointer-events: none;
+    transition: 0.2s ease-in;
+  }
+
+  label.focused-input {
+    position: absolute;
+    height: fit-content;
+    width: max-content;
+    line-height: 12px;
+    margin: 0%;
+    top: -16px;
+    font-size: 12px;
+    margin: 0;
+    left: 15px;
+    color: #335599;
+    background-color: #fff;
+    transition: 0.2s ease-in;
+  }
+}
+
 .picker__input {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  padding: 10px;
+  padding: 16px;
   outline: none;
-  height: 48px;
+  // height: 48px;
+  // width: 280px;
+  height: 100%;
+  width: 100%;
   border-radius: 5px;
-  // width: 95%;
+  border: 1px solid #005596;
   // position: relative;
+  &:hover {
+    opacity: 50%;
+  }
+
+  &.invalid-date {
+    border: 1px solid $danger;
+  }
 }
 
 .fullWidth__picker {
@@ -25,15 +70,16 @@
 
 .container-picker {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
   // padding-top: 10px;
   // margin-top: 10px;
-  width: 250px;
+  width: 245px;
   position: absolute;
-  top: 60px;
+  top: 48px;
   left: auto;
   box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
     0 1px 3px 0 rgba(63, 63, 68, 0.15);
-  border-radius: 4px;
+  border-radius: 0 0 5px 5px;
   z-index: $datepicker;
 }
 
@@ -83,7 +129,7 @@ $themes: (
 .picker-content {
   color: black;
   background-color: #fff;
-  // border-spacing: 8px;
+  border-radius: 0 0 4px 4px;
 
   thead tr td {
     text-align: center;
@@ -93,7 +139,7 @@ $themes: (
     text-align: center;
     cursor: pointer;
     width: 50px;
-    height: 30px;
+    height: 34px;
 
     &:hover {
       background-color: #e6e6e6;
@@ -103,7 +149,7 @@ $themes: (
   tbody tr td.selected {
     color: #fff;
     background-color: $success;
-    border-radius: 50%;
+    border-radius: 150%;
   }
 
   tbody tr td.blocked {

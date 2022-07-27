@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useLayoutEffect } from "react";
+import { useState, createContext, useContext } from "react";
 import { validationColor } from "./validation";
 import "./DatePicker.css";
 import Month from "./components/Month";
@@ -10,35 +11,46 @@ import { MonthYearSelection } from "./components/MonthYearSelection";
 export interface DatePickerProps {
   initialDate: string;
   className?: string;
+  format?: "dd/mm/yyyy" | "mm/dd/yyyy" | "dd-mm-yyyy" | "mm-dd-yyyy";
   color?:
-  | "primary"
-  | "secondary"
-  | "dark"
-  | "success"
-  | "info"
-  | "warning"
-  | "danger";
+    | "primary"
+    | "secondary"
+    | "dark"
+    | "success"
+    | "info"
+    | "warning"
+    | "danger";
   fullWidth?: boolean;
   blockedDates?: string[];
-  value: string;
+  name: string;
+  label: string;
+  isRequired?: boolean;
+  value: any;
   setValue: (value: string) => void;
+  //pedir una funcion typescript
+  // onChange(e:any): any;
 }
 
 export const DatePicker: FC<DatePickerProps> = ({
   initialDate = "",
   color = "primary",
   className,
+  format = "dd/mm/yyyy",
   blockedDates = [],
   fullWidth,
+  name,
+  label,
+  isRequired,
   value,
   setValue,
+  // onChange,
   ...props
 }) => {
   //set state month and year
+
+  const [seperator, setSeparator] = useState(format.includes("/") ? "/" : "-");
   const [month, setMonth] = React.useState(new Date().getMonth());
   const [year, setYear] = React.useState(new Date().getFullYear());
-  const [focus, setFocus] = React.useState(false);
-  const [focusTable, setfocusTable] = React.useState(false);
   const [selectedDate, setSelectedDate] = React.useState(initialDate);
   //hook of matriz of days
   const [daysInMonth, setDaysInMonth] = React.useState([[""], [""]]);
@@ -46,6 +58,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   const [yearRange, setYearRange] = React.useState("");
   const [years, setYears] = React.useState([[0], [0]]);
   const [validDate, setValidDate] = React.useState(false);
+  const [addClassValidate, setAddClassValidate] = useState("");
 
   //get month in text
   const [monthText, setMonthText] = React.useState(
@@ -53,6 +66,9 @@ export const DatePicker: FC<DatePickerProps> = ({
       month: "long",
     })
   );
+
+  const [showTable, setShowTable] = React.useState("none");
+  const [FocusTable, setFocusTable] = React.useState(false);
 
   const getDaysInMonth = (month: number, year: number) => {
     let firstDay = new Date(year, month, 1);
@@ -130,19 +146,21 @@ export const DatePicker: FC<DatePickerProps> = ({
   };
 
   useEffect(() => {
-    // console.log(selectedDate)
     if (validDate) {
       setValue(selectedDate);
-    }
-    else{
+      // onChange(selectedDate);
+
+      // setValue({ ...value, [name]: selectedDate });
+    } else {
       setValue("");
+      // setValue({ ...value, [name]: "" });
     }
-    // console.log(value)
   }, [selectedDate]);
 
   useEffect(() => {
     if (month === -1) {
       setMonthText("Invalid Date");
+      setAddClassValidate("invalid-date");
     } else {
       setDaysInMonth([...getDaysInMonth(month, year)]);
 
@@ -150,44 +168,9 @@ export const DatePicker: FC<DatePickerProps> = ({
         month: "long",
       });
       setMonthText(montht);
+      setAddClassValidate("");
     }
   }, [month, year]);
-
-
-
-  useLayoutEffect(() => {
-    if (initialDate !== "") {
-
-      //check if the date is valid
-      handleDate(initialDate);
-    }
-  }, []);
-  const handleDate = (dateString: string) => {
-    let date = dateString.split("/");
-    if (
-      parseInt(date[0]) <= 12 &&
-      parseInt(date[1]) <= 31 &&
-      parseInt(date[1]) > 0 &&
-      blockedDates.indexOf(initialDate) === -1
-    ) {
-      setValidDate(true);
-      setMonth(parseInt(date[0]) - 1);
-      setYear(parseInt(date[2]));
-      setDaysInMonth([...getDaysInMonth(month, year)]);
-      setMonthText(
-        new Date(parseInt(date[2]), parseInt(date[0]) - 1).toLocaleString(
-          "en-us",
-          {
-            month: "long",
-          }
-        )
-      );
-    } else {
-      setMonthText("Invalid date");
-      setValidDate(false);
-      setMonth(-1);
-    }
-  }
 
   const changeDateToday = () => {
     setValidDate(true);
@@ -207,22 +190,57 @@ export const DatePicker: FC<DatePickerProps> = ({
     let month1 = new Date().getMonth();
     let year1 = new Date().getFullYear();
 
-    setSelectedDate(
-      (month1 + 1 < 10 ? "0" + (month1 + 1) : month1 + 1) +
-      "/" +
-      (day1.length < 2 ? "0" + day1 : day1) +
-      "/" +
-      year1
-    );
+    if (format === "mm/dd/yyyy" || format === "mm-dd-yyyy") {
+      setSelectedDate(
+        (month1 + 1 < 10 ? "0" + (month1 + 1) : month1 + 1) +
+          seperator +
+          (day1.length < 2 ? "0" + day1 : day1) +
+          seperator +
+          year1
+      );
+    }
+    if (format === "dd/mm/yyyy" || format === "dd-mm-yyyy") {
+      setSelectedDate(
+        (day1.length < 2 ? "0" + day1 : day1) +
+          seperator +
+          (month1 + 1 < 10 ? "0" + (month1 + 1) : month1 + 1) +
+          seperator +
+          year1
+      );
+    }
   };
 
   return (
-    <div id="container-datepicker" className="container-picker-grl">
-      <div className="container-datepicker-input">
+    <div
+      id="container-datepicker"
+      className="container-picker-grl"
+
+      // onBlur={(e) => {
+      //   setFocus(false);
+      //   setShowTable("none");
+
+      // }}
+    >
+      <div
+        className={`container-picker-input_label ${
+          fullWidth ? "fullWidth__picker" : ""
+        } `}
+        onFocus={(e) => {
+          setShowTable("block");
+        }}
+        onBlur={(e) => {
+          if (!FocusTable) {
+            setShowTable("none");
+          }
+        }}
+      >
         <Input
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
           setValidDate={setValidDate}
+          setAddClassValidate={setAddClassValidate}
+          addClassValidate={addClassValidate}
+          monthText={monthText}
           setMonth={setMonth}
           month={month}
           setYear={setYear}
@@ -232,25 +250,36 @@ export const DatePicker: FC<DatePickerProps> = ({
           setSelectedOption={setSelectedOption}
           blockedDates={blockedDates}
           getDaysInMonth={getDaysInMonth}
-          setFocus={setFocus}
-          fullWidth={fullWidth}
+          format={format}
+          name={name}
+          label={label}
+          isRequired={isRequired}
+          seperator={seperator}
+          // onChange={onChange}
+          {...props}
         />
+        {/* <div className="container-datepicker-input">
+        </div> */}
       </div>
-      {focus || focusTable ? (
+
+      <div
+        style={{ display: showTable }}
+        onMouseOver={(e) => {
+          setFocusTable(true);
+        }}
+        onMouseLeave={(e) => {
+          setFocusTable(false);
+        }}
+        onBlur={(e) => {
+          setFocusTable(false);
+          setShowTable("none");
+        }}
+      >
         <div
           className={`container-picker ${validationColor(
             color
           )}-picker ${className} `}
           {...props}
-          // ${value}
-          // {blockedDates}
-          onFocus={(e) => {
-            setfocusTable(true);
-          }}
-          onBlur={(e) => {
-            setFocus(false);
-            setfocusTable(false);
-          }}
           tabIndex={0}
           id="container-datepicker"
         >
@@ -286,7 +315,7 @@ export const DatePicker: FC<DatePickerProps> = ({
             </span>
           </div>
 
-          <div className="container-picker__body">
+          <div className="container-picker__body" onFocus={(e) => {}}>
             {selectedOption == "" ? (
               <table id="calendar" className="picker-content">
                 <thead>
@@ -302,6 +331,8 @@ export const DatePicker: FC<DatePickerProps> = ({
                   year={year}
                   blockedDates={blockedDates}
                   validDate={validDate}
+                  format={format}
+                  separator={seperator}
                 />
               </table>
             ) : null}
@@ -318,7 +349,7 @@ export const DatePicker: FC<DatePickerProps> = ({
             getYears={getYears}
           />
         </div>
-      ) : null}
+      </div>
     </div>
   );
 };

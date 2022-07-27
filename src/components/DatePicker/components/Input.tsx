@@ -1,53 +1,73 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 export interface InputProps {
   selectedDate: string;
   setSelectedDate: any;
   setValidDate: any;
+  setAddClassValidate: any;
+  addClassValidate: string;
+  monthText: string;
   setSelectedOption: any;
   setMonth: any;
   setYear: any;
   setDaysInMonth: any;
   getDaysInMonth: any;
   setMonthText: any;
-  setFocus: any;
   blockedDates: any;
   month: any;
   year: any;
-  fullWidth?: boolean;
+  name: string;
+  label: string;
+  format: string;
+  isRequired?: boolean;
+  seperator: string;
+  // onChange(e:any): any;
 }
 
 export const Input: FC<InputProps> = ({
   selectedDate,
   setSelectedDate,
   setValidDate,
+  setAddClassValidate,
+  addClassValidate,
+  monthText,
   setSelectedOption,
   setMonth,
   setYear,
   getDaysInMonth,
   setDaysInMonth,
   setMonthText,
-  setFocus,
   blockedDates,
   month,
   year,
-  fullWidth,
+  name,
+  label,
+  format,
+  isRequired,
+  seperator,
+  // onChange,
+  ...props
 }) => {
+  const [changeClass, setChangeClass] = useState("notFocused");
+
   const onChangeHandler = (e: any) => {
     let pos = e.target.selectionStart;
 
-    if (e.target.value.length === 2 && e.target.value.search("/") === -1) {
-      e.target.value = e.target.value + "/";
+    if (
+      e.target.value.length === 2 &&
+      e.target.value.search(seperator) === -1
+    ) {
+      e.target.value = e.target.value + seperator;
     }
 
     if (
       e.target.value.length === 5 &&
-      e.target.value.split("/", 2).join("/").length === 5
+      e.target.value.split(seperator, 2).join(seperator).length === 5
     ) {
-      e.target.value = e.target.value + "/";
+      e.target.value = e.target.value + seperator;
     }
     if (pos) {
-      if (e.target.value[pos] === "/" && pos != 1 && pos != 4) {
+      if (e.target.value[pos] === seperator && pos != 1 && pos != 4) {
         e.target.setSelectionRange(pos + 1, pos + 1);
       }
       if (e.target.value.length < selectedDate.length) {
@@ -55,12 +75,15 @@ export const Input: FC<InputProps> = ({
     }
     if (e.target.value.length <= 10) {
       setValidDate(false);
-      if (e.target.value.search("/") === 3 && e.target.value.charAt(6) != "/") {
+      if (
+        e.target.value.search(seperator) === 3 &&
+        e.target.value.charAt(6) != seperator
+      ) {
         e.target.setSelectionRange(4, 4);
-      } else if (e.target.value.charAt(6) === "/") {
+      } else if (e.target.value.charAt(6) === seperator) {
         e.target.setSelectionRange(
-          e.target.value.split("/", 2).join("/").length + 1,
-          e.target.value.split("/", 2).join("/").length + 1
+          e.target.value.split(seperator, 2).join(seperator).length + 1,
+          e.target.value.split(seperator, 2).join(seperator).length + 1
         );
       } else {
         if (e.target.value.search(/[a-zA-Z]/g) === -1) {
@@ -70,13 +93,15 @@ export const Input: FC<InputProps> = ({
     }
     if (e.target.value.length === 10) {
       setSelectedOption("");
-      let date = e.target.value.split("/");
+      let date = e.target.value.split(seperator);
       //check if the date is valid
 
       if (
         parseInt(date[0]) <= 12 &&
+        parseInt(date[0]) >= 1 &&
         parseInt(date[1]) <= 31 &&
         parseInt(date[1]) > 0 &&
+        (format === "mm/dd/yyyy" || format === "mm-dd-yyyy") &&
         blockedDates.indexOf(e.target.value) === -1
       ) {
         // console.log(blockedDates.indexOf(date));
@@ -94,6 +119,29 @@ export const Input: FC<InputProps> = ({
             }
           )
         );
+        // console.log("mes aaaaaaa");
+      } else if (
+        parseInt(date[1]) <= 12 &&
+        parseInt(date[1]) >= 1 &&
+        parseInt(date[0]) <= 31 &&
+        parseInt(date[0]) > 0 &&
+        (format === "dd/mm/yyyy" || format === "dd-mm-yyyy") &&
+        blockedDates.indexOf(e.target.value) === -1
+      ) {
+        setValidDate(true);
+        setMonth(parseInt(date[1]) - 1);
+        setYear(parseInt(date[2]));
+        setDaysInMonth([...getDaysInMonth(month, year)]);
+        setMonthText(
+          new Date(parseInt(date[2]), parseInt(date[1]) - 1).toLocaleString(
+            "en-us",
+            {
+              month: "long",
+            }
+          )
+        );
+
+        // console.log("dia aaaaaaa");
       } else {
         setMonthText("Invalid date");
         setValidDate(false);
@@ -105,10 +153,10 @@ export const Input: FC<InputProps> = ({
     if (e.keyCode === 8) {
       let pos = e.currentTarget.selectionStart;
       if (pos) {
-        if (e.currentTarget.value[pos - 1] === "/") {
+        if (e.currentTarget.value[pos - 1] === seperator) {
           e.currentTarget.setSelectionRange(pos - 1, pos - 1);
         }
-        if (e.currentTarget.value[pos] === "/") {
+        if (e.currentTarget.value[pos] === seperator) {
           if (e.currentTarget.value.length < 4) {
             e.currentTarget.value =
               e.currentTarget.value.slice(0, pos - 1) +
@@ -119,19 +167,55 @@ export const Input: FC<InputProps> = ({
       }
     }
   };
+
+  const handleFocus = () => {
+    setChangeClass("focused-input");
+  };
+
+  // Validate length input and if they have a text invalid date
+  const handelBlur = () => {
+    // console.log(selectedDate.length);
+    if (selectedDate.length > 0) {
+      setChangeClass("focused-input");
+    } else {
+      setChangeClass("notFocused");
+    }
+
+    if (
+      (isRequired && selectedDate.length <= 0) ||
+      monthText === "Invalid Date" || (isRequired && selectedDate.length <10)
+    ) {
+      setAddClassValidate("invalid-date");
+    } else {
+      setAddClassValidate("");
+    }
+  };
+
+  useEffect(() => {
+    handelBlur();
+  }, [selectedDate]);
+
   return (
-    <input
-      autoComplete="off"
-      type="text"
-      placeholder="mm/dd/yyyy"
-      className={`picker__input ${fullWidth ? "fullWidth__picker" : ""}`}
-      id="input"
-      onFocus={(e) => {
-        setFocus(true);
-      }}
-      onChange={onChangeHandler}
-      onKeyDown={onKeyDownHandler}
-      value={selectedDate}
-    />
+    <>
+      <label className={changeClass}>{label}</label>
+      <input
+        type="text"
+        name={name}
+        id="input"
+        autoComplete="off"
+        // placeholder={format}
+        className={`picker__input ${addClassValidate}`}
+        // call onChangeHandle and onChange in the Onchange event
+        onChange={(e) => {
+          onChangeHandler(e);
+          // onChange(e);
+        }}
+        onKeyDown={onKeyDownHandler}
+        value={selectedDate}
+        onFocus={handleFocus}
+        onBlur={handelBlur}
+        {...props}
+      />
+    </>
   );
 };
