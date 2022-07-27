@@ -1,0 +1,286 @@
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.right {
+  right: 0;
+}
+
+.left {
+  left: 0;
+}
+
+.dropdownItem {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: inline-block;
+}
+.dropdownItem .imgBox {
+  width: 32px;
+  height: 32px;
+}
+.dropdownItem .imgBox img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border-top: 10px;
+}
+.dropdownItem .divider {
+  margin: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dropdownContent {
+  background: white;
+  padding: 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(5px);
+  opacity: 1;
+  visibility: visible;
+  transition: 0.3s;
+}
+.dropdownContent.dropdownToggle {
+  transform: translateX(0);
+  opacity: 0;
+  visibility: hidden;
+}
+.dropdownContent .content .name {
+  font-weight: 800;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 5px;
+  color: #111;
+}
+.dropdownContent .content .occupation {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  color: #111;
+}
+.dropdownContent .links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dropdownContent .links li {
+  list-style: none;
+  line-height: 30px;
+  padding: 4px;
+}
+.dropdownContent .links li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+.dropdownContent .links li a i {
+  display: inline-block;
+}
+
+.primary.contained {
+  color: white;
+  background-color: #005596;
+}
+.primary.contained:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.primary.contained.disabled {
+  cursor: default;
+  opacity: 1;
+}
+.primary.outlined {
+  color: #005596;
+  background-color: white;
+  border: solid 1px #005596;
+}
+.primary.outlined:hover {
+  background-color: transparent;
+  border: solid 1px black;
+  cursor: pointer;
+}
+.primary.outlined.disabled {
+  cursor: default;
+  border: 1px solid #005596;
+  background-color: white;
+  opacity: 1;
+}
+
+.secondary.contained {
+  color: white;
+  background-color: #A7A8A9;
+}
+.secondary.contained:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.secondary.contained.disabled {
+  cursor: default;
+  opacity: 1;
+}
+.secondary.outlined {
+  color: #A7A8A9;
+  background-color: white;
+  border: solid 1px #A7A8A9;
+}
+.secondary.outlined:hover {
+  background-color: transparent;
+  border: solid 1px black;
+  cursor: pointer;
+}
+.secondary.outlined.disabled {
+  cursor: default;
+  border: 1px solid #A7A8A9;
+  background-color: white;
+  opacity: 1;
+}
+
+.dark.contained {
+  color: white;
+  background-color: #343A40;
+}
+.dark.contained:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.dark.contained.disabled {
+  cursor: default;
+  opacity: 1;
+}
+.dark.outlined {
+  color: #343A40;
+  background-color: white;
+  border: solid 1px #343A40;
+}
+.dark.outlined:hover {
+  background-color: transparent;
+  border: solid 1px black;
+  cursor: pointer;
+}
+.dark.outlined.disabled {
+  cursor: default;
+  border: 1px solid #343A40;
+  background-color: white;
+  opacity: 1;
+}
+
+.success.contained {
+  color: white;
+  background-color: #5BC2A7;
+}
+.success.contained:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.success.contained.disabled {
+  cursor: default;
+  opacity: 1;
+}
+.success.outlined {
+  color: #5BC2A7;
+  background-color: white;
+  border: solid 1px #5BC2A7;
+}
+.success.outlined:hover {
+  background-color: transparent;
+  border: solid 1px black;
+  cursor: pointer;
+}
+.success.outlined.disabled {
+  cursor: default;
+  border: 1px solid #5BC2A7;
+  background-color: white;
+  opacity: 1;
+}
+
+.info.contained {
+  color: white;
+  background-color: #4597D3;
+}
+.info.contained:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.info.contained.disabled {
+  cursor: default;
+  opacity: 1;
+}
+.info.outlined {
+  color: #4597D3;
+  background-color: white;
+  border: solid 1px #4597D3;
+}
+.info.outlined:hover {
+  background-color: transparent;
+  border: solid 1px black;
+  cursor: pointer;
+}
+.info.outlined.disabled {
+  cursor: default;
+  border: 1px solid #4597D3;
+  background-color: white;
+  opacity: 1;
+}
+
+.warning.contained {
+  color: white;
+  background-color: #FFBB41;
+}
+.warning.contained:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.warning.contained.disabled {
+  cursor: default;
+  opacity: 1;
+}
+.warning.outlined {
+  color: #FFBB41;
+  background-color: white;
+  border: solid 1px #FFBB41;
+}
+.warning.outlined:hover {
+  background-color: transparent;
+  border: solid 1px black;
+  cursor: pointer;
+}
+.warning.outlined.disabled {
+  cursor: default;
+  border: 1px solid #FFBB41;
+  background-color: white;
+  opacity: 1;
+}
+
+.danger.contained {
+  color: white;
+  background-color: #DC3545;
+}
+.danger.contained:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.danger.contained.disabled {
+  cursor: default;
+  opacity: 1;
+}
+.danger.outlined {
+  color: #DC3545;
+  background-color: white;
+  border: solid 1px #DC3545;
+}
+.danger.outlined:hover {
+  background-color: transparent;
+  border: solid 1px black;
+  cursor: pointer;
+}
+.danger.outlined.disabled {
+  cursor: default;
+  border: 1px solid #DC3545;
+  background-color: white;
+  opacity: 1;
+}
