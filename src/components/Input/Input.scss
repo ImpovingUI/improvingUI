@@ -11,10 +11,6 @@
     border: 1px solid transparent;
     gap: 20px;
 
-    &:hover{
-        cursor: pointer;
-        opacity: 50%;
-    }
 
     &.disabled{
         cursor:default;
@@ -30,10 +26,6 @@
     border: 1px solid transparent;
     gap: 20px;
 
-    &:hover{
-        cursor: pointer;
-        opacity: 50%;
-    }
 
     &.disabled{
         cursor:default;
@@ -178,5 +170,5 @@
 }
 .submit-input:hover{
     opacity: 0.8 !important;
-    border: 2px solid $dark !important;
+    border: 100px solid $dark !important;
 }

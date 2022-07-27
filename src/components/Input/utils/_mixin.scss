@@ -5,10 +5,6 @@
         border-radius: 0;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-        &:hover{
-            cursor: pointer;
-            opacity: $opacity-hover;
-        }
 
         &.disabled{
             cursor:default;
@@ -18,11 +14,7 @@
 
     &.outlined{
         border: 1px solid $theme;
-        &:hover{
-            background-color: $opacity-hover;
-            border: 2px solid $dark;
-            cursor: pointer;
-        }
+
         &.disabled{
             cursor:default;
             border: 1px solid $theme;
@@ -33,11 +25,6 @@
     &.underlined{
         border-bottom: 1px solid $theme;
         border-radius: 0;
-        &:hover{
-            background-color: $opacity-hover;
-            border:2px solid $dark;
-            cursor: pointer;
-        }
         &.disabled{
             cursor:default;
             border: 1px solid transparent;
