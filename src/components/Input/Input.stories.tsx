@@ -30,4 +30,11 @@ export const DefaultInput = Template.bind({});
     disabled:false, 
   };
  
-
+  export const PlaceholderInput = Template.bind({});
+  PlaceholderInput.args = {
+    variant: 'outlined',
+    type:'text',
+    fullWidth:false,
+    disabled:false, 
+    placeholder: 'Tap in this input'
+  };

@@ -15,11 +15,12 @@ export interface InputProps {
   isRequired?:'required' | 'notRequired'
   value: string;
   setValue:(value:string)=>void;
+  placeholder: string | undefined;
 }
 
 const name= 'Input'
 
-export const Input : FC<InputProps> = ({variant="outlined", color="primary", height, fullWidth, isRequired, disabled,className,type="text", value, setValue, ...props}) => {
+export const Input : FC<InputProps> = ({variant="outlined", color="primary", height, fullWidth, isRequired, disabled,className,type="text", value, setValue, placeholder='', ...props}) => {
   const [state, setState] = React.useState('notFocused');
   //const [value, setValue] = React.useState('');
   const[flag, setFlag] = React.useState(false);
@@ -177,7 +178,7 @@ number, then set the inputType to text. */
         } 
         {...props}
         />
-        : <input type={inputType} disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} /*onChange={handleChange}*/     value={value} 
+        : <input type={inputType} disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} /*onChange={handleChange}*/     value={value} placeholder={placeholder}
       
         className={`default-input ${fullWidth ? 'fullWidth-input':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
 
