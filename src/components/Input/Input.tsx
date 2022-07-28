@@ -164,7 +164,7 @@ number, then set the inputType to text. */
         ? <textarea rows={10} cols={50} 
            disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} /*onChange={handleChange}*/     value={value} 
       
-        className={`default-input ${fullWidth ? 'fullWidth-input':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
+        className={`default-textarea ${fullWidth ? 'fullWidth-input':''} ${variant && `${variant}-${name}`} ${disabled ? 'disabled':''} 
 
         ${validationType(type)} 
         ${validationVariant(variant)}
