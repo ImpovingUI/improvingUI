@@ -35,6 +35,6 @@ const Template: ComponentStory<typeof Dropdown> = (args) =>
 export const DropdownTest = Template.bind({});
 DropdownTest.args = { 
     image: 'https://img.freepik.com/vector-gratis/simbolo-realista-taijitu-yin-yang-blanco-negro_7672-705.jpg?w=2000',
-    user: 'Monica',
+    user: 'Monica Ortiz Salazar Salazar',
     occupation: 'Talent Management' 
 }; 

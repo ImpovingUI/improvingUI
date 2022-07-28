@@ -61,8 +61,9 @@ export const Dropdown: FC<DropdownProps> = ({
         ref={dropRef}
       >
         <div className="content">
-          <div className="name">{user}</div>
-          <div className="occupation">{occupation}</div>
+            {/* {//<div className="name">{user}</div>} */}
+          <h3 className="name"> {user}</h3> 
+          <h5 className="occupation">  {occupation}</h5>
           <hr className="divider" />
         </div>
         <ul className="links">{links}</ul>
