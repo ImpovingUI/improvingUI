@@ -50,10 +50,6 @@
 .picker__input.invalid-date {
   border: 1px solid #dc3545;
 }
-.picker__input:focus {
-  outline: 2px solid #005596;
-  outline-offset: -2px;
-}
 
 .fullWidth__picker {
   width: 100%;
@@ -73,29 +69,57 @@
 .primary-picker-input {
   outline: 1px solid #343a40;
 }
+.primary-picker-input:focus {
+  outline: 2px solid #343a40;
+  outline-offset: -2px;
+}
 
 .secondary-picker-input {
   outline: 1px solid #a7a8a9;
+}
+.secondary-picker-input:focus {
+  outline: 2px solid #a7a8a9;
+  outline-offset: -2px;
 }
 
 .dark-picker-input {
   outline: 1px solid #343a40;
 }
+.dark-picker-input:focus {
+  outline: 2px solid #343a40;
+  outline-offset: -2px;
+}
 
 .success-picker-input {
   outline: 1px solid #5bc2a7;
+}
+.success-picker-input:focus {
+  outline: 2px solid #5bc2a7;
+  outline-offset: -2px;
 }
 
 .info-picker-input {
   outline: 1px solid #4597d3;
 }
+.info-picker-input:focus {
+  outline: 2px solid #4597d3;
+  outline-offset: -2px;
+}
 
 .warning-picker-input {
   outline: 1px solid #ffbb41;
 }
+.warning-picker-input:focus {
+  outline: 2px solid #ffbb41;
+  outline-offset: -2px;
+}
 
 .danger-picker-input {
   outline: 1px solid #dc3545;
+}
+.danger-picker-input:focus {
+  outline: 2px solid #dc3545;
+  outline-offset: -2px;
 }
 
 .container-picker__header {

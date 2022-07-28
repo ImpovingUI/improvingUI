@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useLayoutEffect } from "react";
 import { useState, createContext, useContext } from "react";
-import { validationColor } from "./validation";
 import "./DatePicker.css";
 import Month from "./components/Month";
 import { getByTitle } from "@storybook/testing-library";

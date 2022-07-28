@@ -9,7 +9,8 @@
   // background-color: $white;
   outline: 1px solid $theme;
 
-  // &:focus {
-  //   outline: 0.5px solid $theme;
-  // }
+  &:focus {
+    outline: 2px solid $theme;
+    outline-offset: -2px;
+  }
 }
