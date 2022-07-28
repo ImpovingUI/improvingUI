@@ -12,7 +12,7 @@ $width-heigth-onlyIcon:34px;
 
         &.disabled-#{$class-name}{
             cursor:default;
-            opacity: $opacity-hover;
+            opacity: $opacity-disabled;
         }
 
         &.onlyIcon-#{$class-name}{
@@ -35,7 +35,7 @@ $width-heigth-onlyIcon:34px;
         &.disabled-#{$class-name}{
             cursor:default;
             background-color: transparent;
-            opacity: $opacity-hover;
+            opacity: $opacity-disabled;
             &:hover{
                 background-color: transparent;
                 border: 1px solid $theme;
@@ -62,7 +62,7 @@ $width-heigth-onlyIcon:34px;
             cursor:default;
             border: 1px solid transparent;
             background-color: transparent;
-            opacity: $opacity-hover;
+            opacity: $opacity-disabled;
             &:hover{
                 background-color: transparent;
                 border: 1px solid transparent;
