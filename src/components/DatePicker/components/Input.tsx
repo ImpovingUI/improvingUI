@@ -21,6 +21,7 @@ export interface InputProps {
   format: string;
   isRequired?: boolean;
   seperator: string;
+  color: string;
   // onChange(e:any): any;
 }
 
@@ -45,6 +46,7 @@ export const Input: FC<InputProps> = ({
   format,
   isRequired,
   seperator,
+  color,
   // onChange,
   ...props
 }) => {
@@ -204,7 +206,7 @@ export const Input: FC<InputProps> = ({
         id="input"
         autoComplete="off"
         // placeholder={format}
-        className={`picker__input ${addClassValidate}`}
+        className={`picker__input ${addClassValidate} ${color}-picker-input`}
         // call onChangeHandle and onChange in the Onchange event
         onChange={(e) => {
           onChangeHandler(e);
