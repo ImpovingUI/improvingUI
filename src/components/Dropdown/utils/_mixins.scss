@@ -1,3 +1,4 @@
+ 
 @mixin theme-dropdown($theme){
     &.contained{
         color:$white;
@@ -15,17 +16,15 @@
     }
 
     &.outlined{
-        color:$theme;
-        background-color: $white;
-        border:solid 1px $theme;
+        color:$theme; 
+        border:solid 1px $secondary ;
         &:hover{
-            background-color: transparent;
-            border: $border-color;
+            background-color: white; 
             cursor: pointer;
         }
         &.disabled{
             cursor:default;
-            border: 1px solid $theme;
+            border: 1px solid $secondary;
             background-color: $white;
             opacity: 1;
         }
@@ -46,3 +45,8 @@
         border-top: 10px;
     }
 }  
+
+
+.secondary{
+    @include theme-dropdown($secondary);
+}
