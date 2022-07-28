@@ -69,10 +69,10 @@
     border: 1px solid $danger;
   }
 
-  &:focus {
-    outline: 2px solid $primary;
-    outline-offset: -2px;
-  }
+  // &:focus {
+  //   outline: 2px solid $primary;
+  //   outline-offset: -2px;
+  // }
 }
 
 .fullWidth__picker {

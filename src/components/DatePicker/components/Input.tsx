@@ -1,4 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
+import { validationColor } from "../validation";
+
 
 export interface InputProps {
   selectedDate: string;
@@ -206,7 +208,7 @@ export const Input: FC<InputProps> = ({
         id="input"
         autoComplete="off"
         // placeholder={format}
-        className={`picker__input ${addClassValidate} ${color}-picker-input`}
+        className={`picker__input ${addClassValidate} ${validationColor(color)}-picker-input`}
         // call onChangeHandle and onChange in the Onchange event
         onChange={(e) => {
           onChangeHandler(e);
