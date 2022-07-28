@@ -1,6 +1,15 @@
-@mixin theme-picker($theme) {
-  background-color: $theme;
-  color: $white;
-  // &.contained {
+// @mixin theme-picker($theme) {
+//   background-color: $theme;
+//   color: $white;
+// &.contained {
+// }
+// }
+
+@mixin theme-picker-input($theme) {
+  // background-color: $white;
+  outline: 1px solid $theme;
+
+  // &:focus {
+  //   outline: 0.5px solid $theme;
   // }
 }

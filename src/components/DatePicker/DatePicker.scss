@@ -6,13 +6,19 @@
   position: relative;
   // margin-left: 90px;
   // margin-top: 40px;
+  user-select: none;
+
+  .color-primary-picker {
+    background-color: $primary;
+    color: $white;
+  }
 }
 
 .container-picker-input_label {
   position: relative;
-  height: 48px;
+  height: 2.5rem;
   width: 280px;
-  margin: 10px 0px;
+  // margin: 10px 0px;
 
   label {
     position: absolute;
@@ -31,36 +37,41 @@
     position: absolute;
     height: fit-content;
     width: max-content;
-    line-height: 12px;
+    line-height: 0.875rem;
     margin: 0%;
     top: -16px;
-    font-size: 12px;
+    font-size: 0.875rem;
     margin: 0;
     left: 15px;
-    color: #335599;
+    color: $primary;
     background-color: #fff;
     transition: 0.2s ease-in;
   }
 }
 
 .picker__input {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  padding: 16px;
-  outline: none;
+  // font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  padding: 1rem;
   // height: 48px;
   // width: 280px;
   height: 100%;
   width: 100%;
-  border-radius: 5px;
-  border: 1px solid #005596;
+  border-radius: 0.25rem;
+  border: none;
+  // overflow: hidden;
   // position: relative;
-  &:hover {
-    opacity: 50%;
-  }
+  // &:hover {
+  //   opacity: 50%;
+  // }
 
   &.invalid-date {
     border: 1px solid $danger;
+  }
+
+  &:focus {
+    outline: 2px solid $primary;
+    outline-offset: -2px;
   }
 }
 
@@ -68,53 +79,77 @@
   width: 100%;
 }
 
+// .table-picker-show {
+//   overflow: hidden;
+// }
+
 .container-picker {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   // padding-top: 10px;
   // margin-top: 10px;
-  width: 245px;
+  // overflow: hidden;
   position: absolute;
-  top: 48px;
-  left: auto;
+  width: 245px;
+  top: 2.5rem;
+  left: 0;
   box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
     0 1px 3px 0 rgba(63, 63, 68, 0.15);
-  border-radius: 0 0 5px 5px;
+  border-radius: 0.25rem;
   z-index: $datepicker;
 }
 
-$themes: (
-  "primary-picker": $primary,
-  "secondary-picker": $secondary,
-  "dark-picker": $dark,
-  "success-picker": $success,
-  "info-picker": $info,
-  "warning-picker": $warning,
-  "danger-picker": $danger,
+// $themes: (
+//   "primary-picker": $primary,
+// "secondary-picker": $secondary,
+// "dark-picker": $dark,
+// "success-picker": $success,
+// "info-picker": $info,
+// "warning-picker": $warning,
+// "danger-picker": $danger,,,,,,,
+// );
+
+$themes-input: (
+  "primary-picker-input": $dark,
+  "secondary-picker-input": $secondary,
+  "dark-picker-input": $dark,
+  "success-picker-input": $success,
+  "info-picker-input": $info,
+  "warning-picker-input": $warning,
+  "danger-picker-input": $danger,
 );
 
-@each $name, $theme in $themes {
+// @each $name, $theme in $themes {
+//   .#{$name} {
+//     @include theme-picker($theme);
+//   }
+// }
+
+@each $name, $theme in $themes-input {
   .#{$name} {
-    @include theme-picker($theme);
+    @include theme-picker-input($theme);
   }
 }
 
 .container-picker__header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 40px;
+  margin: 0 20px;
 
   span {
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin-right: 8px;
+    // margin-right: 8px;
+    font-weight: 600;
 
     &:hover {
       color: #e6e6e6;
     }
     label {
       cursor: pointer;
+      width: 24px;
+      text-align: center;
       // height: 100%;
     }
   }
@@ -124,6 +159,7 @@ $themes: (
   display: flex;
   // justify-content: space-around;
   align-items: center;
+  gap: 8px;
 }
 
 .picker-content {
@@ -132,7 +168,9 @@ $themes: (
   border-radius: 0 0 4px 4px;
 
   thead tr td {
+    font-weight: 500;
     text-align: center;
+    padding-top: 5px;
   }
 
   tbody tr td {
@@ -143,13 +181,15 @@ $themes: (
 
     &:hover {
       background-color: #e6e6e6;
+      border-radius: 0.25rem;
     }
   }
 
   tbody tr td.selected {
     color: #fff;
     background-color: $success;
-    border-radius: 150%;
+    border-radius: 0.25rem;
+    font-weight: 600;
   }
 
   tbody tr td.blocked {
@@ -203,8 +243,10 @@ $themes: (
 
 .todayButton {
   // width: 100px;
-  color: $primary;
+  color: $dark;
+  font-weight: 600;
   td {
     border-top: 1px solid #e6e6e6;
+    user-select: none;
   }
 }

@@ -255,6 +255,7 @@ export const DatePicker: FC<DatePickerProps> = ({
           label={label}
           isRequired={isRequired}
           seperator={seperator}
+          color={color}
           // onChange={onChange}
           {...props}
         />
@@ -274,11 +275,10 @@ export const DatePicker: FC<DatePickerProps> = ({
           setFocusTable(false);
           setShowTable("none");
         }}
+        className="table-picker-show"
       >
         <div
-          className={`container-picker ${validationColor(
-            color
-          )}-picker ${className} `}
+          className={`container-picker color-primary-picker ${className} `}
           {...props}
           tabIndex={0}
           id="container-datepicker"
