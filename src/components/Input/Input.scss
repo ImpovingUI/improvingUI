@@ -6,8 +6,8 @@
 .default-input{
     width:100%;
     height: 100%;
-    border-radius: 5px;
-    padding-inline: 16px;
+    border-radius: 0.25rem;
+    padding-inline: 1rem;
     border: 1px solid transparent;
     gap: 20px;
 
@@ -21,10 +21,11 @@
 .default-textarea{
     width:100%;
     height: 100%;
-    border-radius: 5px;
-    padding: 16px;
+    border-radius: 0.25rem;
+    padding: 0.7rem 1rem;
     border: 1px solid transparent;
     gap: 20px;
+    font-size: 0.925rem;
 
 
     &.disabled{
@@ -37,6 +38,11 @@
 .primary-input{
     @include theme-input($primary);
 }
+.primary-input:focus{
+    outline: 2px solid $primary;
+    outline-offset: -2px;
+}
+
 
 .secondary-input{
     @include theme-input($secondary);
@@ -62,6 +68,11 @@
     @include theme-input($danger);
 }
 
+.danger-input:focus{
+    outline: 2px solid $danger;
+    outline-offset: -2px;
+}
+
 .icon-container-left{
     margin-right: 10px;
 }
@@ -81,19 +92,23 @@
     background-color: $light;
     border-bottom: 1px solid black;
     border-radius: 0;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
 }
 .inputContainer{
     position: relative;
-    height: 48px;
+    height: 2.5rem;
     width: 280px;
     margin: 10px 0px;
 }
 .inputContainer input{
     width: 100%;
     height: 100%;
+    font-size: 1rem;
 }
+/*.inputContainer input:focus{
+
+}*/
 
 .inputContainer label{
     position:absolute;
@@ -125,16 +140,13 @@
     position: absolute;
     background-color: transparent;
     border: none;
-    right: 0px;
-    border-bottom: 1px solid $primary;
-    border-top: 1px solid $primary;
-    border-right: 1px solid $primary;
-    top: 0px;
-    height: 48px;
-    width: 48px;
+    right: 2px;
+    top: 2px;
+    height: 2.25rem;
+    width: 2.5rem;
     padding: 0;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
 }
 .inputContainer button:hover{
     cursor: pointer;
@@ -142,8 +154,8 @@
 }
   
 .required-input{
-    background-color: #ffcdd2 !important;
-    border: 2px solid $danger !important;
+    outline: 2px solid $danger !important;
+    outline-offset: -2px;
 }
 
 
@@ -153,16 +165,16 @@
     width: max-content;
     line-height: 12px;
     margin: 0%;
-    bottom: -16px;
+    bottom: -20px;
     left: 15px;
-    font-size: 12px;
+    font-size: .875rem;
     margin: 0;
     color: $danger;
-
 }
 .notValid-input{
-    background-color: #ffcdd2 !important;
-    border: 2px solid $danger !important;
+    //background-color: #ffcdd2 !important;
+    outline: 2px solid $danger !important;
+    outline-offset: -2px;
 }
 .submit-input{
     background-color: $primary !important;
