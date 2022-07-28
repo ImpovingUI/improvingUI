@@ -23,7 +23,7 @@ $height-li:45px;
     background-color: $white;
     color: $dark;
     transition:600ms box-shadow ease-in-out;
-    box-shadow: rgba(99, 99, 99, 0.2) 288px 2px 8px 0px;
+    box-shadow: rgba(99, 99, 99, 0.2) 302px 2px 8px 0px;
     &.close-header-#{$class-name}{
         transition:300ms box-shadow ease-in-out;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

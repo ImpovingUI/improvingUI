@@ -26,7 +26,7 @@
 }
 .primary-Button.contained-Button.disabled-Button {
   cursor: default;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .primary-Button.contained-Button.onlyIcon-Button {
   width: 34px;
@@ -45,7 +45,7 @@
 .primary-Button.outlined-Button.disabled-Button {
   cursor: default;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .primary-Button.outlined-Button.disabled-Button:hover {
   background-color: transparent;
@@ -69,7 +69,7 @@
   cursor: default;
   border: 1px solid transparent;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .primary-Button.text-Button.disabled-Button:hover {
   background-color: transparent;
@@ -91,7 +91,7 @@
 }
 .secondary-Button.contained-Button.disabled-Button {
   cursor: default;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .secondary-Button.contained-Button.onlyIcon-Button {
   width: 34px;
@@ -110,7 +110,7 @@
 .secondary-Button.outlined-Button.disabled-Button {
   cursor: default;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .secondary-Button.outlined-Button.disabled-Button:hover {
   background-color: transparent;
@@ -134,7 +134,7 @@
   cursor: default;
   border: 1px solid transparent;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .secondary-Button.text-Button.disabled-Button:hover {
   background-color: transparent;
@@ -156,7 +156,7 @@
 }
 .dark-Button.contained-Button.disabled-Button {
   cursor: default;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .dark-Button.contained-Button.onlyIcon-Button {
   width: 34px;
@@ -175,7 +175,7 @@
 .dark-Button.outlined-Button.disabled-Button {
   cursor: default;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .dark-Button.outlined-Button.disabled-Button:hover {
   background-color: transparent;
@@ -199,7 +199,7 @@
   cursor: default;
   border: 1px solid transparent;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .dark-Button.text-Button.disabled-Button:hover {
   background-color: transparent;
@@ -221,7 +221,7 @@
 }
 .success-Button.contained-Button.disabled-Button {
   cursor: default;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .success-Button.contained-Button.onlyIcon-Button {
   width: 34px;
@@ -240,7 +240,7 @@
 .success-Button.outlined-Button.disabled-Button {
   cursor: default;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .success-Button.outlined-Button.disabled-Button:hover {
   background-color: transparent;
@@ -264,7 +264,7 @@
   cursor: default;
   border: 1px solid transparent;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .success-Button.text-Button.disabled-Button:hover {
   background-color: transparent;
@@ -286,7 +286,7 @@
 }
 .info-Button.contained-Button.disabled-Button {
   cursor: default;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .info-Button.contained-Button.onlyIcon-Button {
   width: 34px;
@@ -305,7 +305,7 @@
 .info-Button.outlined-Button.disabled-Button {
   cursor: default;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .info-Button.outlined-Button.disabled-Button:hover {
   background-color: transparent;
@@ -329,7 +329,7 @@
   cursor: default;
   border: 1px solid transparent;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .info-Button.text-Button.disabled-Button:hover {
   background-color: transparent;
@@ -351,7 +351,7 @@
 }
 .warning-Button.contained-Button.disabled-Button {
   cursor: default;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .warning-Button.contained-Button.onlyIcon-Button {
   width: 34px;
@@ -370,7 +370,7 @@
 .warning-Button.outlined-Button.disabled-Button {
   cursor: default;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .warning-Button.outlined-Button.disabled-Button:hover {
   background-color: transparent;
@@ -394,7 +394,7 @@
   cursor: default;
   border: 1px solid transparent;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .warning-Button.text-Button.disabled-Button:hover {
   background-color: transparent;
@@ -416,7 +416,7 @@
 }
 .danger-Button.contained-Button.disabled-Button {
   cursor: default;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .danger-Button.contained-Button.onlyIcon-Button {
   width: 34px;
@@ -435,7 +435,7 @@
 .danger-Button.outlined-Button.disabled-Button {
   cursor: default;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .danger-Button.outlined-Button.disabled-Button:hover {
   background-color: transparent;
@@ -459,7 +459,7 @@
   cursor: default;
   border: 1px solid transparent;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .danger-Button.text-Button.disabled-Button:hover {
   background-color: transparent;
@@ -481,7 +481,7 @@
 }
 .ghost-Button.contained-Button.disabled-Button {
   cursor: default;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .ghost-Button.contained-Button.onlyIcon-Button {
   width: 34px;
@@ -500,7 +500,7 @@
 .ghost-Button.outlined-Button.disabled-Button {
   cursor: default;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .ghost-Button.outlined-Button.disabled-Button:hover {
   background-color: transparent;
@@ -524,7 +524,7 @@
   cursor: default;
   border: 1px solid transparent;
   background-color: transparent;
-  opacity: 0.8;
+  opacity: 0.25;
 }
 .ghost-Button.text-Button.disabled-Button:hover {
   background-color: transparent;
